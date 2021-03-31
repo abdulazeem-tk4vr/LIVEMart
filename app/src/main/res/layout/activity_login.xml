@@ -107,7 +107,8 @@
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/admin_panel_link"
