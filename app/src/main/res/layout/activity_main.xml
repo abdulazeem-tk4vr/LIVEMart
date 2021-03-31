@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background_app">
+
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="232dp"
+        android:layout_height="162dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/imagevol"
+       />
+
+    <TextView
+        android:id="@+id/app_slogan"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="319dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_design"
+
+        android:text="Welcome to your trusted grocery app"
+        android:textAlignment="center"
+        android:textColor="#161716"
+        android:textSize="25sp"
+        />
+
+    <Button
+        android:id="@+id/main_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/buttons"
+
+        android:padding="20dp"
+        android:text="LOGIN"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/main_join_now_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_login_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/buttons"
+
+        android:padding="20dp"
+        android:text="Registration"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>

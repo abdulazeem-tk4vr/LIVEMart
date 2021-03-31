@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/type_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/work_app"
+
+    tools:context=".Entry.RegisterActivity"
+    >
+
+    <Button
+        android:id="@+id/reg_btn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:background="#81C784"
+        android:text="REGISTER"
+        android:textSize="24dp"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_customer"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:textStyle="bold"
+        android:text="Registration Page"
+        android:textColor="#161716"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/inout_2"
+        android:drawableLeft="@drawable/baseline_perm_identity_black_24dp"
+        android:hint="Username"
+        android:paddingStart="2dp"
+        android:textAlignment="textStart"
+        android:textColorHint="#161716"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+
+        app:layout_constraintVertical_bias="0.094"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="Email"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:background="@drawable/inout_2"
+        android:paddingStart="8dp"
+        android:drawablePadding="2dp"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/baseline_email_black_18dp"
+
+        />
+
+    <EditText
+        android:id="@+id/reg_phone_number"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inout_2"
+        android:drawableLeft="@drawable/baseline_phone_black_24dp"
+        android:hint="Contact Number"
+        android:inputType="number"
+        android:paddingStart="2dp"
+        android:drawablePadding="2dp"
+        android:textAlignment="textStart"
+        android:textColorHint="#161716"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/password_reg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inout_2"
+        android:drawableLeft="@drawable/baseline_password_black_24dp"
+        android:drawablePadding="4sp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingStart="3dp"
+        android:textAlignment="textStart"
+        android:textColorHint="#161716"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inout_2"
+                    android:hint="Re-Enter Password"
+                    android:paddingStart="3dp"
+                    android:textColorHint="#161716"
+                    android:textAlignment="viewStart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/password_reg"
+                    tools:ignore="MissingConstraints"
+                    android:inputType="textPassword"
+
+                    android:textSize="24dp"
+                    android:drawableLeft="@drawable/baseline_password_black_24dp"
+                    android:drawablePadding="4sp"
+                    />
+
+    <Spinner
+        android:id="@+id/type_customer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inout_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_phone_number" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
