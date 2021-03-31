@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Entry.LoginActivity"
+    tools:context=".LoginActivity"
     android:background="@drawable/log"
     android:paddingStart="15dp"
     android:paddingEnd="15dp">
@@ -64,21 +64,7 @@
         android:layout_below="@+id/login_password_input"
         android:layout_marginTop="5dp"
         >
-        <com.rey.material.widget.CheckBox
-            android:id="@+id/remember_me_chkb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Material.Drawable.CheckBox"
-            android:text="Remember me"
-            android:fontFamily="@font/roboto"
-            android:textColor="#EF729D"
-            app:cbd_strokeColor="#EF729D"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:layout_marginLeft="17dp"
-            android:textStyle="bold"
 
-            />
 
         <TextView
             android:id="@+id/forget_password_link"

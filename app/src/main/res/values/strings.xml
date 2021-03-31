@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">OOP_project</string>
+    <string-array name="users">
+        <item>What type of user are you?</item>
+
+        <item>Customer</item>
+        <item>Retailer</item>
+        <item>Wholesaler</item>
+
+    </string-array>
 </resources>
