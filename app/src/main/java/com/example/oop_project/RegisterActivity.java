@@ -1,7 +1,9 @@
 package com.example.oop_project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,6 +12,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,11 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String username = InputName.getText().toString();
-                String number = InputPhoneNumber.getText().toString();
-                String pwd = InputPassword.getText().toString();
-                String repwd = ConfirmPassword.getText().toString();
-                String user = UserType.getSelectedItem().toString();
+                String username = InputName.getText().toString().trim();
+                String number = InputPhoneNumber.getText().toString().trim();
+                String pwd = InputPassword.getText().toString().trim();
+                String mail = EmailID.getText().toString().trim();
+                String repwd = ConfirmPassword.getText().toString().trim();
+                String user = UserType.getSelectedItem().toString().trim();
 
 
 
@@ -73,9 +85,128 @@ public class RegisterActivity extends AppCompatActivity {
                 ValidateUser();
 
 
-                if(user.contains("Customer")){
 
-                }
+
+
+
+                    DatabaseReference rootref;
+                    rootref = FirebaseDatabase.getInstance().getReference();
+
+                    rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            if (user.contains("Custoner")) {
+
+                                if (!(snapshot.child("User").child("Customer").child(number).exists())) {
+                                    HashMap<String, Object> userdataMap = new HashMap<>();
+                                    userdataMap.put("phone", number);
+                                    userdataMap.put("password", pwd);
+                                    userdataMap.put("username", username);
+                                    userdataMap.put("email", mail);
+
+                                    rootref.child("User").child("Customer").child(username).updateChildren(userdataMap)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+
+                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                        startActivity(intent);
+                                                    } else {
+
+                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                }
+                                            });
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+
+                        }
+                            else if (user.contains("Retailer")){
+                                if (!(snapshot.child("User").child("Retailer").child(number).exists())) {
+                                    HashMap<String, Object> userdataMap = new HashMap<>();
+                                    userdataMap.put("phone", number);
+                                    userdataMap.put("password", pwd);
+                                    userdataMap.put("username", username);
+                                    userdataMap.put("email", mail);
+
+                                    rootref.child("User").child("Retailer").child(username).updateChildren(userdataMap)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+
+                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                        startActivity(intent);
+                                                    } else {
+
+                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                }
+                                            });
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                            else if (user.contains("Wholesaler")){
+
+                                if (!(snapshot.child("User").child("Wholsaler").child(number).exists())) {
+                                    HashMap<String, Object> userdataMap = new HashMap<>();
+                                    userdataMap.put("phone", number);
+                                    userdataMap.put("password", pwd);
+                                    userdataMap.put("username", username);
+                                    userdataMap.put("email", mail);
+
+                                    rootref.child("User").child("Wholesaler").child(username).updateChildren(userdataMap)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+
+                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                        startActivity(intent);
+                                                    } else {
+
+                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                }
+                                            });
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+
+                    }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
 
             }
 
