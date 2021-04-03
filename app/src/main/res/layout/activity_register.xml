@@ -14,7 +14,7 @@
         android:id="@+id/reg_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="192dp"
         android:background="#81C784"
         android:text="REGISTER"
         android:textSize="24dp"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
 
-        app:layout_constraintVertical_bias="0.094"
+        app:layout_constraintVertical_bias="0.065"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -66,19 +66,19 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
-        android:text="Email"
+        android:background="@drawable/inout_2"
+        android:drawableLeft="@drawable/baseline_email_black_18dp"
+        android:drawablePadding="7dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="8dp"
+        android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        android:background="@drawable/inout_2"
-        android:paddingStart="8dp"
-        android:drawablePadding="2dp"
-        android:inputType="textEmailAddress"
-        android:drawableLeft="@drawable/baseline_email_black_18dp"
 
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/reg_phone_number"
@@ -159,7 +159,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_phone_number" />
 
+    <Button
+        android:id="@+id/button_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        
+        android:text=" Share Location "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_customer"
+        android:drawableLeft="@drawable/baseline_place_24"
+        
+        />
 
+    <TextView
+        android:id="@+id/latitude_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="555dp" />
+
+    <TextView
+        android:id="@+id/longitude_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="555dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
