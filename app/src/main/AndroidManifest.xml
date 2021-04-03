@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOP_project">
-        <activity android:name=".PlacePicker"></activity>
+        <activity android:name=".entermobilenumber"></activity>
+        <activity android:name=".verifyenterotptwo" />
+        <activity android:name=".PlacePicker" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
