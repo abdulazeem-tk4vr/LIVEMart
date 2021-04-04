@@ -31,6 +31,7 @@
         android:background="@drawable/input_design"
         android:hint="Username"
         android:inputType="number"
+        android:fontFamily="@font/advent_pro_bold"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textSize="19sp" />
@@ -78,17 +79,6 @@
             android:textStyle="bold"
             app:cbd_strokeColor="#EF729D" />
 
-        <TextView
-            android:id="@+id/forget_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="15dp"
-            android:text="Forget Password?"
-            android:textColor="#EF729D"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
     <Button
@@ -107,20 +97,6 @@
         android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/admin_panel_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_btn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="18dp"
-        android:text="I'm an Admin?"
-        android:textColor="#EF729D"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/not_admin_panel_link"
