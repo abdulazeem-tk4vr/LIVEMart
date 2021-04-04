@@ -40,22 +40,15 @@ import java.util.regex.Pattern;
 
 import static android.widget.Toast.LENGTH_LONG;
 
-public class RegisterActivity extends AppCompatActivity implements LocationListener  {
+public class RegisterActivity extends AppCompatActivity implements LocationListener {
 
 
-    private Button create,button_location;
-    private EditText InputName, InputPhoneNumber, InputPassword , ConfirmPassword , EmailID;
+    private Button create, button_location;
+    private EditText InputName, InputPhoneNumber, InputPassword, ConfirmPassword, EmailID;
     private Spinner UserType;
-            LocationManager locationManager;
-     Double user_latitude,user_longitude;
-     private TextView Longitude_tfield, Latitude_tfield;
-
-
-
-
-
-
-
+    LocationManager locationManager;
+    Double user_latitude, user_longitude;
+    private TextView Longitude_tfield, Latitude_tfield;
 
 
     @Override
@@ -86,10 +79,10 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
         } //View Object Creation
 
         if (ContextCompat.checkSelfPermission(RegisterActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(RegisterActivity.this,new String[]{
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(RegisterActivity.this, new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION
-            },100);
+            }, 100);
         }
 
 
@@ -97,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
 
-               getLocation();
+                getLocation();
 
 
             }
@@ -113,11 +106,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 String mail = EmailID.getText().toString().trim();
                 String repwd = ConfirmPassword.getText().toString().trim();
                 String user = UserType.getSelectedItem().toString().trim();
-         //       String longitude = Longitude_tfield.getText().toString().trim();
-         //       String latitude = Latitude_tfield.getText().toString().trim();
-
-
-
+                //       String longitude = Longitude_tfield.getText().toString().trim();
+                //       String latitude = Latitude_tfield.getText().toString().trim();
 
 
                 ValidateName();
@@ -127,144 +117,136 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 ValidateUser();
 
 
+                DatabaseReference rootref;
+                rootref = FirebaseDatabase.getInstance().getReference();
+
+                rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        if (user.contains("Customer")) {
+
+                            if (!(snapshot.child("User").child("Customer").child(number).exists())) {
+                                HashMap<String, Object> userdataMap = new HashMap<>();
+                                userdataMap.put("phone", number);
+                                userdataMap.put("password", pwd);
+                                userdataMap.put("username", username);
+                                userdataMap.put("email", mail);
+                                userdataMap.put("latitude", user_longitude);
+                                userdataMap.put("longitude", user_latitude);
 
 
+                                rootref.child("User").child("Customer").child(username).updateChildren(userdataMap)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
 
 
-                    DatabaseReference rootref;
-                    rootref = FirebaseDatabase.getInstance().getReference();
-
-                    rootref.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                            if (user.contains("Customer")) {
-
-                                if (!(snapshot.child("User").child("Customer").child(number).exists())) {
-                                    HashMap<String, Object> userdataMap = new HashMap<>();
-                                    userdataMap.put("phone", number);
-                                    userdataMap.put("password", pwd);
-                                    userdataMap.put("username", username);
-                                    userdataMap.put("email", mail);
-                                    userdataMap.put("latitude",user_longitude);
-                                    userdataMap.put("longitude",user_latitude);
-
-
-                                    rootref.child("User").child("Customer").child(username).updateChildren(userdataMap)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-
-
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                                        startActivity(intent);
-                                                    } else {
-                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
-                                                    }
-
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    startActivity(intent);
+                                                } else {
+                                                    Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
                                                 }
-                                            });
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
-                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                }
 
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+
+                        } else if (user.contains("Retailer")) {
+                            if (!(snapshot.child("User").child("Retailer").child(number).exists())) {
+                                HashMap<String, Object> userdataMap = new HashMap<>();
+                                userdataMap.put("phone", number);
+                                userdataMap.put("password", pwd);
+                                userdataMap.put("username", username);
+                                userdataMap.put("email", mail);
+                                userdataMap.put("latitude", user_latitude);
+                                userdataMap.put("longitude", user_longitude);
+
+                                Log.i("Wazzup", "is it working");
+
+                                rootref.child("User").child("Retailer").child(username).updateChildren(userdataMap)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+
+
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+
+                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    startActivity(intent);
+                                                } else {
+
+                                                    Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        } else if (user.contains("Wholesaler")) {
+
+                            if (!(snapshot.child("User").child("Wholesaler").child(number).exists())) {
+                                HashMap<String, Object> userdataMap = new HashMap<>();
+                                userdataMap.put("phone", number);
+                                userdataMap.put("password", pwd);
+                                userdataMap.put("username", username);
+                                userdataMap.put("email", mail);
+                                userdataMap.put("latitude", user_latitude);
+                                userdataMap.put("longitude", user_longitude);
+
+                                rootref.child("User").child("Wholesaler").child(username).updateChildren(userdataMap)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+
+
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+
+                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    startActivity(intent);
+                                                } else {
+
+                                                    Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
                         }
-                            else if (user.contains("Retailer")){
-                                if (!(snapshot.child("User").child("Retailer").child(number).exists())) {
-                                    HashMap<String, Object> userdataMap = new HashMap<>();
-                                    userdataMap.put("phone", number);
-                                    userdataMap.put("password", pwd);
-                                    userdataMap.put("username", username);
-                                    userdataMap.put("email", mail);
-                                    userdataMap.put("latitude",user_latitude);
-                                    userdataMap.put("longitude",user_longitude);
-
-                                    Log.i("Wazzup","is it working");
-
-                                    rootref.child("User").child("Retailer").child(username).updateChildren(userdataMap)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-
-
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
-
-
-                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                                        startActivity(intent);
-                                                    } else {
-
-                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
-                                                    }
-
-                                                }
-                                            });
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
-                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                }
-                            }
-                            else if (user.contains("Wholesaler")){
-
-                                if (!(snapshot.child("User").child("Wholesaler").child(number).exists())) {
-                                    HashMap<String, Object> userdataMap = new HashMap<>();
-                                    userdataMap.put("phone", number);
-                                    userdataMap.put("password", pwd);
-                                    userdataMap.put("username", username);
-                                    userdataMap.put("email", mail);
-                                    userdataMap.put("latitude",user_latitude);
-                                    userdataMap.put("longitude",user_longitude);
-
-                                    rootref.child("User").child("Wholesaler").child(username).updateChildren(userdataMap)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-
-
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
-
-
-                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                                        startActivity(intent);
-                                                    } else {
-
-                                                        Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
-                                                    }
-
-                                                }
-                                            });
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
-                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                }
-                            }
 
                     }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
+                    }
+                });
 
 
             }
 
 
-
-
             private void ValidateName() {
 
                 String name = InputName.getText().toString();
-                if(name.isEmpty()){
+                if (name.isEmpty()) {
                     InputName.setError("Please enter your Username !");
                 }
 
@@ -275,7 +257,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                 String phone = InputPhoneNumber.getText().toString();
 
-                if(phone.isEmpty()){
+                if (phone.isEmpty()) {
                     InputPhoneNumber.setError("Please enter your contact number !");
                 }
 
@@ -292,7 +274,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                 if (mail.isEmpty()) {
                     EmailID.setError("Please enter your email ID");
-                } else if(!(matcher.matches())){
+                } else if (!(matcher.matches())) {
                     EmailID.setError("Please enter a valid email ID");
                 }
             }
@@ -301,44 +283,33 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 String password = InputPassword.getText().toString();
                 String repass = ConfirmPassword.getText().toString();
 
-                if ( password.isEmpty()){
+                if (password.isEmpty()) {
                     InputPassword.setError("Please enter your Password !");
-                }
-                else if (!(password.equals(repass))) {
+                } else if (!(password.equals(repass))) {
                     ConfirmPassword.setError("Passwords do not match !");
                 }
             }
 
             private void ValidateUser() {
                 String user_type = UserType.getSelectedItem().toString();
-                if(!(user_type.contains("Customer") || user_type.contains("Wholesaler")  || user_type.contains("Retailer"))){
-                    Toast.makeText(getApplicationContext(),"Please select a valid user", LENGTH_LONG).show();
+                if (!(user_type.contains("Customer") || user_type.contains("Wholesaler") || user_type.contains("Retailer"))) {
+                    Toast.makeText(getApplicationContext(), "Please select a valid user", LENGTH_LONG).show();
                 }
             }
-
-
-
-
-
-
-
-
-
 
 
         });
 
 
-
     }
 
     @SuppressLint("MissingPermission")
-    private void getLocation(){
+    private void getLocation() {
 
         try {
             locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,500,5,RegisterActivity.this);
-        }catch (Exception e){
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 5, RegisterActivity.this);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -349,24 +320,22 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
     public void onLocationChanged(@NonNull Location location) {
 
         user_longitude = location.getLongitude();
-        user_latitude  = location.getLatitude();
+        user_latitude = location.getLatitude();
 
-        String s_long=Double.toString(user_longitude);
-        String s_lat=Double.toString(user_latitude);
-
+        String s_long = Double.toString(user_longitude);
+        String s_lat = Double.toString(user_latitude);
 
 
         Longitude_tfield.setText(s_long);
         Latitude_tfield.setText(s_lat);
 
 
-
         try {
             Geocoder geocoder = new Geocoder(RegisterActivity.this, Locale.getDefault());
-            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             String address = addresses.get(0).getAddressLine(0);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -386,7 +355,6 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
     public void onProviderDisabled(@NonNull String provider) {
 
     }
-
 
 
 }
