@@ -73,7 +73,9 @@
                 android:maxLength="1"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="4dp"
+                />
 
             <EditText
                 android:id="@+id/inputotp2"
