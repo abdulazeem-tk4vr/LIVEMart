@@ -26,12 +26,12 @@
         android:layout_below="@+id/login_applogo"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginTop="58dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
+        android:fontFamily="@font/advent_pro_bold"
         android:hint="Username"
         android:inputType="number"
-        android:fontFamily="@font/advent_pro_bold"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textSize="19sp" />
@@ -47,15 +47,29 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="6dp"
         android:hint="Password"
-
+        android:fontFamily="@font/advent_pro_bold"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textSize="19sp"
         />
 
 
-
-
+    <EditText
+        android:id="@+id/user_type_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
+        android:hint="Customer/Retailer/Wholesaler"
+        android:fontFamily="@font/advent_pro_bold"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="19sp" />
 
     <LinearLayout
         android:id="@+id/linear_layout_1"
@@ -66,37 +80,40 @@
         android:layout_marginTop="5dp"
         >
 
-        <com.rey.material.widget.CheckBox
-            android:id="@+id/remember_me_chkb"
-            style="@style/Material.Drawable.CheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
-            android:gravity="center_vertical"
-            android:text="Remember me"
-            android:textColor="#EF729D"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:cbd_strokeColor="#EF729D" />
+<!--        <com.rey.material.widget.CheckBox-->
+<!--            android:id="@+id/remember_me_chkb"-->
+<!--            style="@style/Material.Drawable.CheckBox"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="17dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="Remember me"-->
+<!--            android:textColor="#EF729D"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:cbd_strokeColor="#EF729D" />-->
 
     </LinearLayout>
+
+
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_layout_1"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="19dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="164dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="50dp"
         android:background="@drawable/buttons"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/not_admin_panel_link"
