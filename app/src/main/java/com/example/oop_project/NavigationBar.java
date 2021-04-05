@@ -68,7 +68,7 @@ public class NavigationBar extends AppCompatActivity {
     private void selectFirstItemAsDefault(){
         if(navigationManager!=null){
             String firstItem = lstTitle.get(0);
-            navigationManager.showFragment(firstItem);
+            navigationManager.loadFragment(firstItem);
             getSupportActionBar().setTitle(firstItem);
         }
     }
@@ -115,8 +115,13 @@ public class NavigationBar extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 String selectedItem = ((List) lstChild.get(lstTitle.get(groupPosition))).get(childPosition).toString();
                 getSupportActionBar().setTitle(selectedItem);
-                if(items[0].equals(lstTitle.get(groupPosition))){
-                    navigationManager.showFragment(selectedItem);
+                String parentItem = lstTitle.get(groupPosition);
+                if(items[0].equals(parentItem)){
+                    navigationManager.showFragment(parentItem.toString(), selectedItem);
+                }else if(items[1].equals(parentItem)){
+                    navigationManager.showFragment(parentItem.toString(), selectedItem);
+                }else if(items[2].equals(parentItem)){
+                    navigationManager.showFragment(parentItem.toString(), selectedItem);
                 }else{
                     throw new IllegalArgumentException("Not supported Fragment");
                 }

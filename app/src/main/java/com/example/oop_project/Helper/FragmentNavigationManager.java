@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.oop_project.CustomerCart;
+import com.example.oop_project.CustomerCategories;
+import com.example.oop_project.CustomerOrders;
 import com.example.oop_project.FragmentContent;
 import com.example.oop_project.Interface.NavigationManager;
 import com.example.oop_project.NavigationBar;
@@ -25,10 +28,40 @@ public class FragmentNavigationManager implements NavigationManager {
         mainActivity=mainActivity;
         mFragmentManager = mainActivity.getSupportFragmentManager();
     }
-
     @Override
-    public void showFragment(String title) {
+    public void loadFragment(String title) {
         showFragment(FragmentContent.newInstance(title),false);
+    }
+    @Override
+    public void showFragment(String parentItem, String childItem) {
+        switch(parentItem)
+        {
+            case "Customer":
+                switch(childItem)
+                {
+                    case "Categories":
+                        showFragment(new CustomerCategories(),false);
+                        break;
+                    case "Cart":
+                        showFragment(new CustomerCart(),false);
+                        break;
+                    case "orders":
+                        showFragment(new CustomerOrders(),false);
+                        break;
+                    case "logout":
+                        break;
+                }
+                break;
+            case "Retailer":
+                System.out.println("Retailer");
+                break;
+            case "Wholesaler":
+                System.out.println("Wholesaler");
+                break;
+            default:
+                System.out.println("no match");
+        }
+
 
     }
     public void showFragment(Fragment fragmentContent, boolean b){
@@ -42,4 +75,5 @@ public class FragmentNavigationManager implements NavigationManager {
         }
         fm.executePendingTransactions();
     }
+
 }
