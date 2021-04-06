@@ -2,30 +2,30 @@ package com.example.oop_project.Customer;
 
 public class model
 {
-    String img,name;
+    String image, pname;
 
     public model() {
     }
 
-    public model(String img,String name) {
-        this.img=img;
-        this.name=name;
+    public model(String image, String pname) {
+        this.image = image;
+        this.pname = pname;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
 }

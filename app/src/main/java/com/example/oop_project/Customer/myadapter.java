@@ -1,6 +1,5 @@
 package com.example.oop_project.Customer;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,35 +15,28 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewholder>
-{
+public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewholder> {
 
     public myadapter(@NonNull FirebaseRecyclerOptions<model> options) {
         super(options);
-        Log.e("Myadapter",options.toString());
     }
 
     @Override
     public void onDataChanged() {
         super.onDataChanged();
-        Log.e("Myadapter","Data changed");
-
     }
 
     @Override
     public void onError(@NonNull DatabaseError error) {
         super.onError(error);
-        Log.e("Myadapter","Error occured");
         error.toException().printStackTrace();
     }
-
 
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model model) {
         holder.nametext.setText("Random");
-        Glide.with(holder.img1.getContext()).load(model.getImg()).into(holder.img1);
-        Log.e("Myadapter","Binded"+model.getName());
+        Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
 
         /*holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,20 +50,19 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
     @NonNull
     @Override
     public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowdesign,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowdesign, parent, false);
         return new myviewholder(view);
     }
 
-    public class myviewholder extends RecyclerView.ViewHolder
-    {
+    public class myviewholder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView nametext;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
-            img1=itemView.findViewById(R.id.img1);
-            nametext=itemView.findViewById(R.id.nametext);
+            img1 = itemView.findViewById(R.id.img1);
+            nametext = itemView.findViewById(R.id.nametext);
         }
     }
 

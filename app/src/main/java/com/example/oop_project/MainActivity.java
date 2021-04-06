@@ -1,5 +1,6 @@
 package com.example.oop_project;
 
+import androidx.annotation.NavigationRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         navbartestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, addproduct.class);
+                Intent intent = new Intent(MainActivity.this, NavigationBar.class);
                 startActivity(intent);
 
 

@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.firebase:firebase-database:19.7.0'
     implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-storage:19.2.2'
     testImplementation 'junit:junit:4.+'
