@@ -3,8 +3,11 @@ package com.example.oop_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +23,10 @@ import java.util.concurrent.TimeUnit;
 
 public class SendOTPActivity extends AppCompatActivity {
 
+    private String user_type;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +36,28 @@ public class SendOTPActivity extends AppCompatActivity {
         Button buttonGetOTP = findViewById(R.id.get_otp);
         ProgressBar progressBar = findViewById(R.id.progressbar_sendotp);
 
+
         buttonGetOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if (inputMobile.getText().toString().isEmpty()) {
-                    Toast.makeText(SendOTPActivity.this, "Enter your mobile number please", Toast.LENGTH_SHORT).show();
-                    return;
+//                    Toast.makeText(SendOTPActivity.this, "Enter your mobile number please", Toast.LENGTH_SHORT).show();
+//                    return;
+
+                    SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+                    // The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+                    String p_username = sh.getString("username", "mama mia");
+                    String p_usertype = sh.getString("usertype", "loco");
+
+// We can then use the data
+
+                    Toast.makeText(SendOTPActivity.this, p_username, Toast.LENGTH_SHORT).show();
+
+
                 }
 
 //
@@ -72,6 +95,8 @@ public class SendOTPActivity extends AppCompatActivity {
 //
 //                    );
 //                }
+
+                user_type = getIntent().getStringExtra("user type");
 
                 Intent intent = new Intent(getApplicationContext(), VerifyOTPActivity.class);
                 intent.putExtra("mobile", inputMobile.getText().toString().trim());
