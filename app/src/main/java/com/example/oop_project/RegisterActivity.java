@@ -106,8 +106,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 String mail = EmailID.getText().toString().trim();
                 String repwd = ConfirmPassword.getText().toString().trim();
                 String user = UserType.getSelectedItem().toString().trim();
-                //       String longitude = Longitude_tfield.getText().toString().trim();
-                //       String latitude = Latitude_tfield.getText().toString().trim();
+                       String longitude = Longitude_tfield.getText().toString().trim();
+                       String latitude = Latitude_tfield.getText().toString().trim();
 
 
                 ValidateName();

@@ -20,7 +20,7 @@
         android:src="@drawable/imagevol" />
 
     <EditText
-        android:id="@+id/login_phone_number_input"
+        android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_applogo"
@@ -31,7 +31,7 @@
         android:background="@drawable/input_design"
         android:fontFamily="@font/advent_pro_bold"
         android:hint="Username"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textSize="19sp" />
@@ -40,7 +40,7 @@
         android:id="@+id/login_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_phone_number_input"
+        android:layout_below="@+id/login_username"
         android:background="@drawable/input_design"
         android:padding="20dp"
         android:layout_marginLeft="15dp"
