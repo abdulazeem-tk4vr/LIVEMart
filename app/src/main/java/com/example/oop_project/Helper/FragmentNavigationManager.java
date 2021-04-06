@@ -48,8 +48,6 @@ public class FragmentNavigationManager implements NavigationManager {
                     case "orders":
                         showFragment(new CustomerOrders(),false);
                         break;
-                    case "logout":
-                        break;
                 }
                 break;
             case "Retailer":
@@ -65,6 +63,7 @@ public class FragmentNavigationManager implements NavigationManager {
 
     }
     public void showFragment(Fragment fragmentContent, boolean b){
+
         FragmentManager fm =  mFragmentManager;
         FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,fragmentContent);
         ft.addToBackStack(null);

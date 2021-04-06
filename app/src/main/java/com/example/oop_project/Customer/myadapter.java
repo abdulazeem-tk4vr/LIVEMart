@@ -1,0 +1,78 @@
+package com.example.oop_project.Customer;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.example.oop_project.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseError;
+
+public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewholder>
+{
+
+    public myadapter(@NonNull FirebaseRecyclerOptions<model> options) {
+        super(options);
+        Log.e("Myadapter",options.toString());
+    }
+
+    @Override
+    public void onDataChanged() {
+        super.onDataChanged();
+        Log.e("Myadapter","Data changed");
+
+    }
+
+    @Override
+    public void onError(@NonNull DatabaseError error) {
+        super.onError(error);
+        Log.e("Myadapter","Error occured");
+        error.toException().printStackTrace();
+    }
+
+
+
+    @Override
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model model) {
+        holder.nametext.setText("Random");
+        Glide.with(holder.img1.getContext()).load(model.getImg()).into(holder.img1);
+        Log.e("Myadapter","Binded"+model.getName());
+
+        /*holder.img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new descfragment(model.getName(),model.getCourse(),model.getEmail(),model.getPurl())).addToBackStack(null).commit();
+            }
+        });*/
+    }
+
+    @NonNull
+    @Override
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowdesign,parent,false);
+        return new myviewholder(view);
+    }
+
+    public class myviewholder extends RecyclerView.ViewHolder
+    {
+        ImageView img1;
+        TextView nametext;
+
+        public myviewholder(@NonNull View itemView) {
+            super(itemView);
+
+            img1=itemView.findViewById(R.id.img1);
+            nametext=itemView.findViewById(R.id.nametext);
+        }
+    }
+
+}

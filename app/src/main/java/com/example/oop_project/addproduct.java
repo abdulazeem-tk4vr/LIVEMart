@@ -98,10 +98,10 @@ public class addproduct extends AppCompatActivity {
         Pname = pname.getText().toString();
 
 
-        if (ImageUri == null)
+        /*if (ImageUri == null)
         {
             Toast.makeText(this, "Product image is mandatory...", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 //        else if (TextUtils.isEmpty(quantity))
 //        {
 //            Toast.makeText(this, "Please give the quantity...", Toast.LENGTH_SHORT).show();
@@ -110,7 +110,7 @@ public class addproduct extends AppCompatActivity {
 //        {
 //            Toast.makeText(this, "Please write product Price...", Toast.LENGTH_SHORT).show();
 //        }
-        else if (TextUtils.isEmpty(Pname))
+        if (TextUtils.isEmpty(Pname))
         {
             Toast.makeText(this, "Please write product name...", Toast.LENGTH_SHORT).show();
         }
