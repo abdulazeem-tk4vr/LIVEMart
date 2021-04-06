@@ -46,6 +46,7 @@ public class SendOTPActivity extends AppCompatActivity {
 //                    Toast.makeText(SendOTPActivity.this, "Enter your mobile number please", Toast.LENGTH_SHORT).show();
 //                    return;
 
+
                     SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
                     // The value will be default as empty string because for
