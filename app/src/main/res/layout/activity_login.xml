@@ -48,7 +48,6 @@
         android:layout_marginTop="6dp"
         android:hint="Password"
         android:fontFamily="@font/advent_pro_bold"
-        android:inputType="textPassword"
         android:textColor="@color/black"
         android:textSize="19sp"
         />

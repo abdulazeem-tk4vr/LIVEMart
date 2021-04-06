@@ -126,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                         if (user.contains("Customer")) {
 
-                            if (!(snapshot.child("User").child("Customer").child(number).exists())) {
+                            if (!(snapshot.child("User").child("Customer").child(username).exists())) {
                                 HashMap<String, Object> userdataMap = new HashMap<>();
                                 userdataMap.put("phone", number);
                                 userdataMap.put("password", pwd);
@@ -136,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("longitude", user_latitude);
 
 
-                                rootref.child("User").child("Customer").child(number).updateChildren(userdataMap)
+                                rootref.child("User").child("Customer").child(username).updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -154,14 +154,14 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                             }
                                         });
                             } else {
-                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "An account with this username already exists", LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }
 
                         } else if (user.contains("Retailer")) {
-                            if (!(snapshot.child("User").child("Retailer").child(number).exists())) {
+                            if (!(snapshot.child("User").child("Retailer").child(username).exists())) {
                                 HashMap<String, Object> userdataMap = new HashMap<>();
                                 userdataMap.put("phone", number);
                                 userdataMap.put("password", pwd);
@@ -172,7 +172,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                                 Log.i("Wazzup", "is it working");
 
-                                rootref.child("User").child("Retailer").child(number).updateChildren(userdataMap)
+                                rootref.child("User").child("Retailer").child(username).updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -193,14 +193,14 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                             }
                                         });
                             } else {
-                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "An account with this username already exists", LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }
                         } else if (user.contains("Wholesaler")) {
 
-                            if (!(snapshot.child("User").child("Wholesaler").child(number).exists())) {
+                            if (!(snapshot.child("User").child("Wholesaler").child(username).exists())) {
                                 HashMap<String, Object> userdataMap = new HashMap<>();
                                 userdataMap.put("phone", number);
                                 userdataMap.put("password", pwd);
@@ -209,7 +209,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("latitude", user_latitude);
                                 userdataMap.put("longitude", user_longitude);
 
-                                rootref.child("User").child("Wholesaler").child(number).updateChildren(userdataMap)
+                                rootref.child("User").child("Wholesaler").child(username).updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -230,7 +230,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                             }
                                         });
                             } else {
-                                Toast.makeText(getApplicationContext(), "An account with this phone number already exists", LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "An account with this username already exists", LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

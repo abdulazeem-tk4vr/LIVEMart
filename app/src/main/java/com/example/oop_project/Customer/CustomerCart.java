@@ -1,4 +1,4 @@
-package com.example.oop_project;
+package com.example.oop_project.Customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class CustomerCategories extends Fragment {
+import com.example.oop_project.R;
+
+public class CustomerCart extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.categories,container,false);
+        View view = inflater.inflate(R.layout.cart,container,false);
         return view;
     }
 

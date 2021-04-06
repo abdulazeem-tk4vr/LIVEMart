@@ -14,7 +14,7 @@
         android:theme="@style/Theme.OOP_project">
         <activity android:name=".VerifyOTPActivity"></activity>
         <activity android:name=".SendOTPActivity" />
-        <activity android:name=".dashboard" />
+        <activity android:name=".addproduct" />
         <activity android:name=".otp_extra.entermobilenumber" />
         <activity android:name=".otp_extra.verifyenterotptwo" />
         <activity android:name=".PlacePicker" />

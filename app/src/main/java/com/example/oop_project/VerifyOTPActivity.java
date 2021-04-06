@@ -3,7 +3,6 @@ package com.example.oop_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,11 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -68,7 +63,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
                 if (code.contains("842403") ||
                         code.contains("059169") || code.contains("437652") || code.contains("987532") || code.contains("182053") || code.contains("103834") || code.contains("720789")) {
-                    Intent intent = new Intent(VerifyOTPActivity.this, dashboard.class);
+                    Intent intent = new Intent(VerifyOTPActivity.this, addproduct.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {

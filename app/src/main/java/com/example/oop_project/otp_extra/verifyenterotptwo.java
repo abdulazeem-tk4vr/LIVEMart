@@ -15,7 +15,7 @@
 //import android.widget.Toast;
 //
 //import com.example.oop_project.R;
-//import com.example.oop_project.dashboard;
+//import com.example.oop_project.addproduct;
 //import com.google.android.gms.tasks.OnCompleteListener;
 //import com.google.android.gms.tasks.Task;
 //import com.google.firebase.FirebaseException;
@@ -85,7 +85,7 @@
 //                                        setotp.setVisibility(View.VISIBLE);
 //
 //                                        if (task.isSuccessful()) {
-//                                            Intent intent = new Intent(getApplicationContext(), dashboard.class);
+//                                            Intent intent = new Intent(getApplicationContext(), addproduct.class);
 //                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //                                            startActivity(intent);
 //                                        } else {

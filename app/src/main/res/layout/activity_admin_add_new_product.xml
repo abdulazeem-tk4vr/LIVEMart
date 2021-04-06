@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.AdminAddNewProductActivity"
+    tools:context=".addproduct"
     android:background="@drawable/addprodlayout">
 
 
@@ -53,7 +53,7 @@
         android:padding="20dp" />
 
     <EditText
-        android:id="@+id/product_description"
+        android:id="@+id/product_quantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_name"
@@ -62,7 +62,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/input_design"
-        android:hint="Product Description..."
+        android:hint="Product Quantity"
         android:inputType="textMultiLine"
         android:padding="20dp" />
 
@@ -70,7 +70,7 @@
         android:id="@+id/product_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/product_description"
+        android:layout_below="@+id/product_quantity"
         android:inputType="textMultiLine"
         android:layout_marginTop="6dp"
         android:padding="20dp"

@@ -4,9 +4,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.oop_project.CustomerCart;
-import com.example.oop_project.CustomerCategories;
-import com.example.oop_project.CustomerOrders;
+import com.example.oop_project.Customer.CustomerCart;
+import com.example.oop_project.Customer.CustomerCategories;
+import com.example.oop_project.Customer.CustomerOrders;
 import com.example.oop_project.FragmentContent;
 import com.example.oop_project.Interface.NavigationManager;
 import com.example.oop_project.NavigationBar;
