@@ -136,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("longitude", user_latitude);
 
 
-                                rootref.child("User").child("Customer").child(username).updateChildren(userdataMap)
+                                rootref.child("User").child("Customer").child(username).child("Details").updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -144,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                                                 if (task.isSuccessful()) {
                                                     Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(intent);
                                                 } else {
@@ -172,7 +172,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                                 Log.i("Wazzup", "is it working");
 
-                                rootref.child("User").child("Retailer").child(username).updateChildren(userdataMap)
+                                rootref.child("User").child("Retailer").child(username).child("Details").updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -182,7 +182,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                                     Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
 
 
-                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(intent);
                                                 } else {
@@ -209,7 +209,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("latitude", user_latitude);
                                 userdataMap.put("longitude", user_longitude);
 
-                                rootref.child("User").child("Wholesaler").child(username).updateChildren(userdataMap)
+                                rootref.child("User").child("Wholesaler").child(username).child("Details").updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -219,7 +219,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                                     Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
 
 
-                                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(intent);
                                                 } else {
@@ -253,6 +253,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 String name = InputName.getText().toString();
                 if (name.isEmpty()) {
                     InputName.setError("Please enter your Username !");
+                    return;
                 }
 
 
@@ -261,9 +262,17 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
             private void ValidatePhone() {
 
                 String phone = InputPhoneNumber.getText().toString();
+                String regez_num = "^\\d{10}$";
+
+                Pattern pattern = Pattern.compile(regez_num);
+                Matcher matcher = pattern.matcher(phone);
 
                 if (phone.isEmpty()) {
                     InputPhoneNumber.setError("Please enter your contact number !");
+                    return;
+                } else if(!(matcher.matches())){
+                    InputPhoneNumber.setError("Please enter a valid 10 digit contact number !");
+                    return;
                 }
 
             }
@@ -279,8 +288,10 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                 if (mail.isEmpty()) {
                     EmailID.setError("Please enter your email ID");
+                    return;
                 } else if (!(matcher.matches())) {
                     EmailID.setError("Please enter a valid email ID");
+                    return;
                 }
             }
 
@@ -290,8 +301,10 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
 
                 if (password.isEmpty()) {
                     InputPassword.setError("Please enter your Password !");
+                    return;
                 } else if (!(password.equals(repass))) {
                     ConfirmPassword.setError("Passwords do not match !");
+                    return;
                 }
             }
 
@@ -299,6 +312,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                 String user_type = UserType.getSelectedItem().toString();
                 if (!(user_type.contains("Customer") || user_type.contains("Wholesaler") || user_type.contains("Retailer"))) {
                     Toast.makeText(getApplicationContext(), "Please select a valid user", LENGTH_LONG).show();
+                    return;
                 }
             }
 

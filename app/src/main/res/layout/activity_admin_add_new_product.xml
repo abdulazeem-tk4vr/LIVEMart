@@ -63,7 +63,7 @@
         android:layout_marginRight="45dp"
         android:background="@drawable/input_design"
         android:hint="Product Quantity"
-        android:inputType="textMultiLine"
+        android:inputType="number"
         android:padding="20dp" />
 
     <EditText
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_quantity"
-        android:inputType="textMultiLine"
+        android:inputType="number"
         android:layout_marginTop="6dp"
         android:padding="20dp"
         android:hint="Product Price..."
