@@ -1,39 +1,45 @@
 package com.example.oop_project.Customer;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class CustomerCategories extends Fragment {
+public class CustomerSubCategories extends Fragment {
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
+    String pname;
     RecyclerView recview;
-    myadapter adapter;
-
-    public CustomerCategories() {
+    adapter_sub adapter;
+    public CustomerSubCategories() {
 
     }
 
-    public static CustomerCategories newInstance(String param1, String param2) {
-        CustomerCategories fragment = new CustomerCategories();
+    public CustomerSubCategories(String pname) {
+        this.pname=pname;
+
+    }
+
+    public static CustomerSubCategories newInstance(String param1, String param2) {
+        CustomerSubCategories fragment = new CustomerSubCategories();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -54,22 +60,28 @@ public class CustomerCategories extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.categories, container, false);
+        View view=inflater.inflate(R.layout.categories2, container, false);
 
-        recview = (RecyclerView) view.findViewById(R.id.recview);
+        recview = (RecyclerView) view.findViewById(R.id.recview2);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<model_category> options =
-                new FirebaseRecyclerOptions.Builder<model_category>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Details"), model_category.class)
+        FirebaseRecyclerOptions<model_subcategory> options =
+                new FirebaseRecyclerOptions.Builder<model_subcategory>()
+                        .setQuery((FirebaseDatabase.getInstance().getReference().child("Products")).child(pname), model_subcategory.class)
                         .build();
-
-        adapter = new myadapter(options);
+        adapter = new adapter_sub(options);
         recview.setAdapter(adapter);
 
-        return view;
+
+        return  view;
     }
 
+    public void onBackPressed()
+    {
+        AppCompatActivity activity=(AppCompatActivity)getContext();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerCategories()).addToBackStack(null).commit();
+
+    }
 
     @Override
     public void onStart() {

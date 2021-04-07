@@ -1,6 +1,5 @@
 package com.example.oop_project.Customer;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,11 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapter extends FirebaseRecyclerAdapter<model_category, myadapter.myviewholder> {
+import java.util.Arrays;
 
-    public myadapter(@NonNull FirebaseRecyclerOptions<model_category> options) {
+public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adapter_sub.myviewholder> {
+
+    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options) {
         super(options);
     }
 
@@ -36,16 +37,15 @@ public class myadapter extends FirebaseRecyclerAdapter<model_category, myadapter
 
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_category model) {
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_subcategory model) {
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
 
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(model.getPname())).addToBackStack(null).commit();
             }
         });
     }

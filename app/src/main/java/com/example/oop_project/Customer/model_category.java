@@ -1,13 +1,13 @@
 package com.example.oop_project.Customer;
 
-public class model
+public class model_category
 {
     String image, pname;
 
-    public model() {
+    public model_category() {
     }
 
-    public model(String image, String pname) {
+    public model_category(String image, String pname) {
         this.image = image;
         this.pname = pname;
     }
