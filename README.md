@@ -11,7 +11,7 @@ A user is prompted for their github username and is asked a series of questions.
 * [Questions](#questions)
 * [Credits](#credits)
 
-# Installation
+# Introduction
 Install npm in node to add dependecies like axios, dotenv, and inquirer.
 
 # Usage
