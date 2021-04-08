@@ -159,7 +159,7 @@ public class addprodnoimage extends AppCompatActivity {
         productMap.put("quantity", quantity);
         productMap.put("status", "Not Approved");
 
-        ProductsRef.child("Retailer").child("Tkretailer").child("Products").updateChildren(productMap);
+        ProductsRef.child("Retailer").child("Fgretailer").child("Products").child("Fruits").child(Pname).updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }

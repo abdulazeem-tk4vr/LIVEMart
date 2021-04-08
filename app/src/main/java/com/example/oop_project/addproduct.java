@@ -102,14 +102,14 @@ public class addproduct extends AppCompatActivity {
        {
            Toast.makeText(this, "Product image is mandatory...", Toast.LENGTH_SHORT).show();
        }
-        if (TextUtils.isEmpty(quantity))
-        {
-            Toast.makeText(this, "Please give the quantity...", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(Price))
-        {
-            Toast.makeText(this, "Please write product Price...", Toast.LENGTH_SHORT).show();
-        }
+//        if (TextUtils.isEmpty(quantity))
+//        {
+//            Toast.makeText(this, "Please give the quantity...", Toast.LENGTH_SHORT).show();
+//        }
+//        else if (TextUtils.isEmpty(Price))
+//        {
+//            Toast.makeText(this, "Please write product Price...", Toast.LENGTH_SHORT).show();
+//        }
         if (TextUtils.isEmpty(Pname))
         {
             Toast.makeText(this, "Please write product name...", Toast.LENGTH_SHORT).show();
@@ -173,12 +173,12 @@ public class addproduct extends AppCompatActivity {
         HashMap<String, Object> productMap = new HashMap<>();
 
         productMap.put("image", downloadImageUrl);
-        productMap.put("price", Price);
         productMap.put("pname", Pname);
-        productMap.put("quantity",quantity);
-        productMap.put("status","Not Approved");
+//        productMap.put("quantity",quantity);
+//        productMap.put("price", Price);
+//        productMap.put("status","Not Approved");
 
-        ProductsRef.child("Retailer").child("Tkretailer").child("Products").updateChildren(productMap);
+        ProductsRef.child("Retailer").child("HDretailer").child("Products").updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }

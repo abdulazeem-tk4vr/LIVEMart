@@ -63,7 +63,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
                 if (code.contains("842403") ||
                         code.contains("059169") || code.contains("437652") || code.contains("987532") || code.contains("182053") || code.contains("103834") || code.contains("720789")) {
-                    Intent intent = new Intent(VerifyOTPActivity.this, addproduct.class);
+                    Intent intent = new Intent(VerifyOTPActivity.this, NavigationBar.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {

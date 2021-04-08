@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_quantity"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_marginTop="6dp"
         android:padding="20dp"
         android:hint="Product Price..."

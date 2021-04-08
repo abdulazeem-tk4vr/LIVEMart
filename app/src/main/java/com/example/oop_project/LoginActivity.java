@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
                 username = t_username.getText().toString().trim();
                 password = t_password.getText().toString().trim();
                 user_type = s_usertype.getSelectedItem().toString().trim();
@@ -66,49 +65,36 @@ public class LoginActivity extends AppCompatActivity {
                     t_password.setError("Please enter the password!");
                 }
 
-                if (!user_type.contains("Customer") | !user_type.contains("Retailer") | !user_type.contains("Wholesaler")) {
-                    Toast.makeText(LoginActivity.this, "Please select a valid user type!", Toast.LENGTH_SHORT).show();
-                }
-
 
                 DatabaseReference rootref;
                 rootref = FirebaseDatabase.getInstance().getReference();
 
+                final DatabaseReference orders_Reference = rootref.child("User").child(user_type).child(username).child("Details");
 
                 rootref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if ((snapshot.child("User").child(user_type).child(username).exists())) {
-                            if ((snapshot.child("User").child(user_type).child(username).child(password).exists())) {
+                        if ((snapshot.child("User").child(user_type).child(username).exists())){
 
-                                {
+                            orders_Reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot data : snapshot.getChildren()) {
+                                        if(data.getKey().equals("password")){
+                                            String temp = data.getValue().toString();
+                                            if (temp.equals(password)){
+                                                Toast.makeText(LoginActivity.this, "wazzup", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                }
 
-                                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-// Creating an Editor object to edit(write to the file)
-                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                }
+                            });
 
-// Storing the key and its value as the data fetched from edittext
-                                    myEdit.putString("username", username);
-                                    myEdit.putString("usertype", user_type);
-
-                                    myEdit.commit();
-
-
-// Once the changes have been made,
-// we need to commit to apply those changes made,
-// otherwise, it will throw an error
-
-                                } //Shared Pref Initialization
-
-                                Intent intent = new Intent(LoginActivity.this, SendOTPActivity.class);
-                                startActivity(intent);
-
-                            } else {
-                                t_password.setError("Enter the correct password");
-                            }
-                        } else {
-                            t_username.setError("Invalid username, try again");
                         }
                     }
 
@@ -120,8 +106,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
             }
+
         });
 
-
     }
+
 }

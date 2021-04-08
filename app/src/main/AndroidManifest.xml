@@ -20,6 +20,7 @@
         <activity android:name=".otp_extra.verifyenterotptwo" />
         <activity android:name=".PlacePicker" />
         <activity android:name=".NavigationBar" />
+        <activity android:name=".addprodnoimage"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
