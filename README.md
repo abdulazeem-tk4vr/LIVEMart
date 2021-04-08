@@ -1,5 +1,5 @@
 
-# Good README Generator ![GitHub package.json version](https://img.shields.io/github/package-json/v/WarriorofZarona/Good-README-Generator)
+# Good README Generator ![GitHub package.json version]
 A user is prompted for their github username and is asked a series of questions. The answers populate a README generated for future projects.
 
 # Tables of Contents
