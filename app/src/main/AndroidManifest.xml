@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOP_project">
-        <activity android:name=".VerifyOTPActivity"></activity>
+        <activity
+            android:name=".otp_extra.ShopFilterActivity"
+            android:label="@string/title_activity_shop_filter"
+            android:theme="@style/Theme.OOP_project.NoActionBar"></activity>
+        <activity android:name=".VerifyOTPActivity" />
         <activity android:name=".SendOTPActivity" />
         <activity android:name=".addproduct" />
         <activity android:name=".otp_extra.entermobilenumber" />
