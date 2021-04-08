@@ -1,44 +1,42 @@
 
+# Good README Generator ![GitHub package.json version](https://img.shields.io/github/package-json/v/WarriorofZarona/Good-README-Generator)
+A user is prompted for their github username and is asked a series of questions. The answers populate a README generated for future projects.
 
-E commerce Grocery App 
-Developed using Java, XML and Firebase Realtime Database.
+# Tables of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+* [Credits](#credits)
 
-Detailed Explanation given here :
-https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/edit?usp=sharing
+# Installation
+Install npm in node to add dependecies like axios, dotenv, and inquirer.
 
-Contains a customer, retailer and wholesaler interface.
+# Usage
+Quickly generate READMEs for projects.
 
-Module 1 : Registration and Sign-Up
-
- Registration page : Includes username, password, retype password, type of user Select one of three, Location (better if
- enabled with Google API)
-
- Sign Up page : Includes username,password and type of user. 
-
- The user is then navigated to verify his login using an OTP auth.
-
- Login can be changed to accomodate Gmail or any other social media authorization.
-
-
-
-Module 2: Dashboards for every type of users
-Module 3: Search Module/Navigation Module to filter shops by distance
-Module 4: Place order and status of order
-Module 5: Feedback and Queries
-Module 6 : Innovative/Extra Functionality
+# License
+No licenses for this project.
 
 
 
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+# Contributing
+No contributing information for this project.
 
-## General info
-This project is simple Lorem ipsum dolor generator.
-	
-## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+# Tests
+Ran node index.js to ensure README is generated with proper fields populated
+
+# Questions
+![Profile Avatar](https://avatars0.githubusercontent.com/u/56315576?v=4)
+
+If you have any questions, please e-mail me at andrewbautista85@gmail.com.
+
+
+# Credits
+
+Github: [warriorofzarona](https://api.github.com/users/WarriorofZarona)
+
+
+Copyright Andrew Bautista. All Rights Reserved.
