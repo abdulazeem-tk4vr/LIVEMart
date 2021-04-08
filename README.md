@@ -3,7 +3,7 @@
 A user is prompted for their github username and is asked a series of questions. The answers populate a README generated for future projects.
 
 # Tables of Contents
-* [Installation](#installation)
+* [Introduction](#introduction)
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
