@@ -51,7 +51,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
             public void onClick(View view) {
 
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CitemsFruits()).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
 
             }
         });
