@@ -1,23 +1,17 @@
 package com.example.oop_project.Customer;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class CustomerCategories extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -26,7 +20,7 @@ public class CustomerCategories extends Fragment {
     private String mParam1;
     private String mParam2;
     RecyclerView recview;
-    myadapter adapter;
+    myadapterCustomerCategory adapter;
 
     public CustomerCategories() {
 
@@ -64,7 +58,7 @@ public class CustomerCategories extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Details"), model_category.class)
                         .build();
 
-        adapter = new myadapter(options);
+        adapter = new myadapterCustomerCategory(options);
         recview.setAdapter(adapter);
 
         return view;
