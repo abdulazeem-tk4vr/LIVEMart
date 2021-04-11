@@ -41,6 +41,7 @@ Module 4: Placing order and status of order<br/>
 Module 5: Feedback and Queries<br/>
 <br/>
 To make my readme concise, I have compiled the detailed explanation and resources onto a google doc. Please access the doc to understand how the project was developed.
+https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/edit?usp=sharing
 
 
 
