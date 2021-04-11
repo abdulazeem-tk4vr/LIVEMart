@@ -5,7 +5,7 @@ Built in Java using Android Studio and Firebase Realtime database (for storing t
 * [Introduction](#introduction)
 * [Usage](#usage)
 * [Contributions](#contributions)
-* [Project Modules](#project_modules)
+* [Modules](#Modules)
 * [Questions](#questions)
 * [Credits](#credits)
 
@@ -32,7 +32,7 @@ Aryan Arora https://github.com/aryanarora180<br/>
 
 
 
-# Project Modules
+# Modules
 
 Module 1: Registration and Sign-Up<br/>
 Module 2: Dashboards for every type of user<br/>
