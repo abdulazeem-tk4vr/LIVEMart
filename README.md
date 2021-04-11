@@ -32,8 +32,14 @@ Aryan Arora https://github.com/aryanarora180<br/>
 
 
 
-# Tests
-Ran node index.js to ensure README is generated with proper fields populated
+# Project Modules
+
+Module 1: Registration and Sign-Up<br/>
+Module 2: Dashboards for every type of user<br/>
+Module 3: Navigation Module<br/>
+Module 4: Placing order and status of order<br/>
+Module 5: Feedback and Queries
+
 
 # Questions
 ![Profile Avatar](https://avatars0.githubusercontent.com/u/56315576?v=4)
