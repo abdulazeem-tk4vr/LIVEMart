@@ -24,10 +24,12 @@ Now that you've reached this heading, you must be interested in developing an an
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.
 
 # Contributions
-Abdul Azeem<br/>
-Anirudh Sundar<br/>
-Karthik Suresh<br/>
-Aryan Arora<br/>
+Abdul Azeem https://github.com/tk4vr<br/>
+Anirudh Sundar https://github.com/Anirudh-Sundar<br/>
+Karthik Suresh https://github.com/kart324 <br/>
+Special Mention : 
+Aryan Arora https://github.com/aryanarora180<br/>
+
 
 
 # Tests
