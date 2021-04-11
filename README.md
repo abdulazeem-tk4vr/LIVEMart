@@ -5,7 +5,7 @@ Built in Java using Android Studio and Firebase Realtime database (for storing t
 * [Introduction](#introduction)
 * [Usage](#usage)
 * [Contributions](#contributions)
-* [Project Modules](#project modules)
+* [Project Modules](#project_modules)
 * [Questions](#questions)
 * [Credits](#credits)
 
