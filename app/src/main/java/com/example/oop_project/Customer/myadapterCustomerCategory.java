@@ -36,9 +36,16 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_category model) {
+
+
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
-
+//        if(model.getPname().equals("Fruits")) {
+//            holder.itemView.setVisibility(View.VISIBLE);
+//            }
+//            else{
+//            holder.itemView.setVisibility(View.GONE);
+//        }
 
 
         holder.img1.setOnClickListener(new View.OnClickListener() {
