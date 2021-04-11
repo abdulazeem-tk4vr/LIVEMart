@@ -4,8 +4,7 @@ Built in Java using Android Studio
 # Tables of Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
+* [Contributions](#contributions)
 * [Tests](#tests)
 * [Questions](#questions)
 * [Credits](#credits)
@@ -19,14 +18,10 @@ mandatory functionalities. <br/><br/>Though we were given the freedom to choose 
 
 Can this project be done in Kotlin?<br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
+
 # Usage
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.
-
-# License
-No licenses for this project.
-
-
 
 # Contributing
 No contributing information for this project.
