@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,11 +40,9 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         holder.shopname.setText(model.getRname());
         holder.qty.setText(model.getQuantity());
         holder.rate.setText(model.getPrice());
-        holder.tc.setText("total cost");
+        holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice())* Integer.parseInt(model.getQuantity())));
         Log.e("Mine2",model.getRname());
         Log.e("Mine2",model.getRname());
-        Log.e("Mine2",model.getPrice());
-        Log.e("Mine2",model.getQuantity());
         //Glide.with(holder.img1.getContext()).load().into(holder.img1);
         //add text and image based on layout ani designs
         /*holder.img1.setOnClickListener(new View.OnClickListener() {
