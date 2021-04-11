@@ -23,7 +23,7 @@ Yes, as we came closer towards completing the project, we realized that with a q
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.
 
-# Contributing
+# Contributions
 No contributing information for this project.
 
 # Tests
