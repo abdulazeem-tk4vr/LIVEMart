@@ -38,7 +38,10 @@ Module 1: Registration and Sign-Up<br/>
 Module 2: Dashboards for every type of user<br/>
 Module 3: Navigation Module<br/>
 Module 4: Placing order and status of order<br/>
-Module 5: Feedback and Queries
+Module 5: Feedback and Queries<br/>
+<br/>
+To make my readme concise, I have compiled the detailed explanation and resources onto a google doc. Please access the doc to understand how the project was developed.
+
 
 
 # Questions
