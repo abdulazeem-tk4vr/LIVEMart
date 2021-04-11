@@ -26,7 +26,7 @@ https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=shari
 Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
 
 
-
+<br/><br/>
 Can this project be done in Kotlin?
 <br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
