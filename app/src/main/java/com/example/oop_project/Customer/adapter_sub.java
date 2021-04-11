@@ -19,9 +19,10 @@ import com.google.firebase.database.DatabaseError;
 import java.util.Arrays;
 
 public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adapter_sub.myviewholder> {
-
-    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options) {
+    String catname;
+    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options,String pname) {
         super(options);
+        catname=pname;
     }
 
     @Override
@@ -45,7 +46,7 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
             @Override
             public void onClick(View view) {
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(model.getPname())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname())).addToBackStack(null).commit();
             }
         });
     }

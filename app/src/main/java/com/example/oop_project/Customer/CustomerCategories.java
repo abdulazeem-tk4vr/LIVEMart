@@ -55,7 +55,7 @@ public class CustomerCategories extends Fragment {
 
         FirebaseRecyclerOptions<model_category> options =
                 new FirebaseRecyclerOptions.Builder<model_category>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Details"), model_category.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories"), model_category.class)
                         .build();
 
         adapter = new myadapterCustomerCategory(options);

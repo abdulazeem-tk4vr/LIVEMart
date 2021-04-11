@@ -16,26 +16,26 @@
             android:layout_height="150dp">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/addtocartbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="ADD TO CART"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintBottom_toTopOf="@+id/feedbackbtn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.153" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/feedbackbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="FEEDBACK"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/button4"
+                app:layout_constraintEnd_toEndOf="@+id/addtocartbtn"
                 app:layout_constraintHorizontal_bias="0.565"
-                app:layout_constraintStart_toStartOf="@+id/button4" />
+                app:layout_constraintStart_toStartOf="@+id/addtocartbtn" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/shopnameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/rateTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -88,14 +88,14 @@
                 app:layout_constraintTop_toTopOf="@+id/textView15" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/qtyTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="60dp"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toTopOf="@+id/textView17" />
+                app:layout_constraintTop_toTopOf="@+id/shopnameTV" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -108,7 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/totalcostTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"

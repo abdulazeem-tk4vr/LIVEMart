@@ -1,6 +1,7 @@
 package com.example.oop_project.Customer;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,16 @@ public class CustomerShopList extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    String pname;
+    String pname, catname;
+    RecyclerView recview;
+    Shopadapter adapter;
     public CustomerShopList() {
 
     }
 
-    public CustomerShopList(String pname) {
+    public CustomerShopList(String catname,String pname) {
         this.pname=pname;
+        this.catname=catname;
     }
 
     public static CustomerShopList newInstance(String param1, String param2) {
@@ -51,9 +55,19 @@ public class CustomerShopList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view=inflater.inflate(R.layout.shop_list, container, false);
-        return  view;
+
+        recview = (RecyclerView) view.findViewById(R.id.recview_shop);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        Log.e("Mine","pname: "+pname);
+        Log.e("Mine","catname: "+catname);
+        FirebaseRecyclerOptions<model_shop> options =
+                new FirebaseRecyclerOptions.Builder<model_shop>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Quantity").child(catname).child(pname).child("Retailer"), model_shop.class)
+                        .build();
+        adapter = new Shopadapter(options);
+        recview.setAdapter(adapter);
+        return view;
     }
 
     public void onBackPressed()

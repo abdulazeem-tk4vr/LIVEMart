@@ -67,9 +67,9 @@ public class CustomerSubCategories extends Fragment {
 
         FirebaseRecyclerOptions<model_subcategory> options =
                 new FirebaseRecyclerOptions.Builder<model_subcategory>()
-                        .setQuery((FirebaseDatabase.getInstance().getReference().child("Products")).child(pname), model_subcategory.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child(pname), model_subcategory.class)
                         .build();
-        adapter = new adapter_sub(options);
+        adapter = new adapter_sub(options,pname);
         recview.setAdapter(adapter);
 
 
