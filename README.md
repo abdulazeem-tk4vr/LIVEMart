@@ -6,8 +6,8 @@ Built in Java using Android Studio and Firebase Realtime database (for storing t
 * [Usage](#usage)
 * [Contributions](#contributions)
 * [Modules](#Modules)
-* [Questions](#questions)
-* [Credits](#credits)
+* [Overview](#overview)
+
 
 # Introduction
 As a part of our course requirements for Object Oriented Programming, we were required to develop an application
@@ -67,14 +67,9 @@ https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/
 
 
 
-# Questions
-![Profile Avatar](https://avatars0.githubusercontent.com/u/56315576?v=4)
+# Overview
 
-If you have any questions, please e-mail me at andrewbautista85@gmail.com.
+If you have any questions, please e-mail me at sabdulazeem01@gmail.com
 
-
-# Credits
-
-Github: [warriorofzarona](https://api.github.com/users/WarriorofZarona)
 
 
