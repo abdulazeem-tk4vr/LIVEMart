@@ -1,7 +1,6 @@
 
-# Good README Generator ![GitHub package.json version]
-A user is prompted for their github username and is asked a series of questions. The answers populate a README generated for future projects.
-
+# Grocery Shop eCommerce Mobile Application
+Built in Java using Android Studio
 # Tables of Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
@@ -12,7 +11,11 @@ A user is prompted for their github username and is asked a series of questions.
 * [Credits](#credits)
 
 # Introduction
-Install npm in node to add dependecies like axios, dotenv, and inquirer.
+As a part of our course requirements, the students were required to develop an application
+(Android/Web based/Stand-alone) for e-marketing that connects customers (individuals who shop
+for home purpose) to retailers (people dealing with multiple items who stores items in large
+quantities) and retailers to wholesalers (warehouse maintaining people) with the below mentioned
+mandatory functionalities. We decided to build an Android Mobile Application because our group members 
 
 # Usage
 Quickly generate READMEs for projects.
