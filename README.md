@@ -24,7 +24,11 @@ Now that you've reached this heading, you must be interested in developing an an
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.
 
 # Contributions
-No contributing information for this project.
+Abdul Azeem<br/>
+Anirudh Sundar<br/>
+Karthik Suresh<br/>
+Aryan Arora<br/>
+
 
 # Tests
 Ran node index.js to ensure README is generated with proper fields populated
