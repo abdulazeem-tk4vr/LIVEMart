@@ -41,7 +41,7 @@ Abdul Azeem https://github.com/tk4vr
 Anirudh Sundar https://github.com/Anirudh-Sundar
 <br/>
 Karthik Suresh https://github.com/kart324
-<br/>
+<br/><br/>
 Special Mention : <br/>
 Aryan Arora https://github.com/aryanarora180
 
@@ -50,13 +50,18 @@ Aryan Arora https://github.com/aryanarora180
 
 # Modules
 
-Module 1: Registration and Sign-Up<br/>
-Module 2: Dashboards for every type of user<br/>
-Module 3: Navigation Module<br/>
-Module 4: Placing order and status of order<br/>
-Module 5: Feedback and Queries<br/>
+Module 1: Registration and Sign-Up
 <br/>
-To make my readme concise, I have compiled the detailed explanation and resources onto a google doc. Please access the doc to understand how the project was developed.
+Module 2: Dashboards for every type of user
+<br/>
+Module 3: Navigation Module
+<br/>
+Module 4: Placing order and status of order
+<br/>
+Module 5: Feedback and Queries
+<br/>
+<br/>
+To make my readme concise, I have compiled the detailed explanation and resources onto a google doc. Please access the doc to understand how the project was developed. <br/>
 https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/edit?usp=sharing
 
 
@@ -72,4 +77,3 @@ If you have any questions, please e-mail me at andrewbautista85@gmail.com.
 Github: [warriorofzarona](https://api.github.com/users/WarriorofZarona)
 
 
-Copyright Andrew Bautista. All Rights Reserved.
