@@ -73,7 +73,7 @@ public class CustomerShopList extends Fragment{
                 new FirebaseRecyclerOptions.Builder<model_shop>()
                         .setQuery(query, model_shop.class)
                         .build();
-        adapter = new Shopadapter(options);
+        adapter = new Shopadapter(options,getContext(),  catname , pname);
         recview1.setAdapter(adapter);
         return view;
     }
