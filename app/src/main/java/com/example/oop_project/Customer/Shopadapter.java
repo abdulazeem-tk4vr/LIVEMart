@@ -27,7 +27,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
 
     public String arg_cat,arg_pname,p_username,p_usertype;
-
+    // category , product name
 
 
     public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname) {
@@ -40,6 +40,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         p_usertype  = sh.getString("usertype", "loco");
        arg_cat=catname;
        arg_pname=pname;
+
 
     }
 
@@ -62,10 +63,18 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
             Log.i("memes",arg_pname);
             Log.i("memes",p_username);
-        Log.i("memes",p_usertype);
+            Log.i("memes",p_usertype);
+
+
+            // to retrieve the coordinates from the user
+            // retrieve coordinates from the shop
+            // calculate distance
+            //display details
 
 
         FirebaseDatabase.getInstance().getReference().child("Quantity").child(arg_cat).child(arg_pname);
+
+
 
 
 
@@ -91,7 +100,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
-        TextView shopname,qty,rate,tc,dist,lon;
+        TextView shopname,qty,rate,tc,dist;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
