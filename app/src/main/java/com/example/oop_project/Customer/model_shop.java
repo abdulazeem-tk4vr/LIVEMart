@@ -29,14 +29,6 @@ public class model_shop {
         this.longitude = longitude;
     }
 
-    public String getRname() {
-        return rname;
-    }
-
-    public void setRname(String rname) {
-        this.rname = rname;
-    }
-
     public String getPrice() {
         return price;
     }
@@ -51,5 +43,13 @@ public class model_shop {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    public String getRname() {
+        return rname;
+    }
+
+    public void setRname(String rname) {
+        this.rname = rname;
     }
 }

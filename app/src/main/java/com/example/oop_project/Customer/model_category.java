@@ -1,7 +1,6 @@
 package com.example.oop_project.Customer;
 
-public class model_category
-{
+public class model_category {
     String image, pname;
 
     public model_category() {
