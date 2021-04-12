@@ -3,27 +3,31 @@ package com.example.oop_project.Customer;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
+
 public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder>  {
 
 
 
+
+
+
     public String p_username,p_usertype;
+
+
 
     public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options) {
         super(options);
@@ -51,15 +55,10 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
 
 
+
         //    Log.i("memes",p_username);
 
 
-        holder.rate.setText(model.getPrice());
-        holder.qty.setText(model.getQuantity());
-        holder.shopname.setText(model.getRname());
-
-
-        holder.tc.setText("total cost");
 
 
 
@@ -83,17 +82,19 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
-        TextView shopname,qty,rate,tc;
+        TextView shopname,qty,rate,tc,dist,lon;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
+
             this.itemView.getContext();
+
 
             shopname = itemView.findViewById(R.id.shopnameTV);
             qty = itemView.findViewById(R.id.qtyTV);
             rate = itemView.findViewById(R.id.rateTV);
             tc = itemView.findViewById(R.id.totalcostTV);
-
+            dist = itemView.findViewById(R.id.distTV);
 
         }
     }

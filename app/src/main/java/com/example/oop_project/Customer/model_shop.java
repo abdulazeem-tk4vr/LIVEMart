@@ -1,14 +1,15 @@
 package com.example.oop_project.Customer;
 
 public class model_shop {
-    Integer latitude, longitude ,price, quantity;
+    double latitude, longitude ;
+    Integer quantity,price;
     String rname;
 
     public model_shop() {
     }
 
 
-    public model_shop(Integer latitude, Integer longitude, Integer price, Integer quantity, String rname) {
+    public model_shop(double latitude, double longitude, int price, Integer quantity, String rname) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.price = price;
@@ -16,23 +17,23 @@ public class model_shop {
         this.rname = rname;
     }
 
-    public Integer getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Integer latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public Integer getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Integer longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 
