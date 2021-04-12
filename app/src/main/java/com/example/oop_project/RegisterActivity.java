@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
     private Spinner UserType;
     LocationManager locationManager;
     Double user_latitude, user_longitude;
+    String s_long,s_lat;
     private TextView Longitude_tfield, Latitude_tfield;
 
 
@@ -132,8 +133,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("password", pwd);
                                 userdataMap.put("username", username);
                                 userdataMap.put("email", mail);
-                                userdataMap.put("latitude", user_longitude);
-                                userdataMap.put("longitude", user_latitude);
+                                userdataMap.put("latitude", s_long);
+                                userdataMap.put("longitude", s_lat);
 
 
                                 rootref.child("User").child("Customer").child(username).child("Details").updateChildren(userdataMap)
@@ -167,8 +168,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("password", pwd);
                                 userdataMap.put("username", username);
                                 userdataMap.put("email", mail);
-                                userdataMap.put("latitude", user_latitude);
-                                userdataMap.put("longitude", user_longitude);
+                                userdataMap.put("latitude", s_lat);
+                                userdataMap.put("longitude", s_long);
 
                                 Log.i("Wazzup", "is it working");
 
@@ -206,8 +207,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("password", pwd);
                                 userdataMap.put("username", username);
                                 userdataMap.put("email", mail);
-                                userdataMap.put("latitude", user_latitude);
-                                userdataMap.put("longitude", user_longitude);
+                                userdataMap.put("latitude", s_lat);
+                                userdataMap.put("longitude", s_long);
 
                                 rootref.child("User").child("Wholesaler").child(username).child("Details").updateChildren(userdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -341,8 +342,8 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
         user_longitude = location.getLongitude();
         user_latitude = location.getLatitude();
 
-        String s_long = Double.toString(user_longitude);
-        String s_lat = Double.toString(user_latitude);
+        s_long = Double.toString(user_longitude);
+        s_lat = Double.toString(user_latitude);
 
 
         Longitude_tfield.setText(s_long);

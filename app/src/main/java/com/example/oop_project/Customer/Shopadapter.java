@@ -97,6 +97,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             super(itemView);
 
             this.itemView.getContext();
+            int a =1;
 
 
             shopname = itemView.findViewById(R.id.shopnameTV);
