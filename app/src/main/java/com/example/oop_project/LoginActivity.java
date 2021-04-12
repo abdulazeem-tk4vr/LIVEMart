@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     String username, password, user_type;
     Spinner s_usertype;
 
-    LoginActivity context = new LoginActivity();
+
 
 
     @Override
