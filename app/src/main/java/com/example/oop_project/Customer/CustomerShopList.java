@@ -83,4 +83,16 @@ public class CustomerShopList extends Fragment {
         activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new CustomerSubCategories()).addToBackStack(null).commit();
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }
