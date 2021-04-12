@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     String username, password, user_type;
     Spinner s_usertype;
 
-    LoginActivity context = new LoginActivity();
+
 
 
     @Override
@@ -99,7 +99,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                                     myEdit.commit();
                                                 }
-                                                Toast.makeText(LoginActivity.this, "wazzup", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(LoginActivity.this,SendOTPActivity.class);
+                                                startActivity(intent);
                                             }
                                         }
                                     }
