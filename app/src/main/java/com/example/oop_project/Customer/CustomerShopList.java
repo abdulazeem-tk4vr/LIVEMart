@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class CustomerShopList extends Fragment {
 
@@ -22,16 +24,18 @@ public class CustomerShopList extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    String pname, catname;
-    RecyclerView recview;
+    String catname,pname;
+    RecyclerView recview1;
     Shopadapter adapter;
+
     public CustomerShopList() {
 
     }
 
-    public CustomerShopList(String catname,String pname) {
-        this.pname=pname;
-        this.catname=catname;
+    public CustomerShopList(String catname, String pname) {
+
+        this.catname = catname;
+        this.pname = pname;
     }
 
     public static CustomerShopList newInstance(String param1, String param2) {
@@ -47,33 +51,36 @@ public class CustomerShopList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(ARG_PARAM1).trim();
+            mParam2 = getArguments().getString(ARG_PARAM2).trim();
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.shop_list, container, false);
+        View view = inflater.inflate(R.layout.shop_list, container, false);
 
-        recview = (RecyclerView) view.findViewById(R.id.recview_shop);
-        recview.setLayoutManager(new LinearLayoutManager(getContext()));
-        Log.e("Mine","pname: "+pname);
-        Log.e("Mine","catname: "+catname);
+        recview1 = (RecyclerView) view.findViewById(R.id.recview_shop);
+        recview1.setLayoutManager(new LinearLayoutManager(getContext()));
+        Log.i("Mine dis", "pname:" + pname);
+        Log.i("Mine dis", "catname:" + catname);
+
+         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
+        Query query = rootref.child("Quantity").child(catname).child(pname).child("Retailer");
+        //pname = Fruits
         FirebaseRecyclerOptions<model_shop> options =
                 new FirebaseRecyclerOptions.Builder<model_shop>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Quantity").child(catname).child(pname).child("Retailer"), model_shop.class)
+                        .setQuery(query, model_shop.class)
                         .build();
         adapter = new Shopadapter(options);
-        recview.setAdapter(adapter);
+        recview1.setAdapter(adapter);
         return view;
     }
 
-    public void onBackPressed()
-    {
-        AppCompatActivity activity=(AppCompatActivity)getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories()).addToBackStack(null).commit();
+    public void onBackPressed() {
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new CustomerSubCategories()).addToBackStack(null).commit();
 
     }
 }

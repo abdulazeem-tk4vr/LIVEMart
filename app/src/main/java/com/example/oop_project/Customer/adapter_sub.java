@@ -1,5 +1,6 @@
 package com.example.oop_project.Customer;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,9 @@ import java.util.Arrays;
 
 public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adapter_sub.myviewholder> {
     String catname;
-    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options,String pname) {
+    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options,String category) {
         super(options);
-        catname=pname;
+        catname=category;
     }
 
     @Override
@@ -47,6 +48,7 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
             public void onClick(View view) {
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname())).addToBackStack(null).commit();
+                Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
     }

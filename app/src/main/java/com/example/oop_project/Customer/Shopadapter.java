@@ -18,6 +18,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
 public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder> {
+
+
     public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options) {
         super(options);
     }
@@ -33,26 +35,27 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         error.toException().printStackTrace();
     }
 
-
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_shop model) {
-        holder.shopname.setText(model.getRname());
-        holder.qty.setText(model.getQuantity());
+
         holder.rate.setText(model.getPrice());
+        holder.qty.setText(model.getQuantity());
+        holder.shopname.setText(model.getRname());
+
+
         holder.tc.setText("total cost");
-        Log.e("Mine2",model.getRname());
-        Log.e("Mine2",model.getRname());
-        Log.e("Mine2",model.getPrice());
-        Log.e("Mine2",model.getQuantity());
+
+
+
         //Glide.with(holder.img1.getContext()).load().into(holder.img1);
         //add text and image based on layout ani designs
-        /*holder.img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList()).addToBackStack(null).commit();
-            }
-        });*/
+//        holder.img1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AppCompatActivity activity=(AppCompatActivity)view.getContext();
+//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList()).addToBackStack(null).commit();
+//            }
+//        });
     }
 
     @NonNull

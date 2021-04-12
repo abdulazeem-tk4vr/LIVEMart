@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:text="TextView"
+                android:hint="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="48dp"
-                android:text="TextView"
+                android:hint="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView16"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="60dp"
-                android:text="TextView"
+                android:hint="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView19"
                 app:layout_constraintTop_toTopOf="@+id/shopnameTV" />
 
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="104dp"
-                android:text="TextView"
+                android:hint="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView21"
                 app:layout_constraintTop_toTopOf="parent" />
 

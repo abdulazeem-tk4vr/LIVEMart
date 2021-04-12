@@ -83,6 +83,20 @@ public class LoginActivity extends AppCompatActivity {
                                         if(data.getKey().equals("password")){
                                             String temp = data.getValue().toString();
                                             if (temp.equals(password)){
+
+
+                                                {
+                                                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+
+// Creating an Editor object to edit(write to the file)
+                                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+// Storing the key and its value as the data fetched from edittext
+                                                    myEdit.putString("username", username);
+                                                    myEdit.putString("usertype", user_type);
+
+                                                    myEdit.commit();
+                                                }
                                                 Toast.makeText(LoginActivity.this, "wazzup", Toast.LENGTH_SHORT).show();
                                             }
                                         }
