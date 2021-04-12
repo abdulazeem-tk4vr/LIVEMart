@@ -36,8 +36,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
         // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-        p_username  = sh.getString("username", "mama mia");
-        p_usertype  = sh.getString("usertype", "loco");
+        p_username  = sh.getString("username", "Macha");
+        p_usertype  = sh.getString("usertype", "Customer");
        arg_cat=catname;
        arg_pname=pname;
 
@@ -69,6 +69,21 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             // to retrieve the coordinates from the user
             // retrieve coordinates from the shop
             // calculate distance
+//        private double distance(double lat1, double lon1, double lat2, double lon2) {
+//            double theta = lon1 - lon2;
+//            double dist = Math.sin(deg2rad(lat1))
+//                    * Math.sin(deg2rad(lat2))
+//                    + Math.cos(deg2rad(lat1))
+//                    * Math.cos(deg2rad(lat2))
+//                    * Math.cos(deg2rad(theta));
+//            dist = Math.acos(dist);
+//            dist = rad2deg(dist);
+//            dist = dist * 60 * 1.1515;
+//            return (dist/1000);
+//
+//        }
+
+
             //display details
 
 
