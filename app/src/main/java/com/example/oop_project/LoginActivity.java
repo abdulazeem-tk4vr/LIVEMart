@@ -99,7 +99,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                                     myEdit.commit();
                                                 }
-                                                Toast.makeText(LoginActivity.this, "wazzup", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(LoginActivity.this,SendOTPActivity.class);
+                                                startActivity(intent);
                                             }
                                         }
                                     }
