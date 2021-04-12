@@ -49,8 +49,8 @@ public class SendOTPActivity extends AppCompatActivity {
 
                     // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                    String p_username = sh.getString("username", "mama mia");
-                    String p_usertype = sh.getString("usertype", "loco");
+                    String p_username = sh.getString("username", "Macha");
+                    String p_usertype = sh.getString("usertype", "Customer");
 
 // We can then use the data
 
