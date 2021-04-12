@@ -66,9 +66,10 @@ public class CustomerShopList extends Fragment{
         Log.i("Mine dis", "pname:" + pname);
         Log.i("Mine dis", "catname:" + catname);
 
-         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
         Query query = rootref.child("Quantity").child(catname).child(pname).child("Retailer");
         //pname = Fruits
+
         FirebaseRecyclerOptions<model_shop> options =
                 new FirebaseRecyclerOptions.Builder<model_shop>()
                         .setQuery(query, model_shop.class)

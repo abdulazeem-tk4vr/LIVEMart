@@ -1,26 +1,12 @@
 package com.example.oop_project.Customer;
 
 public class model_shop {
-<<<<<<< HEAD
     String latitude,longitude,price,quantity,rname;
     public model_shop() {
     }
 
     public model_shop(String latitude,String longitude, String price,String quantity,String rname) {
         this.rname = rname;
-=======
-    String latitude, longitude ;
-    String quantity,price;
-    String rname;
-
-    public model_shop() {
-    }
-
-
-    public model_shop(String latitude, String longitude, String price, String quantity, String rname) {
-        this.latitude = latitude;
-        this.longitude = longitude;
->>>>>>> 598ac3c138b04aaf52e3ebb883e5dbe92efaf764
         this.price = price;
         this.quantity = quantity;
         this.latitude=latitude;
