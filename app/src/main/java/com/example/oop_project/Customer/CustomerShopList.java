@@ -54,6 +54,9 @@ public class CustomerShopList extends Fragment{
             mParam1 = getArguments().getString(ARG_PARAM1).trim();
             mParam2 = getArguments().getString(ARG_PARAM2).trim();
         }
+
+
+        
     }
 
     @Override
