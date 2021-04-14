@@ -56,7 +56,7 @@ public class addproduct extends AppCompatActivity {
         pprice = findViewById(R.id.product_price);
         pquantity = findViewById(R.id.product_quantity);
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
-        ProductsRef = FirebaseDatabase.getInstance().getReference().child("User");
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
 
 
@@ -174,11 +174,12 @@ public class addproduct extends AppCompatActivity {
 
         productMap.put("image", downloadImageUrl);
         productMap.put("pname", Pname);
+        productMap.put("status","Not Approved");
 //        productMap.put("quantity",quantity);
 //        productMap.put("price", Price);
 //        productMap.put("status","Not Approved");
 
-        ProductsRef.child("Retailer").child("HDretailer").child("Products").updateChildren(productMap);
+        ProductsRef.child("Fruits").child("Pname").updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
