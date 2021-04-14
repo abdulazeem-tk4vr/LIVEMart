@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,11 +27,12 @@ import java.text.DecimalFormat;
 
 
 public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder>  {
-    public String arg_cat,arg_pname,p_username,p_usertype;
+    public String arg_cat,arg_pname,p_username,p_usertype, dist_temp;
+    public double cutoffDist;
     // category , product name
 
 
-    public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname) {
+    public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname,double cutDist) {
         super(options);
         SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
@@ -39,6 +42,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         p_usertype  = sh.getString("usertype", "Customer");
        arg_cat=catname;
        arg_pname=pname;
+       cutoffDist = cutDist;
 
 
     }
@@ -104,6 +108,14 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     lon2 = Double.parseDouble(str4);
                     String str = new DecimalFormat("#.00#").format(distance(lat1,lon1,lat2,lon2));
                     holder.dist.setText(str);
+                    double activeDist = Double.parseDouble(str);
+                    if(activeDist>cutoffDist){
+                        holder.itemView.setVisibility(View.INVISIBLE);
+                        Log.i("Dist","DS1 does not exist");
+                    }
+                    else {
+                        holder.itemView.setVisibility(View.VISIBLE);
+                    }
                 }else{
                     Log.i("memes","DS1 does not exist");
                 }
@@ -175,6 +187,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             rate = itemView.findViewById(R.id.rateTV);
             tc = itemView.findViewById(R.id.totalcostTV);
             dist = itemView.findViewById(R.id.distTV);
+
 
         }
     }

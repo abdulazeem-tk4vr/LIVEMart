@@ -1,7 +1,10 @@
 package com.example.oop_project.Customer;
 
+import java.util.List;
+
 public class model_category {
     String image, pname;
+
 
     public model_category() {
     }

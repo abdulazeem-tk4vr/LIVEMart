@@ -1,10 +1,13 @@
 package com.example.oop_project.Customer;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 public class CustomerShopList extends Fragment{
-
+    double cutDist=1000;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -27,7 +30,8 @@ public class CustomerShopList extends Fragment{
     String catname,pname;
     RecyclerView recview1;
     Shopadapter adapter;
-
+    Button filter;
+    EditText cutoffDist;
     public CustomerShopList() {
 
     }
@@ -55,16 +59,16 @@ public class CustomerShopList extends Fragment{
             mParam2 = getArguments().getString(ARG_PARAM2).trim();
         }
 
-
-        
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.shop_list, container, false);
+        View view = inflater.inflate(R.layout.activity_shop_filter, container, false);
 
-        recview1 = (RecyclerView) view.findViewById(R.id.recview_shop);
+        filter = view.findViewById(R.id.button3);
+
+        recview1 = (RecyclerView) view.findViewById(R.id.rcycler);
         recview1.setLayoutManager(new LinearLayoutManager(getContext()));
         Log.i("Mine dis", "pname:" + pname);
         Log.i("Mine dis", "catname:" + catname);
@@ -77,8 +81,22 @@ public class CustomerShopList extends Fragment{
                 new FirebaseRecyclerOptions.Builder<model_shop>()
                         .setQuery(query, model_shop.class)
                         .build();
-        adapter = new Shopadapter(options,getContext(),  catname , pname);
+
+        adapter = new Shopadapter(options,getContext(),  catname , pname,cutDist);
         recview1.setAdapter(adapter);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cutoffDist = view.findViewById(R.id.editTextNumberDecimal6);
+                cutDist = Double.parseDouble(String.valueOf(cutoffDist.getText()));
+                Log.i("DistCheck:", String.valueOf(cutDist));
+                //recview1.invalidate();
+                adapter = new Shopadapter(options,getContext(),  catname , pname,cutDist);
+                recview1.setAdapter(adapter);
+
+            }
+        });
+
         return view;
     }
 
@@ -92,6 +110,7 @@ public class CustomerShopList extends Fragment{
     public void onStart() {
         super.onStart();
         adapter.startListening();
+
     }
 
     @Override
