@@ -1,7 +1,6 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Retailer;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.oop_project.Customer.CustomerSubCategories;
+import com.example.oop_project.Customer.Shopadapter;
+import com.example.oop_project.Customer.model_shop;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class CustomerShopList extends Fragment{
+public class RetailerShopList extends Fragment{
     double cutDist=1000;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -30,20 +32,21 @@ public class CustomerShopList extends Fragment{
     public double cutoffDistance;
     String catname,pname;
     RecyclerView recview1;
-    Shopadapter adapter;
+    RetailerShopadapter adapter;
+    Button filter;
     EditText cutoffDist;
-    public CustomerShopList() {
+    public RetailerShopList() {
 
     }
 
-    public CustomerShopList(String catname, String pname,double cutDistance) {
+    public RetailerShopList(String catname, String pname, double cutDistance) {
         this.cutoffDistance = cutDistance;
         this.catname = catname;
         this.pname = pname;
     }
 
-    public static CustomerShopList newInstance(String param1, String param2) {
-        CustomerShopList fragment = new CustomerShopList();
+    public static RetailerShopList newInstance(String param1, String param2) {
+        RetailerShopList fragment = new RetailerShopList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,23 +74,24 @@ public class CustomerShopList extends Fragment{
         Log.i("Mine dis", "catname:" + catname);
 
         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
-        Query query = rootref.child("Quantity").child(catname).child(pname).child("Retailer");
+        Query query = rootref.child("Quantity").child(catname).child(pname).child("Wholesaler");
         //pname = Fruits
 
-        FirebaseRecyclerOptions<model_shop> options =
-                new FirebaseRecyclerOptions.Builder<model_shop>()
-                        .setQuery(query, model_shop.class)
+        FirebaseRecyclerOptions<RetailerShopModel> options =
+                new FirebaseRecyclerOptions.Builder<RetailerShopModel>()
+                        .setQuery(query, RetailerShopModel.class)
                         .build();
 
-        adapter = new Shopadapter(options,getContext(),  catname , pname,cutoffDistance);
+        adapter = new RetailerShopadapter(options,getContext(),  catname , pname,cutoffDistance);
         recview1.setAdapter(adapter);
+
 
         return view;
     }
 
     public void onBackPressed() {
         AppCompatActivity activity = (AppCompatActivity) getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new CustomerSubCategories()).addToBackStack(null).commit();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new RetailerSubCategories()).addToBackStack(null).commit();
 
     }
 

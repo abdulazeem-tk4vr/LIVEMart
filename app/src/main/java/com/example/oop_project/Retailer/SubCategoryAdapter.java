@@ -1,5 +1,6 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Retailer;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.oop_project.Customer.CustomerShopList;
+import com.example.oop_project.Customer.model_subcategory;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_category, myadapterCustomerCategory.myviewholder> {
-
-    public myadapterCustomerCategory(@NonNull FirebaseRecyclerOptions<model_category> options) {
+public class SubCategoryAdapter extends FirebaseRecyclerAdapter<model_subcategory, SubCategoryAdapter.myviewholder> {
+    String catname;
+    public SubCategoryAdapter(@NonNull FirebaseRecyclerOptions<model_subcategory> options, String category) {
         super(options);
+        catname=category;
     }
 
     @Override
@@ -36,28 +40,21 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_category model) {
-
-
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_subcategory model) {
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
-        holder.cutdisttext.setVisibility(View.INVISIBLE);
-        holder.cutDist.setVisibility(View.INVISIBLE);
-//        if(model.getPname().equals("Fruits")) {
-//            holder.itemView.setVisibility(View.VISIBLE);
-//            }
-//            else{
-//            holder.itemView.setVisibility(View.GONE);
-//        }
-
-
+        holder.cutdisttext.setVisibility(View.VISIBLE);
+        holder.cutDist.setVisibility(View.VISIBLE);
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                double cutDist=1000;
+                if(holder.cutDist.getText().length() != 0){
+                    cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
+                }
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
-
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerShopList(catname,model.getPname(),cutDist)).addToBackStack(null).commit();
+                Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
     }

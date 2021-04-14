@@ -1,14 +1,11 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Retailer;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,20 +23,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DecimalFormat;
 
 
-public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder>  {
+public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopModel, RetailerShopadapter.myviewholder>  {
     public String arg_cat,arg_pname,p_username,p_usertype, dist_temp,parent_usertype;
     public double cutoffDist;
     // category , product name
 
 
-    public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname,double cutDist) {
+    public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist) {
         super(options);
         SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
         // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-        p_username  = sh.getString("username", "Macha");
-        p_usertype  = sh.getString("usertype", "Customer");
+        p_username  =  "Fgretailer";
+        p_usertype  = "Retailer";
        arg_cat=catname;
        arg_pname=pname;
        cutoffDist = cutDist;
@@ -78,10 +75,13 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         return (rad * 180.0 / Math.PI);
     }
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_shop model) {
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final RetailerShopModel model) {
         Log.i("memes",arg_pname);
         Log.i("memes",p_username);
         Log.i("memes",p_usertype);
+        Log.i("subra",model.getRname());
+        Log.i("subra",model.getQuantity());
+        Log.i("subra",model.getPrice());
         holder.shopname.setText(model.getRname());
         holder.qty.setText(model.getQuantity());
         holder.rate.setText(model.getPrice());
@@ -102,7 +102,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     Log.i("status","random");
                     if(p_usertype.equals("Customer")){
                         parent_usertype="Retailer";
-                    }else if(p_usertype.equals("Retailer")){
+                    }else{
                         parent_usertype="Wholesaler";
                     }
                     Log.i("status",parent_usertype);

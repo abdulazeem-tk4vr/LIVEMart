@@ -1,5 +1,7 @@
 package com.example.oop_project.Helper;
 
+import android.util.Log;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -11,6 +13,7 @@ import com.example.oop_project.FragmentContent;
 import com.example.oop_project.Interface.NavigationManager;
 import com.example.oop_project.NavigationBar;
 import com.example.oop_project.R;
+import com.example.oop_project.Retailer.RetailerCategories;
 import com.rey.material.BuildConfig;
 
 public class FragmentNavigationManager implements NavigationManager {
@@ -41,6 +44,7 @@ public class FragmentNavigationManager implements NavigationManager {
                 {
                     case "Categories":
                         showFragment(new CustomerCategories(),false);
+                        Log.i("status","customer cat");
                         break;
                     case "Cart":
                         showFragment(new CustomerCart(),false);
@@ -51,7 +55,19 @@ public class FragmentNavigationManager implements NavigationManager {
                 }
                 break;
             case "Retailer":
-                System.out.println("Retailer");
+                switch(childItem)
+                {
+                    case "Categories":
+                        showFragment(new RetailerCategories(),false);
+                        Log.i("status","retailer cat");
+                        break;
+                    case "Cart":
+                        showFragment(new CustomerCart(),false);
+                        break;
+                    case "orders":
+                        showFragment(new CustomerOrders(),false);
+                        break;
+                }
                 break;
             case "Wholesaler":
                 System.out.println("Wholesaler");

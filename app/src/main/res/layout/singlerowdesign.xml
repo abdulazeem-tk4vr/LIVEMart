@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:elevation="8dp"
-    app:cardUseCompatPadding="true"
-app:cardBackgroundColor="@color/teal_700"    >
+    app:cardBackgroundColor="@color/teal_700"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,21 +14,21 @@ app:cardBackgroundColor="@color/teal_700"    >
         android:padding="15dp">
 
         <ImageView
+            android:id="@+id/img1"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher"
-            android:id="@+id/img1"/>
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/nametext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nametext"
-            android:text="This is Demo Name"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="#000"
+            android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
-            android:layout_marginLeft="10dp"/>
+            android:text="This is Demo Name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/cutDist"
@@ -40,6 +40,20 @@ app:cardBackgroundColor="@color/teal_700"    >
             android:layout_marginTop="83dp"
             android:ems="10"
             android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/cutDisttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nametext"
+            android:layout_alignStart="@+id/cutDist"
+            android:layout_alignEnd="@+id/cutDist"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:text="Cut-Off Dist:"
+            android:textSize="18sp" />
 
 
     </RelativeLayout>

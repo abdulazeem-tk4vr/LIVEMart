@@ -1,5 +1,7 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Retailer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +14,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.oop_project.Customer.CustomerSubCategories;
+import com.example.oop_project.Retailer.model_category;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_category, myadapterCustomerCategory.myviewholder> {
+public class CategoryAdapter extends FirebaseRecyclerAdapter<model_category, CategoryAdapter.myviewholder> {
 
-    public myadapterCustomerCategory(@NonNull FirebaseRecyclerOptions<model_category> options) {
+    public CategoryAdapter(@NonNull FirebaseRecyclerOptions<model_category> options) {
         super(options);
+
     }
 
     @Override
@@ -56,7 +61,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
             public void onClick(View view) {
 
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerSubCategories(model.getPname())).addToBackStack(null).commit();
 
             }
         });
@@ -74,6 +79,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
         TextView nametext;
         TextView cutdisttext;
         EditText cutDist;
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             cutdisttext = itemView.findViewById(R.id.cutDisttext);

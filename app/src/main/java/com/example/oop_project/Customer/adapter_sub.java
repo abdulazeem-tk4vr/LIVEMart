@@ -43,13 +43,14 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_subcategory model) {
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
-
+        holder.cutdisttext.setVisibility(View.VISIBLE);
+        holder.cutDist.setVisibility(View.VISIBLE);
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double cutDist=1000;
-                if(holder.cutoffDist.getText().length() != 0){
-                    cutDist = Double.parseDouble(String.valueOf(holder.cutoffDist.getText()));
+                if(holder.cutDist.getText().length() != 0){
+                    cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
                 }
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname(),cutDist)).addToBackStack(null).commit();
@@ -68,13 +69,15 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
     public class myviewholder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView nametext;
-        EditText cutoffDist;
+        TextView cutdisttext;
+        EditText cutDist;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
-
+            cutdisttext = itemView.findViewById(R.id.cutDisttext);
+            cutDist = itemView.findViewById(R.id.cutDist);
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
-            cutoffDist = itemView.findViewById(R.id.cutDist);
+
         }
     }
 
