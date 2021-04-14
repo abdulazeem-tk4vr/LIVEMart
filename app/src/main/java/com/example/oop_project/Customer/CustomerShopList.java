@@ -27,6 +27,7 @@ public class CustomerShopList extends Fragment{
 
     private String mParam1;
     private String mParam2;
+    public double cutoffDistance;
     String catname,pname;
     RecyclerView recview1;
     Shopadapter adapter;
@@ -36,8 +37,8 @@ public class CustomerShopList extends Fragment{
 
     }
 
-    public CustomerShopList(String catname, String pname) {
-
+    public CustomerShopList(String catname, String pname,double cutDistance) {
+        this.cutoffDistance = cutDistance;
         this.catname = catname;
         this.pname = pname;
     }
@@ -82,16 +83,16 @@ public class CustomerShopList extends Fragment{
                         .setQuery(query, model_shop.class)
                         .build();
 
-        adapter = new Shopadapter(options,getContext(),  catname , pname,cutDist);
+        adapter = new Shopadapter(options,getContext(),  catname , pname,cutoffDistance);
         recview1.setAdapter(adapter);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cutoffDist = view.findViewById(R.id.editTextNumberDecimal6);
                 cutDist = Double.parseDouble(String.valueOf(cutoffDist.getText()));
-                Log.i("DistCheck:", String.valueOf(cutDist));
+                Log.i("DistCheck:", String.valueOf(cutoffDistance));
                 //recview1.invalidate();
-                adapter = new Shopadapter(options,getContext(),  catname , pname,cutDist);
+                adapter = new Shopadapter(options,getContext(),  catname , pname,cutoffDistance);
                 recview1.setAdapter(adapter);
 
             }

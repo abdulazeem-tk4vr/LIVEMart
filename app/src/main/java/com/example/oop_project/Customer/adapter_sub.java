@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,8 +47,12 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                double cutDist=1000;
+                if(holder.cutoffDist.getText().length() != 0){
+                    cutDist = Double.parseDouble(String.valueOf(holder.cutoffDist.getText()));
+                }
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname(),cutDist)).addToBackStack(null).commit();
                 Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
@@ -63,12 +68,13 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
     public class myviewholder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView nametext;
-
+        EditText cutoffDist;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
+            cutoffDist = itemView.findViewById(R.id.cutDist);
         }
     }
 

@@ -30,6 +30,16 @@ app:cardBackgroundColor="@color/teal_700"    >
             android:layout_toRightOf="@id/img1"
             android:layout_marginLeft="10dp"/>
 
+        <EditText
+            android:id="@+id/cutDist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img1"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="83dp"
+            android:ems="10"
+            android:inputType="numberDecimal" />
 
 
     </RelativeLayout>
