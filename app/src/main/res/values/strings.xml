@@ -1,7 +1,7 @@
 <resources>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <string name="app_name">OOP_project</string>
+    <string name="app_name">LIVE Mart</string>
     <string name="checkbox">Remember Me</string>
     <string-array name="users">
         <item>What type of user are you?</item>

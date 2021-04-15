@@ -19,7 +19,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Context"
+                android:text="Welcome"
                 android:padding="10dp"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
                 android:textColor="@android:color/black"></TextView>
