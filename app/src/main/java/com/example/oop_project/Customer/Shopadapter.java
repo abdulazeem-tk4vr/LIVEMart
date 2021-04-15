@@ -119,7 +119,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     double activeDist = Double.parseDouble(str);
                     int qtyPresent = (int) Double.parseDouble(String.valueOf(holder.qty.getText()));
                     if(activeDist>cutoffDist || quantityDemand>qtyPresent){
-                        holder.itemView.setVisibility(View.GONE);
+                        holder.itemView.setVisibility(View.INVISIBLE);
                         Log.i("Dist","DS1 does not exist");
                     }
                     else {
