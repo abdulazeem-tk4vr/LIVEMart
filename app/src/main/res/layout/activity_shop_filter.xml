@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal"
-    tools:context="Customer.ShopFilterActivity">
+    tools:context="Customer.ShopFilterActivity"
+    android:background="@drawable/livemart">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcycler"

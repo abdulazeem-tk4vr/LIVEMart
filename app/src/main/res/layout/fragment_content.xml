@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FragmentContent">
+    tools:context=".FragmentContent"
+    android:background="@drawable/dashboard">
 
     <FrameLayout
         android:layout_height="300dp"
@@ -13,17 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_laptop_24"
-            android:id="@+id/icon"/>
-            <TextView
-                android:id = "@+id/title123"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Welcome"
-                android:padding="10dp"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textColor="@android:color/black"></TextView>
+            android:id="@+id/comp"
+            />
 
+        <TextView
+            android:id="@+id/title123"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Welcome"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textColor="@android:color/black"></TextView>
 
 
     </FrameLayout>

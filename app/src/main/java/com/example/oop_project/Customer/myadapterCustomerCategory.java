@@ -43,6 +43,9 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
         holder.cutdisttext.setVisibility(View.INVISIBLE);
         holder.cutDist.setVisibility(View.INVISIBLE);
+        holder.Quant.setVisibility(View.INVISIBLE);
+        holder.Quanttext.setVisibility(View.INVISIBLE);
+
 //        if(model.getPname().equals("Fruits")) {
 //            holder.itemView.setVisibility(View.VISIBLE);
 //            }
@@ -72,10 +75,13 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
     public class myviewholder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView nametext;
-        TextView cutdisttext;
-        EditText cutDist;
+        TextView cutdisttext,Quant;
+        EditText cutDist,Quanttext;
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
+            Quanttext = itemView.findViewById(R.id.qtyText);
+            Quant = itemView.findViewById(R.id.textView5);
             cutdisttext = itemView.findViewById(R.id.cutDisttext);
             cutDist = itemView.findViewById(R.id.cutDist);
             img1 = itemView.findViewById(R.id.img1);

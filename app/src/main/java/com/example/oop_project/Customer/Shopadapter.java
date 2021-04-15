@@ -136,7 +136,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                         holder.b1.setVisibility(View.GONE);
                         holder.b2.setVisibility(View.GONE);
                         holder.tc.setVisibility(View.GONE);
-                        holder.qty.setText("LOW STOCK, RETURN ON THE 20th OF THE NEXT MONTH");
+                        holder.qty.setText("LOW STOCK, return ON 20th May!");
                     }
                 }else{
                     Log.i("memes","DS1 does not exist");

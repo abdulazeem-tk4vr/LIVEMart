@@ -28,13 +28,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/select_product_image"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="25dp"
+        android:hint="Store your product image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_product_image"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="72dp"
         android:layout_marginRight="45dp"
         android:inputType="textMultiLine"
         android:padding="20dp"
         android:text="Please give the product details"
         android:textAlignment="center"
+
         android:textSize="20dp"
         android:textStyle="bold" />
 

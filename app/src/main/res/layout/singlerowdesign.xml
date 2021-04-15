@@ -39,6 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="150dp"
             android:layout_marginTop="83dp"
+            android:textAlignment="center"
             android:ems="10"
             android:inputType="numberDecimal" />
 
@@ -54,6 +55,7 @@
             android:layout_marginEnd="50dp"
             android:gravity="center"
             android:text="Cut-Off Dist:"
+            android:textAlignment="center"
             android:textSize="18sp" />
 
         <TextView
@@ -71,11 +73,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="162dp"
             android:layout_toEndOf="@+id/textView5"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            />
 
 
     </RelativeLayout>

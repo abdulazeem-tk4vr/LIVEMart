@@ -29,13 +29,35 @@
         android:paddingBottom="5dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/input_design"
-
+        android:fontFamily="@font/roboto"
         android:text="Welcome to your trusted grocery app"
         android:textAlignment="center"
-        android:textColor="#161716"
+        android:textColor="@color/black"
         android:textSize="22sp"
+        android:background="@drawable/inout_2"
         />
+
+    <TextView
+        android:id="@+id/textmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="227dp"
+        android:layout_marginEnd="61dp"
+        android:fontFamily="@font/roboto"
+        android:padding="12dp"
+        android:shadowColor="@color/teal_700"
+        android:shadowDx="12"
+        android:shadowDy="12"
+        android:shadowRadius="8"
+        android:text="LIVE MART"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="188dp" />
 
     <Button
         android:id="@+id/main_login_btn"
@@ -49,6 +71,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="80dp"
         android:background="@drawable/buttons"
+        android:shadowColor="@color/teal_700"
 
         android:padding="20dp"
         android:text="LOGIN"
@@ -68,6 +91,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/buttons"
+        android:shadowColor="@color/teal_700"
 
         android:padding="20dp"
         android:text="Registration"
