@@ -56,6 +56,27 @@
             android:text="Cut-Off Dist:"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img1"
+            android:layout_alignTop="@+id/img1"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="168dp"
+            android:text="Quantity:" />
+
+        <EditText
+            android:id="@+id/qtyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="150dp"
+            android:layout_toEndOf="@+id/textView5"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
 
     </RelativeLayout>
 

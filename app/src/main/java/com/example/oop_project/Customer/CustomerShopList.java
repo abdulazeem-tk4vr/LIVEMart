@@ -27,6 +27,7 @@ public class CustomerShopList extends Fragment{
 
     private String mParam1;
     private String mParam2;
+    public int quantity;
     public double cutoffDistance;
     String catname,pname;
     RecyclerView recview1;
@@ -36,10 +37,11 @@ public class CustomerShopList extends Fragment{
 
     }
 
-    public CustomerShopList(String catname, String pname,double cutDistance) {
+    public CustomerShopList(String catname, String pname,double cutDistance,int qty) {
         this.cutoffDistance = cutDistance;
         this.catname = catname;
         this.pname = pname;
+        this.quantity = qty;
     }
 
     public static CustomerShopList newInstance(String param1, String param2) {
@@ -79,7 +81,7 @@ public class CustomerShopList extends Fragment{
                         .setQuery(query, model_shop.class)
                         .build();
 
-        adapter = new Shopadapter(options,getContext(),  catname , pname,cutoffDistance);
+        adapter = new Shopadapter(options,getContext(),  catname , pname,cutoffDistance,quantity);
         recview1.setAdapter(adapter);
 
         return view;

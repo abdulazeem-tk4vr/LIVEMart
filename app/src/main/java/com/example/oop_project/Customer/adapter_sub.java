@@ -49,11 +49,15 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
             @Override
             public void onClick(View view) {
                 double cutDist=1000;
-                if(holder.cutDist.getText().length() != 0){
+                int qty = 0;
+                if(holder.cutDist.getText().length() != 0 ){
                     cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
+
                 }
+                if(holder.qtyText.getText().length() !=0){
+                qty = (int) Double.parseDouble(String.valueOf(holder.qtyText.getText()));}
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname(),cutDist)).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname(),cutDist,qty)).addToBackStack(null).commit();
                 Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
@@ -70,14 +74,14 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
         ImageView img1;
         TextView nametext;
         TextView cutdisttext;
-        EditText cutDist;
+        EditText cutDist,qtyText;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             cutdisttext = itemView.findViewById(R.id.cutDisttext);
             cutDist = itemView.findViewById(R.id.cutDist);
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
-
+            qtyText = itemView.findViewById(R.id.qtyText);
         }
     }
 

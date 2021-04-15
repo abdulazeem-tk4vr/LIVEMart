@@ -29,10 +29,11 @@ import java.text.DecimalFormat;
 public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder>  {
     public String arg_cat,arg_pname,p_username,p_usertype, dist_temp,parent_usertype;
     public double cutoffDist;
+    public int quantityDemand;
     // category , product name
 
 
-    public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname,double cutDist) {
+    public Shopadapter(@NonNull FirebaseRecyclerOptions<model_shop> options, Context context, String catname , String pname,double cutDist,int quantity) {
         super(options);
         SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
@@ -43,7 +44,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
        arg_cat=catname;
        arg_pname=pname;
        cutoffDist = cutDist;
-
+       quantityDemand = quantity;
 
     }
 
@@ -116,7 +117,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     String str = new DecimalFormat("#.00#").format(distance(lat1,lon1,lat2,lon2));
                     holder.dist.setText(str);
                     double activeDist = Double.parseDouble(str);
-                    if(activeDist>cutoffDist){
+                    int qtyPresent = (int) Double.parseDouble(String.valueOf(holder.qty.getText()));
+                    if(activeDist>cutoffDist || quantityDemand>qtyPresent){
                         holder.itemView.setVisibility(View.INVISIBLE);
                         Log.i("Dist","DS1 does not exist");
                     }
