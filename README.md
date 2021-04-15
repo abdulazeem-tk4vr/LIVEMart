@@ -1,5 +1,5 @@
 
-# Grocery Shop eCommerce Mobile Android Application
+# Grocery Shop eCommerce Mobile Android Application ( Java )
 Built in Java using Android Studio and Firebase Realtime database (for storing the data online) .
 # Tables of Contents
 * [Introduction](#introduction)
