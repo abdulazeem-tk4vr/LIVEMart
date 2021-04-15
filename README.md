@@ -40,16 +40,16 @@ Front End Resources :
 </br></br>
 
 https://iconscout.com/
-</br></br>
+</br>
 
 https://icons8.com/
-</br></br>
+</br>
 
 https://material.io/
-</br></br>
+</br>
 
 https://www.canva.com/
-</br></br>
+</br>
 
 
 
