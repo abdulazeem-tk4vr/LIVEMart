@@ -41,10 +41,10 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 // the very first time when the app is opened, there is nothing to show
         p_username  = sh.getString("username", "Macha");
         p_usertype  = sh.getString("usertype", "Customer");
-       arg_cat=catname;
-       arg_pname=pname;
-       cutoffDist = cutDist;
-       quantityDemand = quantity;
+        arg_cat=catname;
+        arg_pname=pname;
+        cutoffDist = cutDist;
+        quantityDemand = quantity;
 
     }
 
@@ -86,12 +86,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         holder.shopname.setText(model.getRname());
         holder.qty.setText(model.getQuantity());
         holder.rate.setText(model.getPrice());
-        if(quantityDemand != 0) {
-            holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice()) *quantityDemand));
-        }
-        else {
-            holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice()) * Integer.parseInt(model.getQuantity())));
-        }
+        holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice())* Integer.parseInt(model.getQuantity())));
+
 
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -122,21 +118,12 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     holder.dist.setText(str);
                     double activeDist = Double.parseDouble(str);
                     int qtyPresent = (int) Double.parseDouble(String.valueOf(holder.qty.getText()));
-                    if(activeDist>cutoffDist){
+                    if(activeDist>cutoffDist || quantityDemand>qtyPresent){
                         holder.itemView.setVisibility(View.INVISIBLE);
                         Log.i("Dist","DS1 does not exist");
                     }
                     else {
                         holder.itemView.setVisibility(View.VISIBLE);
-                    }
-                    if(quantityDemand>qtyPresent){
-                        holder.dist.setVisibility(View.GONE);
-                        holder.rate.setVisibility(View.GONE);
-                        holder.r.setVisibility(View.GONE);
-                        holder.b1.setVisibility(View.GONE);
-                        holder.b2.setVisibility(View.GONE);
-                        holder.tc.setVisibility(View.GONE);
-                        holder.qty.setText("LOW STOCK, RETURN ON THE 20th OF THE NEXT MONTH");
                     }
                 }else{
                     Log.i("memes","DS1 does not exist");
@@ -158,13 +145,13 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
 
 
-            // to retrieve the coordinates from the user
-            // retrieve coordinates from the shop
-            // calculate distance
+        // to retrieve the coordinates from the user
+        // retrieve coordinates from the shop
+        // calculate distance
 
 
 
-            //display details
+        //display details
 
 
         FirebaseDatabase.getInstance().getReference().child("Quantity").child(arg_cat).child(arg_pname);
@@ -195,8 +182,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
-        TextView shopname,qty,rate,tc,dist,r;
-        Button b1,b2;
+        TextView shopname,qty,rate,tc,dist;
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -209,9 +196,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             rate = itemView.findViewById(R.id.rateTV);
             tc = itemView.findViewById(R.id.totalcostTV);
             dist = itemView.findViewById(R.id.distTV);
-            b1 = itemView.findViewById(R.id.addtocartbtn);
-            b2 = itemView.findViewById(R.id.feedbackbtn);
-            r = itemView.findViewById(R.id.retailer_sub_name);
+
 
         }
     }
