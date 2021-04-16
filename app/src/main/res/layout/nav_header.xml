@@ -16,18 +16,9 @@
             android:id="@+id/avatar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src = "@drawable/ic_baseline_emoji_emotions_24"/>
+            android:src = "@drawable/imagevol"/>
 
-        <!--<TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id = "@+id/balance"
-            android:layout_gravity="right|end"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:text="Karthik Suresh"
-            android:textColor="android:color/white"
-            android:textSize="16sp"/>-->
+
     </LinearLayout>
 
 </LinearLayout>
