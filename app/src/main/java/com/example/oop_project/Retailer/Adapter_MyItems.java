@@ -26,16 +26,13 @@ public class Adapter_MyItems extends FirebaseRecyclerAdapter<model_items_cat, Ad
     protected void onBindViewHolder(@NonNull itemviewholder holder, int position, @NonNull model_items_cat model) {
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
-        holder.cutdisttext.setVisibility(View.INVISIBLE);
-        holder.cutDist.setVisibility(View.INVISIBLE);
-        holder.Quant.setVisibility(View.INVISIBLE);
-        holder.Quanttext.setVisibility(View.INVISIBLE);
+
     }
 
     @NonNull
     @Override
     public itemviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowdesign, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemdesign, parent, false);
         return new itemviewholder(view);
     }
 
@@ -43,15 +40,10 @@ public class Adapter_MyItems extends FirebaseRecyclerAdapter<model_items_cat, Ad
     {
         ImageView img1;
         TextView nametext;
-        TextView cutdisttext,Quant;
-        EditText cutDist,Quanttext;
 
         public itemviewholder(@NonNull View itemView) {
             super(itemView);
-            Quanttext = itemView.findViewById(R.id.qtyText);
-            Quant = itemView.findViewById(R.id.textView5);
-            cutdisttext = itemView.findViewById(R.id.cutDisttext);
-            cutDist = itemView.findViewById(R.id.cutDist);
+
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
         }
