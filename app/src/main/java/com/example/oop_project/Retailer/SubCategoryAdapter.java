@@ -45,7 +45,7 @@ public class SubCategoryAdapter extends FirebaseRecyclerAdapter<model_subcategor
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
         holder.cutdisttext.setVisibility(View.VISIBLE);
         holder.cutDist.setVisibility(View.VISIBLE);
-        holder.img1.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double cutDist=1000;

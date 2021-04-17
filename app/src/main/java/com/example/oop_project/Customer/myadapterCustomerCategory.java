@@ -54,7 +54,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 //        }
 
 
-        holder.img1.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                CustomerSubCategories(model.getPname())

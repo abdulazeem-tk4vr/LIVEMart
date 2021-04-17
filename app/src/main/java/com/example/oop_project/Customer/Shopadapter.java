@@ -130,13 +130,18 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                         holder.itemView.setVisibility(View.VISIBLE);
                     }
                     if(quantityDemand>qtyPresent){
-                        holder.dist.setVisibility(View.GONE);
-                        holder.rate.setVisibility(View.GONE);
-                        holder.r.setVisibility(View.GONE);
-                        holder.b1.setVisibility(View.GONE);
-                        holder.b2.setVisibility(View.GONE);
-                        holder.tc.setVisibility(View.GONE);
-                        holder.qty.setText("LOW STOCK, return ON 20th May!");
+                        holder.dist.setVisibility(View.INVISIBLE);
+                        holder.rate.setVisibility(View.INVISIBLE);
+                        holder.r.setVisibility(View.INVISIBLE);
+                        holder.b1.setVisibility(View.INVISIBLE);
+                        holder.b2.setVisibility(View.INVISIBLE);
+                        holder.tc.setVisibility(View.INVISIBLE);
+
+                        holder.t16.setVisibility(View.INVISIBLE);
+                        holder.t21.setVisibility(View.INVISIBLE);
+                        holder.sub.setVisibility(View.INVISIBLE);
+
+                        holder.qty.setText("LOW on STOCK, return on 20th May!");
                     }
                 }else{
                     Log.i("memes","DS1 does not exist");
@@ -197,6 +202,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         //modify this based on what ani designs
         TextView shopname,qty,rate,tc,dist,r;
         Button b1,b2;
+        TextView t16,t21,sub;
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -212,6 +219,13 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             b1 = itemView.findViewById(R.id.addtocartbtn);
             b2 = itemView.findViewById(R.id.feedbackbtn);
             r = itemView.findViewById(R.id.retailer_sub_name);
+
+            t16 = itemView.findViewById(R.id.textView16);
+            t21 = itemView.findViewById(R.id.textView21);
+            sub = itemView.findViewById(R.id.retailer_sub_name);
+
+
+
 
         }
     }

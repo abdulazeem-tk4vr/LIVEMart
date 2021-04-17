@@ -52,7 +52,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<model_items_cat, Ca
 //        }
 
 
-        holder.img1.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
