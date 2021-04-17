@@ -57,7 +57,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+//                CustomerSubCategories(model.getPname())
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
 

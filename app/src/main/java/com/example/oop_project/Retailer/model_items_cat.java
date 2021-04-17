@@ -1,13 +1,13 @@
 package com.example.oop_project.Retailer;
 
-public class model_category {
+public class model_items_cat {
     String image, pname;
 
 
-    public model_category() {
+    public model_items_cat() {
     }
 
-    public model_category(String image, String pname) {
+    public model_items_cat(String image, String pname) {
         this.image = image;
         this.pname = pname;
     }

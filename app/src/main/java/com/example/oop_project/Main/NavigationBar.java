@@ -1,4 +1,4 @@
-package com.example.oop_project;
+package com.example.oop_project.Main;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.oop_project.Adapter.CustomExpandableListAdapter;
 import com.example.oop_project.Helper.FragmentNavigationManager;
 import com.example.oop_project.Interface.NavigationManager;
+import com.example.oop_project.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

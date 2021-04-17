@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/work_app"
 
-    tools:context=".RegisterActivity"
+    tools:context=".Main.RegisterActivity"
     >
 
     <Button

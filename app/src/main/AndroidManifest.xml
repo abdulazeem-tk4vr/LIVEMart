@@ -17,17 +17,16 @@
             android:name=".otp_extra.ShopFilterActivity"
             android:label="@string/title_activity_shop_filter"
             android:theme="@style/Theme.OOP_project.NoActionBar"></activity>
-        <activity android:name=".VerifyOTPActivity" />
-        <activity android:name=".SendOTPActivity" />
-        <activity android:name=".addproduct" />
+        <activity android:name=".Main.VerifyOTPActivity" />
+        <activity android:name=".Main.SendOTPActivity" />
+        <activity android:name=".Main.addproduct" />
         <activity android:name=".otp_extra.entermobilenumber" />
         <activity android:name=".otp_extra.verifyenterotptwo" />
-        <activity android:name=".PlacePicker" />
-        <activity android:name=".NavigationBar" />
-        <activity android:name=".addprodnoimage"/>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main.NavigationBar" />
+        <activity android:name=".Main.addprodnoimage"/>
+        <activity android:name=".Main.LoginActivity" />
+        <activity android:name=".Main.RegisterActivity" />
+        <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
