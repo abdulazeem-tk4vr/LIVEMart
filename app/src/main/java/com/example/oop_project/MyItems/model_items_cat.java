@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.MyItems;
 
 public class model_items_cat {
     String image, pname;

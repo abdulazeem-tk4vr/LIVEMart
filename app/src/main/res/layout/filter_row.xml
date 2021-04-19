@@ -63,7 +63,7 @@
                 android:layout_marginTop="16dp"
                 android:text="ShopName:"
                 android:textStyle="bold"
-
+                android:textColor="#002C1F"
                 app:layout_constraintEnd_toStartOf="@+id/shopnameTV"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -76,6 +76,7 @@
                 android:layout_marginTop="12dp"
                 android:text="Rate:"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 app:layout_constraintBottom_toBottomOf="@+id/rateTV"
                 app:layout_constraintEnd_toStartOf="@+id/rateTV"
@@ -89,6 +90,7 @@
                 android:layout_marginTop="16dp"
                 android:hint="TextView"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 android:layout_marginStart="10dp"
 
@@ -105,6 +107,7 @@
                 android:layout_marginStart="10dp"
                 android:hint="TextView"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 app:layout_constraintBottom_toTopOf="@+id/qtyTV"
                 app:layout_constraintStart_toEndOf="@+id/textView16"
@@ -118,6 +121,7 @@
                 android:layout_marginTop="60dp"
                 android:text="Quantity:"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 app:layout_constraintBottom_toBottomOf="@+id/qtyTV"
                 app:layout_constraintEnd_toStartOf="@+id/qtyTV"
@@ -131,6 +135,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="TextView"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 android:layout_marginStart="10dp"
 
@@ -146,6 +151,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Total Cost :"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/totalcostTV"
@@ -162,6 +168,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="TextView"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 android:textSize="14sp"
                 android:layout_marginStart="10dp"
@@ -178,6 +185,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Distance:"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 app:layout_constraintBottom_toBottomOf="@+id/distTV"
                 app:layout_constraintEnd_toStartOf="@+id/distTV"
@@ -194,6 +202,7 @@
                 android:layout_marginBottom="16dp"
                 android:hint="TextView"
                 android:textStyle="bold"
+                android:textColor="#002C1F"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/retailer_sub_name"

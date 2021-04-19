@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.MyItems;
 
 import android.os.Bundle;
 
@@ -40,8 +40,8 @@ public class MyItems extends Fragment {
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-        FirebaseRecyclerOptions<com.example.oop_project.Retailer.model_items_cat> options =
-                new FirebaseRecyclerOptions.Builder<com.example.oop_project.Retailer.model_items_cat>()
+        FirebaseRecyclerOptions<model_items_cat> options =
+                new FirebaseRecyclerOptions.Builder<model_items_cat>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories"), model_items_cat.class)
                         .build();
 

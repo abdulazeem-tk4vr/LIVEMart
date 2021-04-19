@@ -30,6 +30,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 
     @Override
     public void onError(@NonNull DatabaseError error) {
+
         super.onError(error);
         error.toException().printStackTrace();
     }
@@ -45,6 +46,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
         holder.cutDist.setVisibility(View.INVISIBLE);
         holder.Quant.setVisibility(View.INVISIBLE);
         holder.Quanttext.setVisibility(View.INVISIBLE);
+
 
 //        if(model.getPname().equals("Fruits")) {
 //            holder.itemView.setVisibility(View.VISIBLE);
