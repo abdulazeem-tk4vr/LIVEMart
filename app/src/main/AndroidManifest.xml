@@ -26,7 +26,8 @@
         <activity android:name=".Main.addprodnoimage"/>
         <activity android:name=".Main.LoginActivity" />
         <activity android:name=".Main.RegisterActivity" />
-        <activity android:name=".Main.MainActivity">
+        <activity android:name=".Main.MainActivity"/>
+        <activity android:name=".Main.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

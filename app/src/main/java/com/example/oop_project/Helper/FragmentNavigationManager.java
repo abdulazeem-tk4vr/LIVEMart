@@ -23,7 +23,7 @@ import com.rey.material.BuildConfig;
 
 import java.util.ArrayList;
 
-public class FragmentNavigationManager implements NavigationManager {
+public class FragmentNavigationManager  implements NavigationManager {
     private FragmentManager mFragmentManager;
     private NavigationBar mainActivity;
     private static FragmentNavigationManager mInstance;
