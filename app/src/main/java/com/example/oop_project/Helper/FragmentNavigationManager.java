@@ -14,7 +14,14 @@ import com.example.oop_project.Interface.NavigationManager;
 import com.example.oop_project.NavigationBar;
 import com.example.oop_project.R;
 import com.example.oop_project.Retailer.RetailerCategories;
+import com.example.oop_project.Retailer.RetailerTrans;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rey.material.BuildConfig;
+
+import java.util.ArrayList;
 
 public class FragmentNavigationManager implements NavigationManager {
     private FragmentManager mFragmentManager;
@@ -65,7 +72,32 @@ public class FragmentNavigationManager implements NavigationManager {
                         showFragment(new CustomerCart(),false);
                         break;
                     case "orders":
-                        showFragment(new CustomerOrders(),false);
+                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child("Fgretailer")
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ArrayList<String> Keys = new ArrayList<>();
+//                        Keys.clear();
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Keys.add(snapshot.getKey());
+                                            Log.i("randomstuff",snapshot.getKey());
+                                        }
+                                        FragmentManager fm =  mFragmentManager;
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new RetailerTrans(Keys));
+                                        ft.addToBackStack(null);
+                                        if(false || !BuildConfig.DEBUG){
+                                            ft.commitAllowingStateLoss();
+                                        }else{
+                                            ft.commit();
+                                        }
+                                        fm.executePendingTransactions();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
+
                         break;
                 }
                 break;

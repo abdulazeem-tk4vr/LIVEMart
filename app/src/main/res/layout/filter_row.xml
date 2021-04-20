@@ -15,15 +15,15 @@
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="@color/matbrown">
+            app:cardCornerRadius="25dp"
+            app:cardBackgroundColor="#1E88E5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                android:paddingBottom="7dp"
+                android:paddingBottom="16dp"
                 android:paddingTop="7dp">
 
                 <Button
@@ -36,7 +36,8 @@
                     app:layout_constraintBottom_toTopOf="@+id/feedbackbtn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.075" />
+                    app:layout_constraintVertical_bias="0.075"
+                    android:textColor="#212121"/>
 
                 <Button
                     android:id="@+id/feedbackbtn"
@@ -46,7 +47,8 @@
                     android:text="FEEDBACK"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/addtocartbtn"
-                    app:layout_constraintHorizontal_bias="1.0" />
+                    app:layout_constraintHorizontal_bias="1.0"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/textView15"
@@ -56,7 +58,8 @@
                     android:layout_marginTop="16dp"
                     android:text="ShopName:"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/textView16"
@@ -66,7 +69,8 @@
                     android:layout_marginTop="12dp"
                     android:text="Rate:"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView15"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/shopnameTV"
@@ -76,7 +80,8 @@
                     android:layout_marginTop="16dp"
                     android:hint="TextView"
                     app:layout_constraintStart_toEndOf="@+id/textView15"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/rateTV"
@@ -86,7 +91,8 @@
                     android:layout_marginTop="48dp"
                     android:hint="TextView"
                     app:layout_constraintStart_toEndOf="@+id/textView16"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/textView19"
@@ -96,7 +102,8 @@
                     android:layout_marginTop="60dp"
                     android:text="Quantity:"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView15" />
+                    app:layout_constraintTop_toTopOf="@+id/textView15"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/qtyTV"
@@ -106,7 +113,8 @@
                     android:layout_marginTop="60dp"
                     android:hint="TextView"
                     app:layout_constraintStart_toEndOf="@+id/textView19"
-                    app:layout_constraintTop_toTopOf="@+id/shopnameTV" />
+                    app:layout_constraintTop_toTopOf="@+id/shopnameTV"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/textView21"
@@ -116,7 +124,8 @@
                     android:layout_marginTop="8dp"
                     android:text="Total Cost :"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView19"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/totalcostTV"
@@ -126,7 +135,9 @@
                     android:layout_marginTop="104dp"
                     android:hint="TextView"
                     app:layout_constraintStart_toEndOf="@+id/textView21"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#212121"/>
+
 
                 <TextView
                     android:id="@+id/retailer_sub_name"
@@ -136,7 +147,8 @@
                     android:layout_marginTop="12dp"
                     android:text="Distance:"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView21"
+                    android:textColor="#212121"/>
 
                 <TextView
                     android:id="@+id/distTV"
@@ -146,7 +158,8 @@
                     android:layout_marginTop="132dp"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#212121"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

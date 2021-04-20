@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal"
-    tools:context="Customer.ShopFilterActivity">
+    android:background="#2e2e2d">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcycler"
