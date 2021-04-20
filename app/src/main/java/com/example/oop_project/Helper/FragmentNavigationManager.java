@@ -1,5 +1,7 @@
 package com.example.oop_project.Helper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,7 @@ import com.example.oop_project.Customer.CustomerCategories;
 import com.example.oop_project.Customer.CustomerOrders;
 import com.example.oop_project.Main.FragmentContent;
 import com.example.oop_project.Interface.NavigationManager;
+import com.example.oop_project.Main.MainActivity;
 import com.example.oop_project.Main.NavigationBar;
 import com.example.oop_project.R;
 import com.example.oop_project.Retailer.RetailerCategories;
@@ -44,6 +47,19 @@ public class FragmentNavigationManager implements NavigationManager {
     }
     @Override
     public void showFragment(String parentItem, String childItem) {
+
+
+//        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+//
+//// Creating an Editor object to edit(write to the file)
+//        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+//
+//// Storing the key and its value as the data fetched from edittext
+//        myEdit.putString("username", "Macha");
+//        myEdit.commit();
+//        SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+//
+//        String p_username  = sh.getString("username", "");
         switch(parentItem)
         {
             case "Customer":
@@ -57,7 +73,32 @@ public class FragmentNavigationManager implements NavigationManager {
                         showFragment(new CustomerCart(),false);
                         break;
                     case "orders":
-                        showFragment(new CustomerOrders(),false);
+                        String p_username="Macha";
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ArrayList<String> Keys = new ArrayList<>();
+//                        Keys.clear();
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Keys.add(snapshot.getKey());
+                                            Log.i("randomstuff",snapshot.getKey());
+                                        }
+                                        FragmentManager fm =  mFragmentManager;
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new CustomerOrders(Keys,p_username));
+                                        ft.addToBackStack(null);
+                                        if(false || !BuildConfig.DEBUG){
+                                            ft.commitAllowingStateLoss();
+                                        }else{
+                                            ft.commit();
+                                        }
+                                        fm.executePendingTransactions();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
                         break;
                 }
                 break;
@@ -84,7 +125,7 @@ public class FragmentNavigationManager implements NavigationManager {
                                             Log.i("randomstuff",snapshot.getKey());
                                         }
                                         FragmentManager fm =  mFragmentManager;
-                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new RetailerTrans(Keys));
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new RetailerTrans(Keys,false));
                                         ft.addToBackStack(null);
                                         if(false || !BuildConfig.DEBUG){
                                             ft.commitAllowingStateLoss();
@@ -102,7 +143,39 @@ public class FragmentNavigationManager implements NavigationManager {
                 }
                 break;
             case "Wholesaler":
-                System.out.println("Wholesaler");
+                switch(childItem)
+                {
+                    case "add item":
+                        break;
+                    case "transactions":
+                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child("Ytwhole")
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ArrayList<String> Keys = new ArrayList<>();
+//                        Keys.clear();
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Keys.add(snapshot.getKey());
+                                            Log.i("randomstuff",snapshot.getKey());
+                                        }
+                                        FragmentManager fm =  mFragmentManager;
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new RetailerTrans(Keys,true));
+                                        ft.addToBackStack(null);
+                                        if(false || !BuildConfig.DEBUG){
+                                            ft.commitAllowingStateLoss();
+                                        }else{
+                                            ft.commit();
+                                        }
+                                        fm.executePendingTransactions();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
+
+                        break;
+                }
                 break;
             default:
                 System.out.println("no match");

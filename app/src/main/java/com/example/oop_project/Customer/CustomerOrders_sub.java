@@ -1,10 +1,9 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -16,20 +15,18 @@ import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RetailerTrans_sub extends Fragment {
+public class CustomerOrders_sub extends Fragment {
 
-    String pname;
-
+    String pname,custname;
     RecyclerView recview;
-    TransactionAdapter adapter;
-    boolean t;
-    public RetailerTrans_sub() {
+    OrderAdapter adapter;
+    public CustomerOrders_sub() {
 
     }
 
-    public RetailerTrans_sub(String pname,boolean t) {
+    public CustomerOrders_sub(String pname,String custname) {
         this.pname=pname;
-        this.t=t;
+        this.custname =custname;
 
     }
 
@@ -49,12 +46,10 @@ public class RetailerTrans_sub extends Fragment {
 
         FirebaseRecyclerOptions<TransModel_sub> options =
                 new FirebaseRecyclerOptions.Builder<TransModel_sub>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child("Ytwhole").child(pname), TransModel_sub.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(custname).child(pname), TransModel_sub.class)
                         .build();
-        adapter = new TransactionAdapter(options,t);
+        adapter = new OrderAdapter(options);
         recview.setAdapter(adapter);
-
-
         return  view;
     }
 
