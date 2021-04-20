@@ -1,4 +1,4 @@
-package com.example.oop_project;
+package com.example.oop_project.Main;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.oop_project.R;
 
 /**
  * A simple {@link Fragment} subclass.

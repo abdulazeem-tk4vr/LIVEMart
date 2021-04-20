@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Customer.CustomerCategories"
-    >
-
+    tools:context=".MyItems.item_sub"
+    android:background="@drawable/item_bkgd">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recview_shop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/recview_itemssub"/>
+
 </FrameLayout>

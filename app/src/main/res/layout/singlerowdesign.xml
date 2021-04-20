@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img1"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="120dp"
             android:src="@mipmap/ic_launcher" />
 
@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
+            android:fontFamily="@font/aldrich"
             android:text="This is Demo Name"
             android:textColor="#000"
             android:textSize="25sp"
@@ -38,6 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="150dp"
             android:layout_marginTop="83dp"
+            android:textAlignment="center"
             android:ems="10"
             android:inputType="numberDecimal" />
 
@@ -53,7 +55,31 @@
             android:layout_marginEnd="50dp"
             android:gravity="center"
             android:text="Cut-Off Dist:"
+            android:textAlignment="center"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img1"
+            android:layout_alignTop="@+id/img1"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="168dp"
+            android:text="Quantity:" />
+
+        <EditText
+            android:id="@+id/qtyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="162dp"
+            android:layout_toEndOf="@+id/textView5"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            />
 
 
     </RelativeLayout>

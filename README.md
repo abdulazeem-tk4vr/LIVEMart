@@ -1,5 +1,5 @@
 
-# Grocery Shop eCommerce Mobile Application
+# Grocery Shop eCommerce Mobile Android Application </br>( Java | Firebase )
 Built in Java using Android Studio and Firebase Realtime database (for storing the data online) .
 # Tables of Contents
 * [Introduction](#introduction)
@@ -23,7 +23,7 @@ https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=shari
 
 
 <br/>
-Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
+Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
 
 
 <br/><br/>
@@ -34,7 +34,24 @@ Yes, as we came closer towards completing the project, we realized that with a q
 # Usage
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.
 <br/><br/>
-Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.
+Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.</br>
+</br>
+Front End Resources :
+</br></br>
+
+https://iconscout.com/
+</br>
+
+https://icons8.com/
+</br>
+
+https://material.io/
+</br>
+
+https://www.canva.com/
+</br>
+
+
 
 # Contributions
 Abdul Azeem https://github.com/tk4vr

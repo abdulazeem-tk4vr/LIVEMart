@@ -1,7 +1,5 @@
 package com.example.oop_project.Retailer;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.oop_project.Customer.CustomerSubCategories;
-import com.example.oop_project.Retailer.model_category;
+import com.example.oop_project.MyItems.model_items_cat;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class CategoryAdapter extends FirebaseRecyclerAdapter<model_category, CategoryAdapter.myviewholder> {
+public class CategoryAdapter extends FirebaseRecyclerAdapter<model_items_cat, CategoryAdapter.myviewholder> {
 
-    public CategoryAdapter(@NonNull FirebaseRecyclerOptions<model_category> options) {
+    public CategoryAdapter(@NonNull FirebaseRecyclerOptions<model_items_cat> options) {
         super(options);
 
     }
@@ -41,7 +38,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<model_category, Cat
 
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_category model) {
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_items_cat model) {
 
 
         holder.nametext.setText(model.getPname());
@@ -56,7 +53,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<model_category, Cat
 //        }
 
 
-        holder.img1.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

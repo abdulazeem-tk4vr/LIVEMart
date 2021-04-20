@@ -1,7 +1,6 @@
 package com.example.oop_project.Retailer;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.oop_project.Retailer.model_category;
-import com.example.oop_project.Customer.myadapterCustomerCategory;
+import com.example.oop_project.MyItems.model_items_cat;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -59,9 +57,9 @@ public class RetailerCategories extends Fragment {
         recview = (RecyclerView) view.findViewById(R.id.recview);
         Context context = getContext();
         recview.setLayoutManager(new LinearLayoutManager(context));
-        FirebaseRecyclerOptions<model_category> options =
-                new FirebaseRecyclerOptions.Builder<model_category>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories"), model_category.class)
+        FirebaseRecyclerOptions<model_items_cat> options =
+                new FirebaseRecyclerOptions.Builder<model_items_cat>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories"), model_items_cat.class)
                         .build();
 
         adapter = new CategoryAdapter(options);

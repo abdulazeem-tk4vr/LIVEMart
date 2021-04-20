@@ -6,9 +6,8 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:background="#2e2e2d">
+    android:gravity="center"    android:orientation="horizontal"
+    android:background="@drawable/livemart">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcycler"
