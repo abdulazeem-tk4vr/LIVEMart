@@ -2,6 +2,7 @@ package com.example.oop_project.Main;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -96,6 +97,8 @@ public class NavigationBar extends AppCompatActivity {
     }
 
     private void addDrawersItem() {
+        Log.i("kardib2",String.valueOf(lstTitle.size()));
+        Log.i("kardib2",String.valueOf(lstChild.size()));
         adapter =  new CustomExpandableListAdapter(this, lstTitle,lstChild);
         expandableListView.setAdapter(adapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -136,13 +139,15 @@ public class NavigationBar extends AppCompatActivity {
         List<String> title = Arrays.asList("Customer","Retailer","Wholesaler");
         List<String> childitem1 = Arrays.asList("Categories","Cart","orders");
         List<String> childitem2 = Arrays.asList("Categories","Cart","orders","add item");
-        List<String> childitem3 = Arrays.asList("orders","add item");
+        List<String> childitem3 = Arrays.asList("transactions","add item","about");
         lstChild = new TreeMap<>();
         lstChild.put(title.get(0),childitem1);
         lstChild.put(title.get(1),childitem2);
         lstChild.put(title.get(2),childitem3);
+        Log.i("kardib",String.valueOf(lstChild.size()));
 
         lstTitle = new ArrayList<>(lstChild.keySet());
+        Log.i("kardib",String.valueOf(lstTitle.size()));
 
     }
     private void initItems(){

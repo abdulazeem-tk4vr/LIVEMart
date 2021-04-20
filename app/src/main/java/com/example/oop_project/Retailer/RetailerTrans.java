@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RetailerTrans extends Fragment implements AdapterView.OnItemClickListener{
     ArrayList<String> Keys = new ArrayList<>();
-
+    boolean t;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -54,14 +54,15 @@ public class RetailerTrans extends Fragment implements AdapterView.OnItemClickLi
         View view = inflater.inflate(R.layout.transaction_layout, container, false);
         return view;
     }
-    public RetailerTrans(ArrayList<String> Keys) {
+    public RetailerTrans(ArrayList<String> Keys,boolean t) {
         this.Keys=Keys;
+        this.t=t;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String selectedFromList = (String) (parent.getItemAtPosition(position));
         AppCompatActivity activity=(AppCompatActivity)view.getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerTrans_sub(selectedFromList)).addToBackStack(null).commit();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerTrans_sub(selectedFromList,t)).addToBackStack(null).commit();
     }
 }

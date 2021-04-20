@@ -1,29 +1,22 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Customer;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.oop_project.Customer.CustomerSubCategories;
-import com.example.oop_project.Customer.model_category;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_project.Retailer.TransModel_sub, TransactionAdapter.myviewholder> {
-    boolean t;
-    public TransactionAdapter(@NonNull FirebaseRecyclerOptions<com.example.oop_project.Retailer.TransModel_sub> options,boolean t) {
+public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderAdapter.myviewholder> {
+
+    public OrderAdapter(@NonNull FirebaseRecyclerOptions<TransModel_sub> options) {
         super(options);
-        this.t=t;
     }
 
     @Override
@@ -40,13 +33,10 @@ public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final TransModel_sub model) {
-        if(t){
-            holder.shop.setText("Retailer Name: ");
-        }else{
-            holder.shop.setText("Customer Name: ");
-        }
+
+        holder.shop.setText("Shop Name: ");
         holder.pname.setText(model.getPname());
-        holder.custname.setText(model.getUsername());
+        holder.custname.setText(model.getShop());
         holder.cost.setText(model.getCost());
         holder.ddate.setText(model.getDdate());
         holder.dname.setText(model.getDname());

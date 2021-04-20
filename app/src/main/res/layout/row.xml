@@ -34,7 +34,6 @@
             android:textSize="15sp"
             android:id="@+id/textView2"
             />
-        <!--so our layout is set-->
 
     </LinearLayout>
 
