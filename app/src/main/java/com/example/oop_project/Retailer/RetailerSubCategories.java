@@ -1,6 +1,5 @@
 package com.example.oop_project.Retailer;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.oop_project.Customer.CustomerCategories;
-import com.example.oop_project.Customer.adapter_sub;
-import com.example.oop_project.Customer.model_subcategory;
+import com.example.oop_project.Main.Customer.model_subcategory;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;

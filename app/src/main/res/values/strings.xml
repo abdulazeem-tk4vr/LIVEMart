@@ -11,6 +11,15 @@
         <item>Wholesaler</item>
 
     </string-array>
+
+
+    <string-array name="Products">
+        <item>Please select the product type!</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+    </string-array>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_shop_filter">ShopFilterActivity</string>

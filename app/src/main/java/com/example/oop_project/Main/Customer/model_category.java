@@ -1,6 +1,4 @@
-package com.example.oop_project.Customer;
-
-import java.util.List;
+package com.example.oop_project.Main.Customer;
 
 public class model_category {
     String image, pname;

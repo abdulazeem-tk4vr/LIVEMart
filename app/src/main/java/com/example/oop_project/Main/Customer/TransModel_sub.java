@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 public class TransModel_sub {
     String cost,ddate,dname,dnumber,pname,quantity,status,shop;

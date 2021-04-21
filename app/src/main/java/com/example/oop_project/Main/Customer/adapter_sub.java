@@ -1,5 +1,6 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,11 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_category, myadapterCustomerCategory.myviewholder> {
-
-    public myadapterCustomerCategory(@NonNull FirebaseRecyclerOptions<model_category> options) {
+public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adapter_sub.myviewholder> {
+    String catname;
+    public adapter_sub(@NonNull FirebaseRecyclerOptions<model_subcategory> options,String category) {
         super(options);
+        catname=category;
     }
 
     @Override
@@ -30,39 +32,31 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 
     @Override
     public void onError(@NonNull DatabaseError error) {
-
         super.onError(error);
         error.toException().printStackTrace();
     }
 
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_category model) {
-
-
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model_subcategory model) {
         holder.nametext.setText(model.getPname());
         Glide.with(holder.img1.getContext()).load(model.getImage()).into(holder.img1);
-        holder.cutdisttext.setVisibility(View.INVISIBLE);
-        holder.cutDist.setVisibility(View.INVISIBLE);
-        holder.Quant.setVisibility(View.INVISIBLE);
-        holder.Quanttext.setVisibility(View.INVISIBLE);
-
-
-//        if(model.getPname().equals("Fruits")) {
-//            holder.itemView.setVisibility(View.VISIBLE);
-//            }
-//            else{
-//            holder.itemView.setVisibility(View.GONE);
-//        }
-
-
+        holder.cutdisttext.setVisibility(View.VISIBLE);
+        holder.cutDist.setVisibility(View.VISIBLE);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                CustomerSubCategories(model.getPname())
-                AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
+                double cutDist=1000;
+                int qty = 0;
+                if(holder.cutDist.getText().length() != 0 ){
+                    cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
 
+                }
+                if(holder.qtyText.getText().length() !=0){
+                qty = (int) Double.parseDouble(String.valueOf(holder.qtyText.getText()));}
+                AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerShopList(catname,model.getPname(),cutDist,qty)).addToBackStack(null).commit();
+                Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
     }
@@ -77,18 +71,15 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
     public class myviewholder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView nametext;
-        TextView cutdisttext,Quant;
-        EditText cutDist,Quanttext;
-
+        TextView cutdisttext;
+        EditText cutDist,qtyText;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
-            Quanttext = itemView.findViewById(R.id.qtyText);
-            Quant = itemView.findViewById(R.id.textView5);
             cutdisttext = itemView.findViewById(R.id.cutDisttext);
             cutDist = itemView.findViewById(R.id.cutDist);
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
-
+            qtyText = itemView.findViewById(R.id.qtyText);
         }
     }
 

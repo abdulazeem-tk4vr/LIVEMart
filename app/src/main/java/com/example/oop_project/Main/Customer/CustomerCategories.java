@@ -1,45 +1,34 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class    CustomerSubCategories extends Fragment {
-
+public class CustomerCategories extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
-    String pname;
     RecyclerView recview;
-    adapter_sub adapter;
-    public CustomerSubCategories() {
+    myadapterCustomerCategory adapter;
+
+    public CustomerCategories() {
 
     }
 
-    public CustomerSubCategories(String pname) {
-        this.pname=pname;
-
-    }
-
-    public static CustomerSubCategories newInstance(String param1, String param2) {
-        CustomerSubCategories fragment = new CustomerSubCategories();
+    public static CustomerCategories newInstance(String param1, String param2) {
+        CustomerCategories fragment = new CustomerCategories();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,28 +49,24 @@ public class    CustomerSubCategories extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.categories2, container, false);
+        View view = inflater.inflate(R.layout.categories, container, false);
 
-        recview = (RecyclerView) view.findViewById(R.id.recview2);
+        recview = (RecyclerView) view.findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<model_subcategory> options =
-                new FirebaseRecyclerOptions.Builder<model_subcategory>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child(pname), model_subcategory.class)
+        FirebaseRecyclerOptions<model_category> options =
+                new FirebaseRecyclerOptions.Builder<model_category>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories"), model_category.class)
                         .build();
-        adapter = new adapter_sub(options,pname);
+
+        adapter = new myadapterCustomerCategory(options);
         recview.setAdapter(adapter);
 
 
-        return  view;
+
+        return view;
     }
 
-    public void onBackPressed()
-    {
-        AppCompatActivity activity=(AppCompatActivity)getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerCategories()).addToBackStack(null).commit();
-
-    }
 
     @Override
     public void onStart() {

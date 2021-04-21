@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 public class model_shop {
     String latitude,longitude,price,quantity,rname;

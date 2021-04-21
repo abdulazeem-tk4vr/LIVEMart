@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 import android.os.Bundle;
 
@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartActivity extends Fragment {
 
