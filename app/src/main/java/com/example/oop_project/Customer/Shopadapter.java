@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter.myviewholder>  {
@@ -96,6 +98,19 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("User");
+        holder.b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uid = "UID_1";
+                Map<String,Object> map = new HashMap<>();
+                map.put("pname",arg_pname);
+                map.put("cost",holder.tc.getText());
+                map.put("quantity",holder.qty.getText());
+                map.put("shop",holder.shopname.getText());
+                DatabaseReference db =  FirebaseDatabase.getInstance().getReference();
+               db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
+            }
+        });
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
