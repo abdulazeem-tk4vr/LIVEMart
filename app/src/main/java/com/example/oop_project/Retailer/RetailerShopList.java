@@ -13,9 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.oop_project.Customer.CustomerSubCategories;
-import com.example.oop_project.Customer.Shopadapter;
-import com.example.oop_project.Customer.model_shop;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;

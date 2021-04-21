@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 public class model_subcategory
 {

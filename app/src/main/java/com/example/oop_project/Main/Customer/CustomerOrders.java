@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.oop_project.R;
-import com.example.oop_project.Retailer.RetailerTrans_sub;
 
 import java.util.ArrayList;
 

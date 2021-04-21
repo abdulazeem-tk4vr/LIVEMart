@@ -1,4 +1,4 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

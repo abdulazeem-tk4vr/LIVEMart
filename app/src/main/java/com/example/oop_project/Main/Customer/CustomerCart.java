@@ -1,5 +1,6 @@
-package com.example.oop_project.Customer;
+package com.example.oop_project.Main.Customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,5 +24,6 @@ public class CustomerCart extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
     }
 }
