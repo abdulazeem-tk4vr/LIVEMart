@@ -135,12 +135,17 @@ public class addprodnoimage extends AppCompatActivity {
 
 
 
-        // Quantity = Quantity + temp_quantity;
+
 
         HashMap<String, Object> productMap = new HashMap<>();
         productMap.put("quantity", quantity);
 
         ProductsRef.child("Wholesaler").child(p_username).child("Products").child(category).child(Pname).updateChildren(productMap);
+
+        // if snapshot exists
+        // Quantity = Quantity + temp_quantity;
+        // update
+
         Quantdata.child(category).child(Pname).child("Wholesaler").child(p_username).updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
