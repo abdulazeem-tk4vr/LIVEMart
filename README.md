@@ -36,6 +36,7 @@ Now that you've reached this heading, you must be interested in developing an an
 <br/><br/>
 If you'd like to start with Android development, you can check out this link. 
 https://github.com/coder2hacker/Android-Development-RoadMap<br/>
+<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.</br>
 </br>
 Front End Resources :
