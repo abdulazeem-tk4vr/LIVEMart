@@ -1,59 +1,83 @@
 package com.example.oop_project.Main;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.service.autofill.UserData;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oop_project.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class addprodnoimage extends AppCompatActivity {
 
-    private String quantity, Price, Pname, downloadImageUrl;
+    private String quantity, Price, Pname, p_username,nkey,category,temp_quantity;
     private ImageView InputProductImage;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private Button AddNewProductButton;
     private TextView pname, pquantity, pprice;
-    private StorageReference ProductImagesRef;
-    private DatabaseReference ProductsRef;
+
+    private DatabaseReference ProductsRef,UserData,Quantdata;
+    private Spinner product_type;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_new_product);
+        setContentView(R.layout.addnoimage);
 
+
+        {
+            SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+            // The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+            p_username = sh.getString("username", "Babuwhole");
+            Log.i("memes",p_username);
+// We can then use the data
+        }//SharedPrefs
 
         InputProductImage = findViewById(R.id.select_product_image);
         AddNewProductButton = findViewById(R.id.add_new_product);
         pname = findViewById(R.id.product_name);
         pprice = findViewById(R.id.product_price);
         pquantity = findViewById(R.id.product_quantity);
-        ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("User");
 
 
-//        InputProductImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                OpenGallery();
-//            }
-//        });
+        {
+            product_type = (Spinner) findViewById(R.id.spinner);
+            ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Products));
+            myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            product_type.setAdapter(myAdapter);
+        } //Spinner Product Type Initialization
+
 
         AddNewProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,18 +98,15 @@ public class addprodnoimage extends AppCompatActivity {
     }
 
     private void ValidateProductData() {
-        quantity = pquantity.getText().toString();
-        Price = pprice.getText().toString();
-        Pname = pname.getText().toString();
+        Price = pprice.getText().toString().trim();
+        Pname = pname.getText().toString().trim();
+        quantity = pquantity.getText().toString().trim();
+        category = product_type.getSelectedItem().toString();
 
-
-//       if (ImageUri == null)
-//       {
-//           Toast.makeText(this, "Product image is mandatory...", Toast.LENGTH_SHORT).show();
-//       }
         if (TextUtils.isEmpty(quantity)) {
-            Toast.makeText(this, "Please give the quantity...", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(Price)) {
+            Toast.makeText(this, "Please write product quantity...", Toast.LENGTH_SHORT).show();
+        } else
+        if (TextUtils.isEmpty(Price)) {
             Toast.makeText(this, "Please write product Price...", Toast.LENGTH_SHORT).show();
         }
         if (TextUtils.isEmpty(Pname)) {
@@ -95,65 +116,37 @@ public class addprodnoimage extends AppCompatActivity {
         }
     }
 
-//    private void StoreProductInformation() {
-//
-//        final StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + ".jpg");
-//        final UploadTask uploadTask = filePath.putFile(ImageUri);
-//
-//        uploadTask.addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e)
-//            {
-//                String message = e.toString();
-//                Toast.makeText(addproduct.this, "Error: " + message, Toast.LENGTH_SHORT).show();
-//            }
-//        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-//            {
-//                Toast.makeText(addproduct.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
-//
-//                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-//                    @Override
-//                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
-//                    {
-//                        if (!task.isSuccessful())
-//                        {
-//                            throw task.getException();
-//                        }
-//
-//                        downloadImageUrl = filePath.getDownloadUrl().toString();
-//                        return filePath.getDownloadUrl();
-//                    }
-//                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Uri> task)
-//                    {
-//                        if (task.isSuccessful())
-//                        {
-//                            downloadImageUrl = task.getResult().toString();
-//
-//                            Toast.makeText(addproduct.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
-//
-//                            SaveProductInfoToDatabase();
-//                        }
-//                    }
-//                });
-//            }
-//        });
-//
-//    }
+
 
     private void SaveProductInfoToDatabase() {
+
+        UserData = FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").child(p_username).child("Products").child(category).child(Pname).child("Quantity");
+        UserData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                temp_quantity=snapshot.getValue().toString().trim();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
         HashMap<String, Object> productMap = new HashMap<>();
-
-//        productMap.put("image", downloadImageUrl);
-        productMap.put("price", Price);
-        productMap.put("pname", Pname);
         productMap.put("quantity", quantity);
-        productMap.put("status", "Not Approved");
 
-        ProductsRef.child("Retailer").child("Fgretailer").child("Products").child("Fruits").child(Pname).updateChildren(productMap);
+        ProductsRef.child("Wholesaler").child(p_username).child("Products").child(category).child(Pname).updateChildren(productMap);
+
+        // if snapshot exists
+        // Quantity = Quantity + temp_quantity;
+        // update
+
+        Quantdata.child(category).child(Pname).child("Wholesaler").child(p_username).updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }

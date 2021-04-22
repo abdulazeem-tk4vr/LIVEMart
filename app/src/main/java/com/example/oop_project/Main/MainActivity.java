@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         navbartestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, addproduct.class);
+                Intent intent = new Intent(MainActivity.this, addprodnoimage.class);
                 startActivity(intent);
 
 

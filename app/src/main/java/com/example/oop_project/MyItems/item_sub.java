@@ -18,6 +18,15 @@ import com.google.firebase.database.FirebaseDatabase;
 public class item_sub extends Fragment {
     RecyclerView recview;
     adapter_itemsub adapter;
+    String prod_type;
+
+    public item_sub(){
+
+    }
+
+    public item_sub(String prod_type){
+    this.prod_type=prod_type;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,13 +37,7 @@ public class item_sub extends Fragment {
         recview = (RecyclerView) view.findViewById(R.id.recview_itemssub);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-//        FirebaseRecyclerOptions<model_items_cat> options =
-//                new FirebaseRecyclerOptions.Builder<model_items_cat>()
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child("Categories").child(), model_itemsub.class)
-//                        .build();
-//
-//        adapter = new adapter_itemsub(options);
-//        recview.setAdapter(adapter);
+
 
 
         return  view;

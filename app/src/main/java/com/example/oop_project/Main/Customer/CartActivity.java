@@ -20,8 +20,7 @@ import java.util.ArrayList;
 
 public class CartActivity extends Fragment {
 
-   FirebaseDatabase db =FirebaseDatabase.getInstance();
-    ArrayList  Keys = new ArrayList();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,23 +28,7 @@ public class CartActivity extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_cart_activity, container, false);
-        db.getReference().child("Cart").child("Customer").child("Macha").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Keys.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Keys.add(dataSnapshot.getKey());
-                }
-                String nkey = new String();
-                nkey = String.valueOf(Keys);
-                Log.i("memesda",nkey);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
         return view;
 
 
