@@ -1,7 +1,10 @@
 package com.example.oop_project.Helper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,6 +15,7 @@ import com.example.oop_project.Main.Customer.CustomerOrders;
 import com.example.oop_project.Main.FragmentContent;
 import com.example.oop_project.Interface.NavigationManager;
 import com.example.oop_project.Main.NavigationBar;
+import com.example.oop_project.Main.VerifyOTPActivity;
 import com.example.oop_project.R;
 import com.example.oop_project.Retailer.RetailerCategories;
 import com.example.oop_project.Retailer.RetailerTrans;
@@ -23,15 +27,32 @@ import com.rey.material.BuildConfig;
 
 import java.util.ArrayList;
 
-public class FragmentNavigationManager  implements NavigationManager {
+public class FragmentNavigationManager  extends Fragment implements NavigationManager {
     private FragmentManager mFragmentManager;
     private NavigationBar mainActivity;
     private static FragmentNavigationManager mInstance;
+    private static String p_username;
 
-    public static FragmentNavigationManager getminstance(NavigationBar mainActivity){
+
+
+
+
+    public FragmentNavigationManager() {
+
+    }
+
+
+
+
+    public static FragmentNavigationManager getminstance(NavigationBar mainActivity , String username){
+
+
+
        if(mInstance==null)
            mInstance= new FragmentNavigationManager();
        mInstance.configure(mainActivity);
+        p_username=username;
+        Log.i("checking","this is "+ p_username);
        return mInstance;
     }
     private void configure(NavigationBar mainActivity){
@@ -45,18 +66,11 @@ public class FragmentNavigationManager  implements NavigationManager {
     @Override
     public void showFragment(String parentItem, String childItem) {
 
+//
+//       Context context =  VerifyOTPActivity.getActivity()
+//
 
-//        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-//
-//// Creating an Editor object to edit(write to the file)
-//        SharedPreferences.Editor myEdit = sharedPreferences.edit();
-//
-//// Storing the key and its value as the data fetched from edittext
-//        myEdit.putString("username", "Macha");
-//        myEdit.commit();
-//        SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-//
-//        String p_username  = sh.getString("username", "");
+
         switch(parentItem)
         {
             case "Customer":
@@ -70,7 +84,6 @@ public class FragmentNavigationManager  implements NavigationManager {
                         showFragment(new CustomerCart(),false);
                         break;
                     case "orders":
-                        String p_username="Macha";
                         FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -110,7 +123,7 @@ public class FragmentNavigationManager  implements NavigationManager {
                         showFragment(new CustomerCart(),false);
                         break;
                     case "orders":
-                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child("Fgretailer")
+                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override
@@ -145,7 +158,7 @@ public class FragmentNavigationManager  implements NavigationManager {
                     case "add item":
                         break;
                     case "transactions":
-                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child("Ytwhole")
+                        FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override

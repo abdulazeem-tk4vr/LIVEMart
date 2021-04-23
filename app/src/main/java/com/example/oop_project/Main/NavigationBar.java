@@ -1,5 +1,7 @@
 package com.example.oop_project.Main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,12 +50,24 @@ public class NavigationBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_navbar);
 
+
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+        String product_username  = sh.getString("username", "Fgretailer");
+
+        Log.i("memes", ""+product_username);
         //init view
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
         expandableListView = (ExpandableListView) findViewById(R.id.navList);
-        navigationManager = FragmentNavigationManager.getminstance(this);
+        navigationManager = FragmentNavigationManager.getminstance(this,product_username);
         initItems();
+
+
+
+
+
+
 
         View listHeaderView = getLayoutInflater().inflate(R.layout.nav_header,null,false);
         expandableListView.addHeaderView(listHeaderView);
