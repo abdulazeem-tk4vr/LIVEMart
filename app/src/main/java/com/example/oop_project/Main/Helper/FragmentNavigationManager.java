@@ -1,5 +1,7 @@
 package com.example.oop_project.Main.Helper;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import com.example.oop_project.Main.Customer.CustomerOrders;
 import com.example.oop_project.Main.FragmentContent;
 import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.Main.NavigationBar;
+import com.example.oop_project.Main.addprodnoimage;
 import com.example.oop_project.R;
 import com.example.oop_project.Main.Retailer.RetailerCategories;
 import com.example.oop_project.Main.Retailer.RetailerTrans;
@@ -152,6 +155,8 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                 switch(childItem)
                 {
                     case "add item":
+                        Intent i = new Intent(getView().getContext(),addprodnoimage.class);
+                        startActivity(i);
                         break;
                     case "transactions":
                         FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child(p_username)

@@ -32,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class addprodnoimage extends AppCompatActivity {
+public class addprodnoimage extends AppCompatActivity  {
 
     private String quantity, Price, Pname, p_username,nkey,category,temp_quantity;
     private ImageView InputProductImage;
@@ -145,6 +145,7 @@ public class addprodnoimage extends AppCompatActivity {
         // if snapshot exists
         // Quantity = Quantity + temp_quantity;
         // update
+//        if(InputProduct)
 
         Quantdata.child(category).child(Pname).child("Wholesaler").child(p_username).updateChildren(productMap);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

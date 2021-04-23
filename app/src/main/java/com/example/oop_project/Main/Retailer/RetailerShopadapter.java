@@ -104,7 +104,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
                 Retmap.put("ddate", "1/6/21");
                 Retmap.put("dnumber", "6969696969");
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                db.child("Cart").child(p_usertype).child("Fgretailer").child("UID_1").child(arg_pname).updateChildren(Retmap);
+                db.child("Cart").child(p_usertype).child(p_username).child("UID_1").child(arg_pname).updateChildren(Retmap);
             }
         });
 
