@@ -23,6 +23,7 @@ public class RetailerSubCategories extends Fragment {
     private String mParam1;
     private String mParam2;
     String pname;
+
     RecyclerView recview;
     SubCategoryAdapter adapter;
     public RetailerSubCategories() {

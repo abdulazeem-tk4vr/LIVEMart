@@ -116,22 +116,6 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
                 }
 
-//                else if(p_usertype.equals("Retailer")){
-//
-//                        Map<String, Object> Retmap = new HashMap<>();
-//                        Retmap.put("pname", arg_pname);
-//                        Retmap.put("price", holder.tc.getText());
-//                        Retmap.put("quantity", String.valueOf(q));
-//                        Log.i("Brick","kdnsk");
-//                        Retmap.put("shop", holder.shopname.getText());
-//                        Retmap.put("dname", "daboi");
-//                        Retmap.put("ddate", "1/6/21");
-//                        Retmap.put("dnumber", "6969696969");
-//                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-//                        db.child("Cart").child("Retailer").child("Fgretailer").child("UID_1").child("Apple").updateChildren(Retmap);
-//
-//
-//                }
             }
         });
         dbref.addValueEventListener(new ValueEventListener() {

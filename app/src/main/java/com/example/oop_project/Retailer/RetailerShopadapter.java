@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,15 +22,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopModel, RetailerShopadapter.myviewholder>  {
     public String arg_cat,arg_pname,p_username,p_usertype, dist_temp,parent_usertype;
     public double cutoffDist;
     // category , product name
+    double quantity;
 
-
-    public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist) {
+    public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,double qty) {
         super(options);
         SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
@@ -40,7 +43,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
        arg_cat=catname;
        arg_pname=pname;
        cutoffDist = cutDist;
-
+        quantity = qty;
 
     }
 
@@ -87,7 +90,23 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
         holder.rate.setText(model.getPrice());
         holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice())* Integer.parseInt(model.getQuantity())));
 
-
+        holder.b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double qty = quantity + Double.parseDouble(String.valueOf(holder.qty.getText()));
+                Map<String, Object> Retmap = new HashMap<>();
+                Retmap.put("pname", arg_pname);
+                Retmap.put("price", holder.tc.getText());
+                Retmap.put("quantity", String.valueOf(qty));
+                Log.i("Brick","kdnsk");
+                Retmap.put("shop", holder.shopname.getText());
+                Retmap.put("dname", "daboi");
+                Retmap.put("ddate", "1/6/21");
+                Retmap.put("dnumber", "6969696969");
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                db.child("Cart").child(p_usertype).child("Fgretailer").child("UID_1").child(arg_pname).updateChildren(Retmap);
+            }
+        });
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("User");
@@ -181,14 +200,14 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
         TextView shopname,qty,rate,tc,dist;
-
+        Button b1 ;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
             this.itemView.getContext();
             int a =1;
 
-
+            b1 = itemView.findViewById(R.id.addtocartbtn);
             shopname = itemView.findViewById(R.id.shopnameTV);
             qty = itemView.findViewById(R.id.qtyTV);
             rate = itemView.findViewById(R.id.rateTV);

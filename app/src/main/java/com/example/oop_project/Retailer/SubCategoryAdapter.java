@@ -48,11 +48,12 @@ public class SubCategoryAdapter extends FirebaseRecyclerAdapter<model_subcategor
             @Override
             public void onClick(View view) {
                 double cutDist=1000;
+                double qty = Double.parseDouble(String.valueOf(holder.qty.getText()));
                 if(holder.cutDist.getText().length() != 0){
                     cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
                 }
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerShopList(catname,model.getPname(),cutDist)).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerShopList(catname,model.getPname(),cutDist,qty)).addToBackStack(null).commit();
                 Log.i("mine sub",catname +" hello "+model.getPname());
             }
         });
@@ -69,14 +70,14 @@ public class SubCategoryAdapter extends FirebaseRecyclerAdapter<model_subcategor
         ImageView img1;
         TextView nametext;
         TextView cutdisttext;
-        EditText cutDist;
+        EditText cutDist,qty;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             cutdisttext = itemView.findViewById(R.id.cutDisttext);
             cutDist = itemView.findViewById(R.id.cutDist);
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
-
+            qty = itemView.findViewById(R.id.qtyText);
         }
     }
 

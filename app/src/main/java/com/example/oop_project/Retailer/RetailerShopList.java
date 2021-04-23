@@ -31,15 +31,17 @@ public class RetailerShopList extends Fragment{
     RecyclerView recview1;
     RetailerShopadapter adapter;
     Button filter;
+    double quantity;
     EditText cutoffDist;
     public RetailerShopList() {
 
     }
 
-    public RetailerShopList(String catname, String pname, double cutDistance) {
+    public RetailerShopList(String catname, String pname, double cutDistance,double qty) {
         this.cutoffDistance = cutDistance;
         this.catname = catname;
         this.pname = pname;
+        this.quantity = qty;
     }
 
     public static RetailerShopList newInstance(String param1, String param2) {
@@ -79,7 +81,7 @@ public class RetailerShopList extends Fragment{
                         .setQuery(query, RetailerShopModel.class)
                         .build();
 
-        adapter = new RetailerShopadapter(options,getContext(),  catname , pname,cutoffDistance);
+        adapter = new RetailerShopadapter(options,getContext(),  catname , pname,cutoffDistance,quantity);
         recview1.setAdapter(adapter);
 
 
