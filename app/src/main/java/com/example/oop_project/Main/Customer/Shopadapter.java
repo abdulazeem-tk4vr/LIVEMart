@@ -101,42 +101,37 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             @Override
             public void onClick(View v) {
                 String uid = "UID_1";
-                String s;     int q = quantityDemand;
-
-                if(arg_pname =="Apple"|| arg_pname == "Banana"){
-                    s = "Fruit";
-                }
-                else s = "Vegetable";
-                Map<String, Object> map = new HashMap<>();
-                if(p_usertype == "Customer") {
-
+                int q = quantityDemand;
+                if(p_usertype.equals("Customer")) {
+                    Map<String, Object> map = new HashMap<>();
                     map.put("pname", arg_pname);
                     map.put("cost", holder.tc.getText());
                     map.put("quantity", holder.qty.getText());
                     map.put("shop", holder.shopname.getText());
                     map.put("dname", "daboi");
                     map.put("ddate", "1/6/21");
+                    Log.i("Brux","kdnsk");
                     map.put("dnumber", "6969696969");
                     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                     db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
                 }
 
-                else if(p_usertype == "Retailer"){
-                    if(Double.parseDouble(String.valueOf(holder.qty.getText()))==0){
-
-                        map.put("pname", arg_pname);
-                        map.put("cost", holder.tc.getText());
-                        map.put("quantity", q);
-                        map.put("shop", holder.shopname.getText());
-                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                        db.child("Cart").child("Retailer").child(String.valueOf(holder.shopname.getText())).child("Products").child(s).child(arg_pname).setValue(map);
-
-                    }
-                    else {
-                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                        db.child("Cart").child("Retailer").child(String.valueOf(holder.shopname.getText())).child("Products").child(s).child(arg_pname).child("quantity").setValue(q + Double.parseDouble(String.valueOf(holder.qty.getText())));
-                    }
-                }
+//                else if(p_usertype.equals("Retailer")){
+//
+//                        Map<String, Object> Retmap = new HashMap<>();
+//                        Retmap.put("pname", arg_pname);
+//                        Retmap.put("price", holder.tc.getText());
+//                        Retmap.put("quantity", String.valueOf(q));
+//                        Log.i("Brick","kdnsk");
+//                        Retmap.put("shop", holder.shopname.getText());
+//                        Retmap.put("dname", "daboi");
+//                        Retmap.put("ddate", "1/6/21");
+//                        Retmap.put("dnumber", "6969696969");
+//                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+//                        db.child("Cart").child("Retailer").child("Fgretailer").child("UID_1").child("Apple").updateChildren(Retmap);
+//
+//
+//                }
             }
         });
         dbref.addValueEventListener(new ValueEventListener() {
