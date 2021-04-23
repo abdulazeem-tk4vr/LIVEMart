@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oop_project.R;
 import com.google.firebase.database.DataSnapshot;
@@ -100,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                                 Intent intent = new Intent(LoginActivity.this,SendOTPActivity.class);
                                                 startActivity(intent);
+                                            } else {
+                                                Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     }
@@ -111,6 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
 
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
                         }
                     }
 
