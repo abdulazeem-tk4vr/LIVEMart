@@ -16,7 +16,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="25dp"
-            app:cardBackgroundColor="#1E88E5">
+            app:cardBackgroundColor="@color/teal_700">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                     android:text="Pname"
                     android:textSize="25dp"
                     android:textStyle="bold"
-                    android:layout_marginTop="7dp"
+                    android:textColor="#002C1F"                    android:layout_marginTop="7dp"
                     android:id="@+id/Titletext"
                     />
 
@@ -46,7 +46,7 @@
                     android:text="Customer Name:"
                     android:layout_marginTop="7dp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/Titletext"
+                    android:textColor="#002C1F"                    app:layout_constraintTop_toBottomOf="@+id/Titletext"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
 
@@ -70,7 +70,7 @@
                     android:text="Cost: "
                     android:layout_marginTop="7dp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/Custtitle"
+                    android:textColor="#002C1F"                    app:layout_constraintTop_toBottomOf="@+id/Custtitle"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
 
@@ -93,7 +93,7 @@
                     android:id="@+id/ddate"
                     android:text="Deilvery Date:"
                     android:textStyle="bold"
-                    android:layout_marginTop="7dp"
+                    android:textColor="#002C1F"                    android:layout_marginTop="7dp"
                     app:layout_constraintTop_toBottomOf="@+id/cost_view"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
@@ -116,7 +116,7 @@
                     android:id="@+id/dname"
                     android:text="Deilvery Executive:"
                     android:textStyle="bold"
-                    android:layout_marginTop="7dp"
+                    android:textColor="#002C1F"                    android:layout_marginTop="7dp"
                     app:layout_constraintTop_toBottomOf="@+id/ddate"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
@@ -139,7 +139,7 @@
                     android:text="Deilvery Number:"
                     android:layout_marginTop="7dp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/dname"
+                    android:textColor="#002C1F"                    app:layout_constraintTop_toBottomOf="@+id/dname"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
 
@@ -160,7 +160,7 @@
                     android:id="@+id/qty_trans"
                     android:text="Quantity:"
                     android:textStyle="bold"
-                    android:layout_marginTop="7dp"
+                    android:textColor="#002C1F"                    android:layout_marginTop="7dp"
                     app:layout_constraintTop_toBottomOf="@+id/dnum"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp" />
@@ -182,7 +182,8 @@
                     android:id="@+id/stat"
                     android:text="Status: "
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/qty_trans"
+
+                    android:textColor="#002C1F"                    app:layout_constraintTop_toBottomOf="@+id/qty_trans"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteX="14dp"
                     android:layout_marginTop="7dp"/>

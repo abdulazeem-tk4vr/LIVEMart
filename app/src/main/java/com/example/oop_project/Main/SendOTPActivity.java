@@ -38,17 +38,17 @@ public class SendOTPActivity extends AppCompatActivity {
                 if (inputMobile.getText().toString().isEmpty()) {
 
 
-                    SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-
-                    // The value will be default as empty string because for
-// the very first time when the app is opened, there is nothing to show
-                    String p_username = sh.getString("username", "Macha");
-                    String p_usertype = sh.getString("usertype", "Customer");
-
-// We can then use the data
-
-                    Toast.makeText(SendOTPActivity.this, p_username, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(SendOTPActivity.this, "Enter the number please!", Toast.LENGTH_SHORT).show();
+//                    SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+//
+//                    // The value will be default as empty string because for
+//// the very first time when the app is opened, there is nothing to show
+//                    String p_username = sh.getString("username", "Macha");
+//                    String p_usertype = sh.getString("usertype", "Customer");
+//
+//// We can then use the data
+//
+//                    Toast.makeText(SendOTPActivity.this, p_username, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SendOTPActivity.this, "Enter the number please!", Toast.LENGTH_SHORT).show();
 
 
                 } else if (inputMobile.getText().toString().trim().length()!=10){

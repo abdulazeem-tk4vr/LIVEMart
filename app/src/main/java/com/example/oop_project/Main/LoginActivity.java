@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oop_project.R;
 import com.google.firebase.database.DataSnapshot;
@@ -40,11 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         s_usertype = findViewById(R.id.spinner_user);
 
         {
-            Spinner mySpinner = (Spinner) findViewById(R.id.spinner_user);
+             s_usertype = (Spinner) findViewById(R.id.spinner_user);
             ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.users));
             myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            mySpinner.setAdapter(myAdapter);
+            s_usertype.setAdapter(myAdapter);
         } //Spinner Initialization
 
 
@@ -100,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                                 Intent intent = new Intent(LoginActivity.this,SendOTPActivity.class);
                                                 startActivity(intent);
+                                            } else {
+                                                Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     }
@@ -111,6 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
 
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
                         }
                     }
 

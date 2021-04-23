@@ -11,6 +11,29 @@
         <item>Wholesaler</item>
 
     </string-array>
+
+
+    <string-array name="Products">
+        <item>Please select the product type!</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+    </string-array>
+
+    <string-array name="Fruits">
+        <item>Please select the product!</item>
+        <item>Apple</item>
+        <item>Banana</item>
+    </string-array>
+
+    <string-array name="Vegetables">
+        <item>Please select the product!</item>
+        <item>Carrot</item>
+        <item>Tomato</item>
+    </string-array>
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_shop_filter">ShopFilterActivity</string>
@@ -22,4 +45,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_launcher">LauncherActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_launch">LaunchActivity</string>
 </resources>

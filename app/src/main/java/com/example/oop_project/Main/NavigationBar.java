@@ -1,5 +1,7 @@
 package com.example.oop_project.Main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,9 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.oop_project.Adapter.CustomExpandableListAdapter;
-import com.example.oop_project.Helper.FragmentNavigationManager;
-import com.example.oop_project.Interface.NavigationManager;
+import com.example.oop_project.Main.Adapter.CustomExpandableListAdapter;
+import com.example.oop_project.Main.Helper.FragmentNavigationManager;
+import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.R;
 
 import java.util.ArrayList;
@@ -48,12 +50,24 @@ public class NavigationBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_navbar);
 
+
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+        String product_username  = sh.getString("username", "Fgretailer");
+
+        Log.i("memes", ""+product_username);
         //init view
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
         expandableListView = (ExpandableListView) findViewById(R.id.navList);
-        navigationManager = FragmentNavigationManager.getminstance(this);
+        navigationManager = FragmentNavigationManager.getminstance(this,product_username);
         initItems();
+
+
+
+
+
+
 
         View listHeaderView = getLayoutInflater().inflate(R.layout.nav_header,null,false);
         expandableListView.addHeaderView(listHeaderView);
