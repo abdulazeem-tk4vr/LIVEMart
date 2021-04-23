@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 public class Orders_sub {
     String cost,ddate,dname,dnumber,pname,price,quantity,shop,status;
