@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.oop_project.MyItems.model_items_cat;
+import com.example.oop_project.Main.MyItems.model_items_cat;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;

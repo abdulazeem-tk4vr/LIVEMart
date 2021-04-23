@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 import android.util.Log;
 import android.view.LayoutInflater;

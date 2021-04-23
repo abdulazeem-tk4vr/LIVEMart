@@ -1,10 +1,7 @@
-package com.example.oop_project.Helper;
+package com.example.oop_project.Main.Helper;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -13,12 +10,11 @@ import com.example.oop_project.Main.Customer.CustomerCart;
 import com.example.oop_project.Main.Customer.CustomerCategories;
 import com.example.oop_project.Main.Customer.CustomerOrders;
 import com.example.oop_project.Main.FragmentContent;
-import com.example.oop_project.Interface.NavigationManager;
+import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.Main.NavigationBar;
-import com.example.oop_project.Main.VerifyOTPActivity;
 import com.example.oop_project.R;
-import com.example.oop_project.Retailer.RetailerCategories;
-import com.example.oop_project.Retailer.RetailerTrans;
+import com.example.oop_project.Main.Retailer.RetailerCategories;
+import com.example.oop_project.Main.Retailer.RetailerTrans;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;

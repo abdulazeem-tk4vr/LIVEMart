@@ -18,9 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.oop_project.Adapter.CustomExpandableListAdapter;
-import com.example.oop_project.Helper.FragmentNavigationManager;
-import com.example.oop_project.Interface.NavigationManager;
+import com.example.oop_project.Main.Adapter.CustomExpandableListAdapter;
+import com.example.oop_project.Main.Helper.FragmentNavigationManager;
+import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.R;
 
 import java.util.ArrayList;

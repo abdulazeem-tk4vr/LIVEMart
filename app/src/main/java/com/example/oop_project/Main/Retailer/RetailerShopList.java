@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 public class RetailerShopModel {
     String latitude,longitude,price,quantity,rname;

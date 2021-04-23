@@ -1,4 +1,4 @@
-package com.example.oop_project.Retailer;
+package com.example.oop_project.Main.Retailer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +13,9 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_project.Retailer.TransModel_sub, TransactionAdapter.myviewholder> {
+public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_project.Main.Retailer.TransModel_sub, TransactionAdapter.myviewholder> {
     boolean t;
-    public TransactionAdapter(@NonNull FirebaseRecyclerOptions<com.example.oop_project.Retailer.TransModel_sub> options,boolean t) {
+    public TransactionAdapter(@NonNull FirebaseRecyclerOptions<com.example.oop_project.Main.Retailer.TransModel_sub> options, boolean t) {
         super(options);
         this.t=t;
     }

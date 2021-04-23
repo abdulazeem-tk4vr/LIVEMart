@@ -1,6 +1,4 @@
-package com.example.oop_project.Retailer;
-
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.oop_project.Main.Retailer;
 
 public class TransModel_sub  {
     String cost,ddate,dname,dnumber,pname,quantity,status,username;

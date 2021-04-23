@@ -1,4 +1,4 @@
-package com.example.oop_project.Interface;
+package com.example.oop_project.Main.Interface;
 
 public interface NavigationManager  {
     void showFragment(String parentItem, String childItem);

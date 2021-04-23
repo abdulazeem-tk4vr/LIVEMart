@@ -1,4 +1,4 @@
-package com.example.oop_project.MyItems;
+package com.example.oop_project.Main.MyItems;
 
 import android.os.Bundle;
 

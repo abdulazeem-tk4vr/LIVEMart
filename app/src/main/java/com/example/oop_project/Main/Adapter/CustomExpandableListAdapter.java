@@ -1,4 +1,4 @@
-package com.example.oop_project.Adapter;
+package com.example.oop_project.Main.Adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
