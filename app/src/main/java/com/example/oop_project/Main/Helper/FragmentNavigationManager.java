@@ -255,3 +255,4 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
     }
 
 }
+
