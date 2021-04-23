@@ -5,12 +5,17 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
+    android:background="@color/teal_700"
+
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+
         >
 
         <TextView
@@ -24,16 +29,7 @@
             android:id="@+id/maintransview"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sub Title"
-            android:textColor="#a9a9a9"
-            android:textStyle="bold"
-            android:layout_margin="5dp"
-            android:textSize="15sp"
-            android:id="@+id/textView2"
-            />
+
 
     </LinearLayout>
 
