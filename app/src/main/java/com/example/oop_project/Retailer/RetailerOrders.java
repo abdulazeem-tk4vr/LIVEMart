@@ -1,6 +1,5 @@
-package com.example.oop_project.Main.Customer;
+package com.example.oop_project.Retailer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,7 @@ import com.example.oop_project.R;
 
 import java.util.ArrayList;
 
-public class CustomerCart extends Fragment implements AdapterView.OnItemClickListener{
+public class RetailerOrders extends Fragment implements AdapterView.OnItemClickListener{
     ArrayList<String> Keys = new ArrayList<>();
     boolean t;
     @Override
@@ -37,14 +36,14 @@ public class CustomerCart extends Fragment implements AdapterView.OnItemClickLis
         View view = inflater.inflate(R.layout.transaction_layout, container, false);
         return view;
     }
-    public CustomerCart(ArrayList<String> Keys) {
+    public RetailerOrders(ArrayList<String> Keys) {
         this.Keys=Keys;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String selectedFromList = (String) (parent.getItemAtPosition(position));
-        AppCompatActivity activity = (AppCompatActivity) view.getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new CustomerCart_sub(selectedFromList)).addToBackStack(null).commit();
+        AppCompatActivity activity=(AppCompatActivity)view.getContext();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new RetailerOrders_sub(selectedFromList)).addToBackStack(null).commit();
     }
 }

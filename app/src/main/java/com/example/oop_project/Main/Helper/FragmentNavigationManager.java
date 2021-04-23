@@ -14,6 +14,9 @@ import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.Main.NavigationBar;
 import com.example.oop_project.R;
 import com.example.oop_project.Main.Retailer.RetailerCategories;
+import com.example.oop_project.Retailer.RetailerOrders;
+import com.example.oop_project.Main.Retailer.RetailerTrans;
+import com.example.oop_project.Main.Retailer.RetailerCategories;
 import com.example.oop_project.Main.Retailer.RetailerTrans;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,7 +80,31 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         Log.i("status","customer cat");
                         break;
                     case "Cart":
-                        showFragment(new CustomerCart(),false);
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ArrayList<String> Keys = new ArrayList<>();
+//                        Keys.clear();
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Keys.add(snapshot.getKey());
+                                            Log.i("randomstuff",snapshot.getKey());
+                                        }
+                                        FragmentManager fm =  mFragmentManager;
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new CustomerCart(Keys));
+                                        ft.addToBackStack(null);
+                                        if(false || !BuildConfig.DEBUG){
+                                            ft.commitAllowingStateLoss();
+                                        }else{
+                                            ft.commit();
+                                        }
+                                        fm.executePendingTransactions();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
                         break;
                     case "orders":
                         FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
@@ -115,10 +142,35 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         showFragment(new RetailerCategories(),false);
                         Log.i("status","retailer cat");
                         break;
-                    case "Cart":
-                        showFragment(new CustomerCart(),false);
-                        break;
                     case "orders":
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ArrayList<String> Keys = new ArrayList<>();
+//                        Keys.clear();
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Keys.add(snapshot.getKey());
+                                            Log.i("randomstuff",snapshot.getKey());
+                                        }
+                                        FragmentManager fm =  mFragmentManager;
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new RetailerOrders(Keys));
+                                        ft.addToBackStack(null);
+                                        if(false || !BuildConfig.DEBUG){
+                                            ft.commitAllowingStateLoss();
+                                        }else{
+                                            ft.commit();
+                                        }
+                                        fm.executePendingTransactions();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
+
+                        break;
+                    case "transactions":
                         FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -203,3 +255,4 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
     }
 
 }
+
