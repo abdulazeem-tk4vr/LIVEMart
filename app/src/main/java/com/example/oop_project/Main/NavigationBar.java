@@ -138,7 +138,7 @@ public class NavigationBar extends AppCompatActivity {
     private void gendata(){
         List<String> title = Arrays.asList("Customer","Retailer","Wholesaler");
         List<String> childitem1 = Arrays.asList("Categories","Cart","orders");
-        List<String> childitem2 = Arrays.asList("Categories","Cart","orders","add item");
+        List<String> childitem2 = Arrays.asList("Categories","transactions","orders","add item");
         List<String> childitem3 = Arrays.asList("transactions","add item","about");
         lstChild = new TreeMap<>();
         lstChild.put(title.get(0),childitem1);
