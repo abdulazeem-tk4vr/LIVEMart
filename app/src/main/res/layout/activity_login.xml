@@ -36,13 +36,16 @@
         android:textColor="@color/black"
         android:textSize="19sp" />
 
+
     <EditText
         android:id="@+id/login_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_username"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
+        android:inputType="textPassword"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
         android:fontFamily="@font/advent_pro_bold"
@@ -50,7 +53,6 @@
         android:padding="20dp"
         android:textColor="@color/black"
         android:textSize="19sp" />
-
 
     <LinearLayout
         android:id="@+id/linear_layout_1"
