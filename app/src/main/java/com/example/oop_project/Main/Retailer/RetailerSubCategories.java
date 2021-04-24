@@ -1,6 +1,7 @@
 package com.example.oop_project.Main.Retailer;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class RetailerSubCategories extends Fragment {
 
         recview = (RecyclerView) view.findViewById(R.id.recview2);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        Log.i("thistest",pname);
         FirebaseRecyclerOptions<model_subcategory> options =
                 new FirebaseRecyclerOptions.Builder<model_subcategory>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child(pname).orderByChild("status").equalTo("Approved"), model_subcategory.class)
