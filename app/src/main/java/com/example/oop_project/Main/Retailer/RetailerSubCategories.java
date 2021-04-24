@@ -64,7 +64,7 @@ public class RetailerSubCategories extends Fragment {
 
         FirebaseRecyclerOptions<model_subcategory> options =
                 new FirebaseRecyclerOptions.Builder<model_subcategory>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child(pname), model_subcategory.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").child(pname).orderByChild("status").equalTo("Approved"), model_subcategory.class)
                         .build();
         adapter = new SubCategoryAdapter(options,pname);
         recview.setAdapter(adapter);

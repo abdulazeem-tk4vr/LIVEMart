@@ -31,54 +31,54 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/cutDist"
+        <Button
+            android:id="@+id/approve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/img1"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="83dp"
-            android:textAlignment="center"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+            android:layout_alignBottom="@+id/img1"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/img1"
+            android:text="APPROVE"
+            android:textStyle="bold"
+            android:textColor="#00FF00" />
+
+        <Button
+            android:id="@+id/reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/approve"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-50dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginStart="10dp"
+            android:text="REJECT"
+            android:textStyle="bold"
+            android:textColor="#FF0000"/>
 
         <TextView
-            android:id="@+id/cutDisttext"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nametext"
-            android:layout_alignStart="@+id/cutDist"
-            android:layout_alignEnd="@+id/cutDist"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="50dp"
-            android:gravity="center"
-            android:text="Shop Distance:"
-            android:textAlignment="center"
-            android:textSize="18sp" />
+            android:layout_below="@+id/approve"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp"
+            android:layout_toStartOf="@+id/status"
+            android:text="STATUS :"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/img1"
-            android:layout_alignTop="@+id/img1"
-            android:layout_marginStart="81dp"
-            android:layout_marginTop="168dp"
-            android:text="Quantity:" />
-
-        <EditText
-            android:id="@+id/qtyText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="162dp"
-            android:layout_toEndOf="@+id/textView5"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:textAlignment="center"
+            android:layout_below="@+id/img1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="158dp"
+            android:hint="TextView"
+            android:textColor="#000"
             />
 
 

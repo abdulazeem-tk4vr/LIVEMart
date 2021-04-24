@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                                     myEdit.commit();
                                                 }
-                                                Intent intent = new Intent(LoginActivity.this,SendOTPActivity.class);
+                                                Intent intent = new Intent(LoginActivity.this,NavigationBar.class);
                                                 startActivity(intent);
                                             } else {
                                                 Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();

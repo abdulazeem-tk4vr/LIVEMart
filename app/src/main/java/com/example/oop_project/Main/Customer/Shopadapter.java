@@ -153,7 +153,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                     }else if(p_usertype.equals("Retailer")){
                         parent_usertype="Wholesaler";
                     }
-                    Log.i("status",parent_usertype);
+
                     String str3 = snapshot.child(parent_usertype).child(model.getRname()).child("Details").child("latitude").getValue().toString();
                     String str4 = snapshot.child(parent_usertype).child(model.getRname()).child("Details").child("longitude").getValue().toString();
                     double lat1,lat2,lon1,lon2;

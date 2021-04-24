@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.oop_project.Main.FragmentContent;
 import com.example.oop_project.R;
-import com.example.oop_project.Retailer.Orders_sub;
+import com.example.oop_project.Main.Retailer.Orders_sub;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
