@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     // category , product name
     int quantity;
     public String uid;
+    Context context;
 
     public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,int qty) {
         super(options);
@@ -45,6 +47,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
         arg_pname=pname;
         cutoffDist = cutDist;
         quantity = qty;
+        this.context=context;
 
     }
 
@@ -119,6 +122,8 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
                                 map.put("status", "Pending");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                                 db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+                                Toast.makeText(context, arg_pname+" was added to "+uid, Toast.LENGTH_SHORT).show();
 
                                 //db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).setValue(map);
 

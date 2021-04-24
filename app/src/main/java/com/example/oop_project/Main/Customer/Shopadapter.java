@@ -33,6 +33,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
     public double cutoffDist;
     public int quantityDemand;
     public String uid;
+    Context context;
     // category , product name
 
 
@@ -48,6 +49,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         arg_pname=pname;
         cutoffDist = cutDist;
         quantityDemand = quantity;
+        this.context=context;
 
     }
 
@@ -120,9 +122,11 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                                 map.put("ddate", "1/6/21");
                                 Log.i("Brux","kdnsk");
                                 map.put("dnumber", "67564");
-                                map.put("status", "Pending");
+                                map.put("status", "Approved");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                                 db.child("Cart").child("Customer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+                                Toast.makeText(context, arg_pname+" was added to "+uid, Toast.LENGTH_SHORT).show();
 
 
 
