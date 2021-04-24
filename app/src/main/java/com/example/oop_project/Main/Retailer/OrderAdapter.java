@@ -70,7 +70,7 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
             public void onClick(View view) {
                 //holder.bt.setVisibility(View.INVISIBLE);
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackFrag("Retailer","Fgretailer",model.getPname(),model.getShop())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackFrag(p_usertype,p_username,model.getPname(),model.getShop())).addToBackStack(null).commit();
             }
         });
 

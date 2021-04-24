@@ -1,6 +1,8 @@
 package com.example.oop_project.Main.Retailer;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,12 +45,18 @@ public class RetailerOrders_sub extends Fragment {
 
         View view=inflater.inflate(R.layout.categories2, container, false);
 
+        SharedPreferences sh = getContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+
+        String p_username  =  sh.getString("username","Fgretailer");
+        String p_usertype  = sh.getString("usertype","Retailer");
+
         recview = (RecyclerView) view.findViewById(R.id.recview2);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
         FirebaseRecyclerOptions<Orders_sub> options =
                 new FirebaseRecyclerOptions.Builder<Orders_sub>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child("Fgretailer").child(pname)/*.orderByChild("status").equalTo("Approved")*/, Orders_sub.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username).child(pname)/*.orderByChild("status").equalTo("Approved")*/, Orders_sub.class)
                         .build();
         adapter = new OrderAdapter(options,getContext());
         recview.setAdapter(adapter);
