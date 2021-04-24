@@ -3,11 +3,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cart_order_trans">
+
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/listView"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="661dp">
 
     </ListView>
+
+    <Button
+        android:id="@+id/notifbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF5722"
+        android:shadowColor="#9C27B0"
+        android:text="Check Notifications"
+        android:textColor="#3F51B5" />
 </LinearLayout>

@@ -1,11 +1,13 @@
 package com.example.oop_project.Main.Retailer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.oop_project.Main.AlarmActivity;
 import com.example.oop_project.R;
 
 import java.util.ArrayList;
@@ -34,6 +37,14 @@ public class RetailerOrders extends Fragment implements AdapterView.OnItemClickL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.transaction_layout, container, false);
+        Button notifbtn = (Button) view.findViewById(R.id.notifbtn);
+        notifbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), AlarmActivity.class);
+                getContext().startActivity(i);
+            }
+        });
         return view;
     }
     public RetailerOrders(ArrayList<String> Keys) {
