@@ -85,24 +85,24 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
             @Override
             public void onClick(View v) {
 
-//                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Customer").child(p_username).child("Details").child("UID");
-//                uid_ref.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if (snapshot.exists()){
-//                            cust_uid = (String) snapshot.getValue().toString();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//                Log.i("cuid","value"+cust_uid);
-//                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username).child(cust_uid);
-//
-//                Rootref.removeValue();
+                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Customer").child(p_username).child("Details").child("UID");
+                uid_ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            cust_uid = (String) snapshot.getValue().toString();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Log.i("cuid","value"+cust_uid);
+                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username).child(cust_uid).child((String) holder.pname.getText());
+
+                Rootref.removeValue();
             }
         });
     }
