@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    app:cardBackgroundColor="@color/teal_700"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/nametext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:fontFamily="@font/aldrich"
+            android:text="This is Demo Name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img1"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/img1"
+            android:text="APPROVE"
+            android:textStyle="bold"
+            android:textColor="#00FF00" />
+
+        <Button
+            android:id="@+id/reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/approve"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-50dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginStart="10dp"
+            android:text="REJECT"
+            android:textStyle="bold"
+            android:textColor="#FF0000"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/approve"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp"
+            android:layout_toStartOf="@+id/status"
+            android:text="STATUS :"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="158dp"
+            android:hint="TextView"
+            android:textColor="#000"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

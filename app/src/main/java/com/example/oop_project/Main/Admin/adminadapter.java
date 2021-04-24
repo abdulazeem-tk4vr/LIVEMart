@@ -1,6 +1,6 @@
-package com.example.oop_project.Main.Customer;
+package com.example.oop_project.Main.Admin;
 
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.oop_project.Main.Customer.CustomerSubCategories;
+import com.example.oop_project.Main.Customer.model_category;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
-public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_category, myadapterCustomerCategory.myviewholder> {
+public class adminadapter extends FirebaseRecyclerAdapter<model_category, adminadapter.myviewholder> {
 
-    public myadapterCustomerCategory(@NonNull FirebaseRecyclerOptions<model_category> options) {
+    public adminadapter(@NonNull FirebaseRecyclerOptions<model_category> options) {
         super(options);
     }
 
@@ -47,7 +49,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
         holder.cutDist.setVisibility(View.INVISIBLE);
         holder.Quant.setVisibility(View.INVISIBLE);
         holder.Quanttext.setVisibility(View.INVISIBLE);
-
+        Log.i("practi","diff"+(model.getPname()));
 
 //        if(model.getPname().equals("Fruits")) {
 //            holder.itemView.setVisibility(View.VISIBLE);
@@ -61,8 +63,10 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
             @Override
             public void onClick(View view) {
 //                CustomerSubCategories(model.getPname())
+                Log.i("pract","diff"+(model.getPname()));
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new CustomerSubCategories(model.getPname())).addToBackStack(null).commit();
+
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new Adminsub(model.getPname())).addToBackStack(null).commit();
 
 
             }
@@ -84,6 +88,7 @@ public class myadapterCustomerCategory extends FirebaseRecyclerAdapter<model_cat
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
+
 
             Quanttext = itemView.findViewById(R.id.qtyText);
             Quant = itemView.findViewById(R.id.textView5);
