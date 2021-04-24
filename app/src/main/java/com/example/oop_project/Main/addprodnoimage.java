@@ -139,6 +139,8 @@ public class addprodnoimage extends AppCompatActivity {
 
                         FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").
                                 child(p_username).child("Products").child(category).child(Pname).updateChildren(productMap);
+
+                        Toast.makeText(this, Pname+" successfully updated.", Toast.LENGTH_SHORT).show();
                     }
                 });
 

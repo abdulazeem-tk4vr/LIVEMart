@@ -14,6 +14,7 @@ import com.example.oop_project.Main.Customer.CustomerOrders;
 import com.example.oop_project.Main.FragmentContent;
 import com.example.oop_project.Main.Interface.NavigationManager;
 import com.example.oop_project.Main.NavigationBar;
+import com.example.oop_project.Main.Wholesaler_Add;
 import com.example.oop_project.Main.addprodnoimage;
 import com.example.oop_project.R;
 import com.example.oop_project.Main.Retailer.RetailerCategories;
@@ -207,8 +208,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                 switch(childItem)
                 {
                     case "add item":
-                        Intent i = new Intent(getView().getContext(),addprodnoimage.class);
-                        startActivity(i);
+                        showFragment(new Wholesaler_Add(),false);
                         break;
                     case "transactions":
                         FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child(p_username)
