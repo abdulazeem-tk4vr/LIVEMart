@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/feedbackip"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/addfbbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="ADD FEEDBACK"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/feedbackip"/>
+
+    <TextView
+        android:id="@+id/feedbacktv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addfbbtn"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textSize="24sp" />
+</RelativeLayout>

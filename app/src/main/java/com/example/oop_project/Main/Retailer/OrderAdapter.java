@@ -13,8 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.oop_project.Main.FeedbackFrag;
 import com.example.oop_project.Main.AlarmActivity;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -62,6 +63,16 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
         holder.dnum.setText(model.getDnumber());
         holder.dqty.setText(model.getQuantity());
         holder.status.setText(model.getStatus());
+        holder.bt.setVisibility(View.VISIBLE);
+        holder.bt.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //holder.bt.setVisibility(View.INVISIBLE);
+                AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackFrag("Retailer","Fgretailer",model.getPname(),model.getShop())).addToBackStack(null).commit();
+            }
+        });
 
         holder.codbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +92,6 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
 
             }
         });
-
     }
 
     @NonNull
@@ -93,9 +103,11 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
 
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
+        Button bt;
         Button codbtn,offbtn;
         public myviewholder(@NonNull View view) {
             super(view);
+            bt = (Button) view.findViewById(R.id.addfeedbacks);
             shop = (TextView) view.findViewById(R.id.Custtitle);
             pname = (TextView) view.findViewById(R.id.Titletext);
             custname = (TextView) view.findViewById(R.id.CustName);
