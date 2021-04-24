@@ -34,7 +34,8 @@
 //
 //public class addprodnoimage extends AppCompatActivity  {
 //
-//    private String quantity, Price, Pname, p_username,nkey,category,temp_quantity;
+//    private String quantity, Price, Pname, p_username,nkey,category;
+//    double temp_quantity = 0;
 //    private ImageView InputProductImage;
 //    private static final int GalleryPick = 1;
 //    private Uri ImageUri;
@@ -119,44 +120,44 @@
 //
 //
 //    private void SaveProductInfoToDatabase() {
-////
-////        UserData = FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").child(p_username).child("Products").child(category).child(Pname).child("quantity");
-////        UserData.addValueEventListener(new ValueEventListener() {
-////            @Override
-////            public void onDataChange(@NonNull DataSnapshot snapshot) {
-////
-////                if(snapshot.exists()) {
-////                    temp_quantity = snapshot.getValue().toString().trim();
-////                    Log.i("quan",temp_quantity);
-////                }
-////            }
-////
-////            @Override
-////            public void onCancelled(@NonNull DatabaseError error) {
-////
-////            }
-////        });
+//        Log.i("username",p_username +" 1"+  category +" 2" + Pname);
+//        UserData = FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").child(p_username).child("Products").child(category).child(Pname);
+//        UserData.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if(snapshot.child("quantity").exists()) {
+//                    temp_quantity = Double.parseDouble(snapshot.child("quantity").getValue().toString().trim());
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 //
 //
 //
 //
 //
-//
+//        Double qty = Double.parseDouble(quantity) + temp_quantity;
 //        HashMap<String, Object> productMap = new HashMap<>();
-//        productMap.put("quantity", quantity);
-//        Log.i("qualpran","check"+quantity);
+//        productMap.put("quantity", String.valueOf(qty));
+//        //Log.i("qualpran","check"+quantity);
 //        productMap.put("price",Price);
 //        productMap.put("pname",pname);
 //
-//        FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").
-//                child(p_username).child("Products").child(category).child(Pname).updateChildren(productMap);
+////        FirebaseDatabase.getInstance().getReference().child("User").child("Wholesaler").
+////                child(p_username).child("Products").child(category).child(Pname).updateChildren(productMap);
 //
 //        // if snapshot exists
 //        // Quantity = Quantity + temp_quantity;
 //        // update
 ////        if(InputProduct)
 //
-//       // Quantdata.child(category).child(Pname).child("Wholesaler").child(p_username).updateChildren(productMap);
+//       Quantdata.child(category).child(Pname).child("Wholesaler").child(p_username).updateChildren(productMap);
 //        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 //        startActivity(intent);
 //    }
