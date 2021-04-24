@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:id="@+id/toplayout"
+    >
+
+    <TextView
+        android:textSize="17sp"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/event"
+        android:text=""
+        />
+    <LinearLayout
+        android:paddingEnd="10dp"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:alpha=".7"
+            android:layout_gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_access_alarm_24"
+            />
+
+        <TextView
+            android:alpha=".8"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:textStyle="bold|italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_and_date"
+            android:text="eentadaddafaffa"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

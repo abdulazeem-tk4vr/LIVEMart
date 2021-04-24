@@ -48,12 +48,12 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
 
 
 
-       if(mInstance==null)
-           mInstance= new FragmentNavigationManager();
-       mInstance.configure(mainActivity);
+        if(mInstance==null)
+            mInstance= new FragmentNavigationManager();
+        mInstance.configure(mainActivity);
         p_username=username;
         Log.i("checking","this is "+ p_username);
-       return mInstance;
+        return mInstance;
     }
     private void configure(NavigationBar mainActivity){
         mainActivity=mainActivity;
@@ -260,4 +260,3 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
     }
 
 }
-

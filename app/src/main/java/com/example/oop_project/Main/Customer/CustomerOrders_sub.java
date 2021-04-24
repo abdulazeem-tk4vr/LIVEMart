@@ -48,7 +48,7 @@ public class CustomerOrders_sub extends Fragment {
                 new FirebaseRecyclerOptions.Builder<TransModel_sub>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(custname).child(pname), TransModel_sub.class)
                         .build();
-        adapter = new OrderAdapter(options);
+        adapter = new OrderAdapter(options,getContext());
         recview.setAdapter(adapter);
         return  view;
     }

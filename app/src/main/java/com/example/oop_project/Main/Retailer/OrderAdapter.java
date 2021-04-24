@@ -1,25 +1,38 @@
 package com.example.oop_project.Main.Retailer;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.opengl.Visibility;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.oop_project.Main.FeedbackFrag;
+import com.example.oop_project.Main.AlarmActivity;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapter.myviewholder> {
     boolean t;
-    public OrderAdapter(@NonNull FirebaseRecyclerOptions<Orders_sub> options) {
+    public  String cust_uid = "M";
+    Context ct;
+    public OrderAdapter(@NonNull FirebaseRecyclerOptions<Orders_sub> options,Context c) {
         super(options);
+        ct = c;
     }
 
     @Override
@@ -36,7 +49,11 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final Orders_sub model) {
+        SharedPreferences sh = ct.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
+
+        String p_username  =  sh.getString("username","Fgretailer");
+        String p_usertype  = sh.getString("usertype","Retailer");
         holder.shop.setText("Wholesaler Name: ");
         holder.pname.setText(model.getPname());
         holder.custname.setText(model.getShop());
@@ -56,6 +73,25 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackFrag("Retailer","Fgretailer",model.getPname(),model.getShop())).addToBackStack(null).commit();
             }
         });
+
+        holder.codbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.offbtn.setVisibility(View.INVISIBLE);
+                String date = model.getDdate();
+                Toast.makeText(ct,"The order will be delivered on " + date,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        holder.offbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.codbtn.setVisibility(View.INVISIBLE);
+                Intent i = new Intent(ct, AlarmActivity.class);
+                ct.startActivity(i);
+
+            }
+        });
     }
 
     @NonNull
@@ -68,6 +104,7 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
         Button bt;
+        Button codbtn,offbtn;
         public myviewholder(@NonNull View view) {
             super(view);
             bt = (Button) view.findViewById(R.id.addfeedbacks);
@@ -80,6 +117,8 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
             dnum = (TextView) view.findViewById(R.id.deliverynum);
             dqty = (TextView) view.findViewById(R.id.quantity_trans);
             status = (TextView) view.findViewById(R.id.stat_trans);
+            codbtn = (Button) view.findViewById(R.id.codbutton);
+            offbtn = (Button) view.findViewById(R.id.offlinetransact);
         }
     }
 

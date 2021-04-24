@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.oop_project">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,6 +17,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOP_project">
+
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".Main.NotificationMessage"
+            android:label="@string/title_activity_notification_message"></activity>
+        <activity
+            android:name=".Main.CreateEvent"
+            android:label="@string/title_activity_create_event" />
+        <activity
+            android:name=".Main.AlarmActivity"
+            android:label="@string/title_activity_alarm" />
         <activity
             android:name=".Main.otp_extra.ShopFilterActivity"
             android:label="@string/title_activity_shop_filter"

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
     public String source;
     private FragmentManager mFragmentManager;
     public String fbtext="NO";
+    Context context;
     // category , product name
 
 
@@ -57,6 +59,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         arg_pname=pname;
         cutoffDist = cutDist;
         quantityDemand = quantity;
+        this.context=context;
 
     }
 
@@ -156,6 +159,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                         @Override
                         public void onDataChange(DataSnapshot snapshot) {
                             if(snapshot.exists()) {
+                                String shop_name = (String) holder.shopname.getText();
                                 uid = snapshot.child("Customer").child(p_username).child("Details").child("UID").getValue().toString();
                                 Log.i("dei",uid.toString());
                                 Map<String, Object> map = new HashMap<>();
@@ -167,9 +171,31 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                                 map.put("ddate", "1/6/21");
                                 Log.i("Brux","kdnsk");
                                 map.put("dnumber", "67564");
-                                map.put("status", "Pending");
+                                map.put("status", "Approved");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                                db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).updateChildren(map);
+                                db.child("Cart").child("Customer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+
+
+                                Map<String, Object> mapa = new HashMap<>();
+                                mapa.put("pname", arg_pname);
+                                mapa.put("cost", holder.tc.getText());
+                                mapa.put("quantity", String.valueOf(quantityDemand));
+                                mapa.put("username", p_username);
+                                mapa.put("dname", "daboi");
+                                mapa.put("ddate", "1/6/21");
+                                Log.i("Brux","kdnsk");
+                                mapa.put("dnumber", "67564");
+                                mapa.put("status", "Approved");
+                                DatabaseReference dba = FirebaseDatabase.getInstance().getReference();
+
+                                dba.child("Transaction").child("Retailer").child(shop_name).child(uid).child(arg_pname).updateChildren(mapa);
+
+                                Toast.makeText(context, arg_pname+" was added to "+uid, Toast.LENGTH_SHORT).show();
+
+
+
+
 
                                 //db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
 
