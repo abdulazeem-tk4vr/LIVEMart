@@ -65,24 +65,24 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
 
 
         holder.codbtn.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View v) {
-                                                 holder.offbtn.setVisibility(View.INVISIBLE);
+            @Override
+            public void onClick(View v) {
+                holder.offbtn.setVisibility(View.INVISIBLE);
 
-                                                 String date = model.getDdate();
-                                                 Toast.makeText(ct,"The order will be delivered on " + date,Toast.LENGTH_SHORT).show();
+                String date = model.getDdate();
+                Toast.makeText(ct,"The order will be delivered on " + date,Toast.LENGTH_SHORT).show();
 
-                                             }
-                                         });
-                holder.offbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        holder.codbtn.setVisibility(View.INVISIBLE);
-                        Intent i = new Intent(ct,AlarmActivity.class);
-                        ct.startActivity(i);
+            }
+        });
+        holder.offbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.codbtn.setVisibility(View.INVISIBLE);
+                Intent i = new Intent(ct,AlarmActivity.class);
+                ct.startActivity(i);
 
-                    }
-                });
+            }
+        });
 
     }
 

@@ -109,6 +109,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
                         @Override
                         public void onDataChange(DataSnapshot snapshot) {
                             if(snapshot.exists()) {
+                                String shop_name = (String) holder.shopname.getText();
                                 uid = snapshot.child("Retailer").child(p_username).child("Details").child("UID").getValue().toString();
                                 Map<String, Object> map = new HashMap<>();
                                 map.put("pname", arg_pname);
@@ -119,9 +120,23 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
                                 map.put("ddate", "2/7/21");
                                 Log.i("Brux","kdnsk");
                                 map.put("dnumber", "99876");
-                                map.put("status", "Pending");
+                                map.put("status", "Approved");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                                 db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+                                Map<String, Object> mapa = new HashMap<>();
+                                mapa.put("pname", arg_pname);
+                                mapa.put("cost", holder.tc.getText());
+                                mapa.put("quantity", String.valueOf(quantity));
+                                mapa.put("username", p_username);
+                                mapa.put("dname", "daboi");
+                                mapa.put("ddate", "1/6/21");
+                                Log.i("Brux","kdnsk");
+                                mapa.put("dnumber", "67564");
+                                mapa.put("status", "Approved");
+                                DatabaseReference dba = FirebaseDatabase.getInstance().getReference();
+
+                                dba.child("Transaction").child("Wholesaler").child(shop_name).child(uid).child(arg_pname).updateChildren(mapa);
 
                                 Toast.makeText(context, arg_pname+" was added to "+uid, Toast.LENGTH_SHORT).show();
 
