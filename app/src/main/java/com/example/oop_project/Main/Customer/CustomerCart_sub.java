@@ -1,5 +1,7 @@
 package com.example.oop_project.Main.Customer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,13 @@ public class CustomerCart_sub extends Fragment {
 
     RecyclerView recview;
     CartAdapter adapter;
+
+    SharedPreferences sh = getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+
+                    // The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+                    String p_username = sh.getString("username", "Macha");
+                    String p_usertype = sh.getString("usertype", "Customer");
     public CustomerCart_sub() {
 
     }
@@ -47,7 +56,7 @@ public class CustomerCart_sub extends Fragment {
 
         FirebaseRecyclerOptions<Orders_sub> options =
                 new FirebaseRecyclerOptions.Builder<Orders_sub>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child("Macha").child(pname), Orders_sub.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username).child(pname), Orders_sub.class)
                         .build();
         adapter = new CartAdapter(options);
         recview.setAdapter(adapter);
