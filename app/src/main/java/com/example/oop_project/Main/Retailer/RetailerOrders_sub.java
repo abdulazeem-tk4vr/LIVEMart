@@ -48,7 +48,7 @@ public class RetailerOrders_sub extends Fragment {
                 new FirebaseRecyclerOptions.Builder<Orders_sub>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child("Fgretailer").child(pname).orderByChild("status").equalTo("Approved"), Orders_sub.class)
                         .build();
-        adapter = new OrderAdapter(options);
+        adapter = new OrderAdapter(options,getContext());
         recview.setAdapter(adapter);
 
 

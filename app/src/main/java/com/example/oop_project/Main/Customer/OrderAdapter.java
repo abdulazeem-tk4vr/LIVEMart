@@ -2,6 +2,7 @@ package com.example.oop_project.Main.Customer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,15 @@ import com.example.oop_project.Main.NavigationBar;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderAdapter.myviewholder> {
+
+    public  String cust_uid;
     Context ct;
     public OrderAdapter(@NonNull FirebaseRecyclerOptions<TransModel_sub> options,Context c) {
         super(options);
@@ -42,6 +49,9 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final TransModel_sub model) {
+        SharedPreferences sh = ct.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String p_username = sh.getString("username", "Macha");
+        String p_usertype = sh.getString("usertype", "Customer");
 
         holder.shop.setText("Shop Name: ");
         holder.pname.setText(model.getPname());
@@ -74,6 +84,25 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
         holder.delbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Customer").child(p_username).child("Details").child("UID");
+//                uid_ref.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()){
+//                            cust_uid = (String) snapshot.getValue().toString();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//                Log.i("cuid","value"+cust_uid);
+//                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username).child(cust_uid);
+//
+//                Rootref.removeValue();
             }
         });
     }
