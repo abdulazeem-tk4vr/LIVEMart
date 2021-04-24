@@ -81,7 +81,7 @@ public class RetailerShopList extends Fragment{
                         .setQuery(query, RetailerShopModel.class)
                         .build();
 
-        adapter = new RetailerShopadapter(options,getContext(),  catname , pname,cutoffDistance,quantity);
+        adapter = new RetailerShopadapter(options,getContext(),  catname , pname,cutoffDistance,(int) quantity);
         recview1.setAdapter(adapter);
 
 

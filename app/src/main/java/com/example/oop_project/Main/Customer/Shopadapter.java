@@ -31,6 +31,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
     public String arg_cat,arg_pname,p_username,p_usertype, dist_temp,parent_usertype;
     public double cutoffDist;
     public int quantityDemand;
+    public String uid;
     // category , product name
 
 
@@ -91,29 +92,49 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice()) *quantityDemand));
         }
         else {
-            holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice()) * Integer.parseInt(model.getQuantity())));
+            holder.tc.setError("Please enter quantity!");
         }
-
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("User");
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uid = "UID_1";
+
+
                 int q = quantityDemand;
                 if(p_usertype.equals("Customer")) {
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("pname", arg_pname);
-                    map.put("cost", holder.tc.getText());
-                    map.put("quantity", holder.qty.getText());
-                    map.put("shop", holder.shopname.getText());
-                    map.put("dname", "daboi");
-                    map.put("ddate", "1/6/21");
-                    Log.i("Brux","kdnsk");
-                    map.put("dnumber", "6969696969");
-                    DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                    db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
+                    dbref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            if(snapshot.exists()) {
+                                uid = snapshot.child("Customer").child(p_username).child("Details").child("UID").getValue().toString();
+                                Log.i("dei",uid.toString());
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("pname", arg_pname);
+                                map.put("cost", holder.tc.getText());
+                                map.put("quantity", String.valueOf(quantityDemand));
+                                map.put("shop", holder.shopname.getText());
+                                map.put("dname", "daboi");
+                                map.put("ddate", "1/6/21");
+                                Log.i("Brux","kdnsk");
+                                map.put("dnumber", "67564");
+                                map.put("status", "Pending");
+                                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                                db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).updateChildren(map);
+
+                                //db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
 
             }
@@ -176,6 +197,8 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
             }
         });
+
+
 
 ////        lat2 = Double.parseDouble(String.valueOf(database.getReference().child("User").child("Retailer").child(model.getRname()).child("Details").child("latitude").get()));
 ////        lon2 = Double.parseDouble(String.valueOf(database.getReference().child("User").child("Retailer").child(model.getRname()).child("Details").child("longitude").get()));

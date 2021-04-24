@@ -30,9 +30,9 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     public String arg_cat,arg_pname,p_username,p_usertype, dist_temp,parent_usertype;
     public double cutoffDist;
     // category , product name
-    double quantity;
+    int quantity;
 
-    public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,double qty) {
+    public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,int qty) {
         super(options);
         SharedPreferences sh = context.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
@@ -89,6 +89,12 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
         holder.qty.setText(model.getQuantity());
         holder.rate.setText(model.getPrice());
         holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice())* Integer.parseInt(model.getQuantity())));
+        if(quantity != 0) {
+            holder.tc.setText(Float.toString(Float.parseFloat(model.getPrice()) *quantity));
+        }
+        else {
+            holder.tc.setError("Please enter quantity!");
+        }
 
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override

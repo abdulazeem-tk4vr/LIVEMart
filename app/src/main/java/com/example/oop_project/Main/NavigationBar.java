@@ -38,23 +38,24 @@ public class NavigationBar extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
     private String[] items;
-
+    public static String usertyp;
     private ExpandableListView expandableListView;
     private ExpandableListAdapter adapter;
     private List<String> lstTitle;
     private Map<String,List<String>> lstChild;
     private NavigationManager navigationManager;
+    public static int n=0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_navbar);
 
-
         SharedPreferences sh = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
         String product_username  = sh.getString("username", "Fgretailer");
-
+        String usert = sh.getString("usertype","Retailer");
+        usertyp=usert;
         Log.i("memes", ""+product_username);
         //init view
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -62,12 +63,6 @@ public class NavigationBar extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.navList);
         navigationManager = FragmentNavigationManager.getminstance(this,product_username);
         initItems();
-
-
-
-
-
-
 
         View listHeaderView = getLayoutInflater().inflate(R.layout.nav_header,null,false);
         expandableListView.addHeaderView(listHeaderView);
@@ -152,16 +147,32 @@ public class NavigationBar extends AppCompatActivity {
     private void gendata(){
         List<String> title = Arrays.asList("Customer","Retailer","Wholesaler");
         List<String> childitem1 = Arrays.asList("Categories","Cart","orders");
-        List<String> childitem2 = Arrays.asList("Categories","transactions","orders","add item");
+        List<String> childitem2 = Arrays.asList("Categories","transactions","Cart");
         List<String> childitem3 = Arrays.asList("transactions","add item","about");
+        List<String> error1 = Arrays.asList("NOT ACCESSIBLE","ONLY CUSTOMERS","CAN VIEW");
+        List<String> error2 = Arrays.asList("NOT ACCESSIBLE","ONLY RETAILERS","CAN VIEW");
+        List<String> error3 = Arrays.asList("NOT ACCESSIBLE","ONLY WHOLESALERS","CAN VIEW");
         lstChild = new TreeMap<>();
+//        if(usertyp.equals(title.get(0))){
+//            lstChild.put(title.get(0),childitem1);
+//            lstChild.put(title.get(2),error3);
+//            lstChild.put(title.get(1),error2);
+//            Log.i("kardib3",String.valueOf(n));
+//
+//        }else if(usertyp.equals(title.get(1))){
+//            lstChild.put(title.get(1),childitem2);
+//            lstChild.put(title.get(0),error1);
+//            lstChild.put(title.get(2),error3);
+//            Log.i("kardib3",String.valueOf(n));
+//        }else if(usertyp.equals(title.get(2))){
+//            lstChild.put(title.get(2),childitem3);
+//            lstChild.put(title.get(1),error2);
+//            lstChild.put(title.get(0),error1);
+//        }
         lstChild.put(title.get(0),childitem1);
         lstChild.put(title.get(1),childitem2);
         lstChild.put(title.get(2),childitem3);
-        Log.i("kardib",String.valueOf(lstChild.size()));
-
         lstTitle = new ArrayList<>(lstChild.keySet());
-        Log.i("kardib",String.valueOf(lstTitle.size()));
 
     }
     private void initItems(){

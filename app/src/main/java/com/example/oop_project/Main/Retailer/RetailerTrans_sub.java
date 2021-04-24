@@ -48,7 +48,7 @@ public class RetailerTrans_sub extends Fragment {
 
         FirebaseRecyclerOptions<TransModel_sub> options =
                 new FirebaseRecyclerOptions.Builder<TransModel_sub>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Transaction").child("Wholesaler").child("Ytwhole").child(pname), TransModel_sub.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child("Fgretailer").child(pname), TransModel_sub.class)
                         .build();
         adapter = new TransactionAdapter(options,t);
         recview.setAdapter(adapter);

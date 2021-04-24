@@ -48,7 +48,12 @@ public class SubCategoryAdapter extends FirebaseRecyclerAdapter<model_subcategor
             @Override
             public void onClick(View view) {
                 double cutDist=1000;
-                double qty = Double.parseDouble(String.valueOf(holder.qty.getText()));
+                int qty;
+                if(holder.qty.getText().toString().matches("")){
+                    qty=0;
+                }else {
+                    qty = Integer.parseInt(holder.qty.getText().toString());
+                }
                 if(holder.cutDist.getText().length() != 0){
                     cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
                 }

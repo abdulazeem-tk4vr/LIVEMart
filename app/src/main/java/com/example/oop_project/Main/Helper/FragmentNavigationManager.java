@@ -80,7 +80,9 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         Log.i("status","customer cat");
                         break;
                     case "Cart":
-                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
+                        Log.i("randomstuff","incart");
+                        Log.i("randomstuff",p_username);
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child("Macha")
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override
@@ -142,7 +144,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         showFragment(new RetailerCategories(),false);
                         Log.i("status","retailer cat");
                         break;
-                    case "orders":
+                    case "Cart":
                         FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 

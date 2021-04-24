@@ -47,7 +47,7 @@ public class adapter_sub extends FirebaseRecyclerAdapter<model_subcategory, adap
             @Override
             public void onClick(View view) {
                 double cutDist=1000;
-                int qty = 0;
+                int qty = 1;
                 if(holder.cutDist.getText().length() != 0 ){
                     cutDist = Double.parseDouble(String.valueOf(holder.cutDist.getText()));
 
