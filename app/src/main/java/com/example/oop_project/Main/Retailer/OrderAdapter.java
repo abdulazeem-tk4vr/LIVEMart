@@ -3,6 +3,7 @@ package com.example.oop_project.Main.Retailer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.opengl.Visibility;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +66,7 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
         holder.codbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                holder.offbtn.setVisibility(View.INVISIBLE);
                 String date = model.getDdate();
                 Toast.makeText(ct,"The order will be delivered on " + date,Toast.LENGTH_SHORT).show();
 
@@ -74,35 +75,13 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
         holder.offbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.codbtn.setVisibility(View.INVISIBLE);
                 Intent i = new Intent(ct, AlarmActivity.class);
                 ct.startActivity(i);
 
             }
         });
-        holder.delbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Retailer").child(p_username).child("Details").child("UID");
-                uid_ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()){
-                            cust_uid = (String) snapshot.getValue().toString();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                Log.i("cuid","value"+cust_uid);
-                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username).child(cust_uid).child((String) holder.pname.getText());
-
-                Rootref.removeValue();
-            }
-        });
     }
 
     @NonNull
@@ -114,7 +93,7 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
 
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
-        Button codbtn,offbtn,delbtn;
+        Button codbtn,offbtn;
         public myviewholder(@NonNull View view) {
             super(view);
             shop = (TextView) view.findViewById(R.id.Custtitle);
@@ -128,7 +107,6 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
             status = (TextView) view.findViewById(R.id.stat_trans);
             codbtn = (Button) view.findViewById(R.id.codbutton);
             offbtn = (Button) view.findViewById(R.id.offlinetransact);
-            delbtn = (Button) view.findViewById(R.id.deletebtn);
         }
     }
 
