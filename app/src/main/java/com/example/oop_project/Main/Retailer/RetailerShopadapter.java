@@ -120,7 +120,7 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
                                 map.put("ddate", "2/7/21");
                                 Log.i("Brux","kdnsk");
                                 map.put("dnumber", "99876");
-                                map.put("status", "Pending");
+                                map.put("status", "Approved");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                                 db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
 

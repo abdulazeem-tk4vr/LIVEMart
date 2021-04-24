@@ -213,13 +213,13 @@
                 android:id="@+id/codbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="60dp"
                 android:background="@color/colorPrimary"
                 android:backgroundTint="#B52222"
                 android:text="C.O.D"
                 app:layout_constraintBottom_toTopOf="@+id/offlinetransact"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintHorizontal_bias="0.536"
                 app:layout_constraintStart_toEndOf="@+id/CustName"
                 app:rippleColor="#FFC107" />
 
@@ -227,23 +227,11 @@
                 android:id="@+id/offlinetransact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:text="OFFLINE"
-                app:layout_constraintBottom_toTopOf="@+id/deletebtn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.634"
                 app:layout_constraintStart_toEndOf="@+id/dname" />
-
-            <Button
-                android:id="@+id/deletebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="56dp"
-                android:text="DELETE"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/stat_trans" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
