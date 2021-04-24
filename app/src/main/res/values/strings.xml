@@ -50,4 +50,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_launch">LaunchActivity</string>
+    <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="title_activity_create_event">CreateEvent</string>
+    <string name="title_activity_notification_message">NotificationMessage</string>
 </resources>

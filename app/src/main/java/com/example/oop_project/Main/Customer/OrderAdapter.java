@@ -1,22 +1,31 @@
 package com.example.oop_project.Main.Customer;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.oop_project.Main.AlarmActivity;
+import com.example.oop_project.Main.MainActivity;
+import com.example.oop_project.Main.NavigationBar;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseError;
 
 public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderAdapter.myviewholder> {
-
-    public OrderAdapter(@NonNull FirebaseRecyclerOptions<TransModel_sub> options) {
+    Context ct;
+    public OrderAdapter(@NonNull FirebaseRecyclerOptions<TransModel_sub> options,Context c) {
         super(options);
+        ct = c;
     }
 
     @Override
@@ -43,6 +52,30 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
         holder.dnum.setText(model.getDnumber());
         holder.dqty.setText(model.getQuantity());
         holder.status.setText(model.getStatus());
+
+
+        holder.codbtn.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View v) {
+
+                                                 String date = model.getDdate();
+                                                 Toast.makeText(ct,"The order will be delivered on " + date,Toast.LENGTH_SHORT).show();
+
+                                             }
+                                         });
+                holder.offbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(ct,AlarmActivity.class);
+                        ct.startActivity(i);
+
+                    }
+                });
+        holder.delbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
     @NonNull
@@ -52,8 +85,11 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
         return new myviewholder(view);
     }
 
+
+
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
+        Button codbtn,offbtn,delbtn;
         public myviewholder(@NonNull View view) {
             super(view);
             shop = (TextView) view.findViewById(R.id.Custtitle);
@@ -65,6 +101,9 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
             dnum = (TextView) view.findViewById(R.id.deliverynum);
             dqty = (TextView) view.findViewById(R.id.quantity_trans);
             status = (TextView) view.findViewById(R.id.stat_trans);
+            codbtn = (Button) view.findViewById(R.id.codbutton);
+            offbtn = (Button) view.findViewById(R.id.offlinetransact);
+            delbtn = (Button) view.findViewById(R.id.deletebtn);
         }
     }
 
