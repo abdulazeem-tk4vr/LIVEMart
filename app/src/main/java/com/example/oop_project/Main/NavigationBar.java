@@ -149,9 +149,9 @@ public class NavigationBar extends AppCompatActivity {
         List<String> childitem1 = Arrays.asList("Categories","Cart","orders");
         List<String> childitem2 = Arrays.asList("Categories","transactions","Cart");
         List<String> childitem3 = Arrays.asList("transactions","add item","about");
-        List<String> error1 = Arrays.asList("NOT ACCESSIBLE","ONLY CUSTOMERS","CAN VIEW");
-        List<String> error2 = Arrays.asList("NOT ACCESSIBLE","ONLY RETAILERS","CAN VIEW");
-        List<String> error3 = Arrays.asList("NOT ACCESSIBLE","ONLY WHOLESALERS","CAN VIEW");
+//        List<String> error1 = Arrays.asList("NOT ACCESSIBLE","ONLY CUSTOMERS","CAN VIEW");
+//        List<String> error2 = Arrays.asList("NOT ACCESSIBLE","ONLY RETAILERS","CAN VIEW");
+//        List<String> error3 = Arrays.asList("NOT ACCESSIBLE","ONLY WHOLESALERS","CAN VIEW");
         lstChild = new TreeMap<>();
 //        if(usertyp.equals(title.get(0))){
 //            lstChild.put(title.get(0),childitem1);

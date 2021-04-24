@@ -11,8 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.oop_project.Main.FeedbackDisplay;
+import com.example.oop_project.Main.FeedbackFrag;
+import com.example.oop_project.Main.Retailer.RetailerTrans;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -21,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.BuildConfig;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -32,6 +39,9 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
     public double cutoffDist;
     public int quantityDemand;
     public String uid;
+    public String source;
+    private FragmentManager mFragmentManager;
+    public String fbtext="NO";
     // category , product name
 
 
@@ -85,6 +95,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
         Log.i("memes",arg_pname);
         Log.i("memes",p_username);
         Log.i("memes",p_usertype);
+        Log.i("miccheck",fbtext);
         holder.shopname.setText(model.getRname());
         holder.qty.setText(model.getQuantity());
         holder.rate.setText(model.getPrice());
@@ -97,6 +108,43 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("User");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        holder.b2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                if(p_usertype.equals("Customer")){
+                    source = "Retailer";
+                }else if(p_usertype.equals("Retailer")){
+                    source = "Wholesaler";
+                }
+                db.child("Feedback").child(source).child(model.getRname()).child(arg_pname).child(p_username).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            String retname=model.getRname();
+
+                            fbtext = "By "+p_username+": \n"+snapshot.child("feedback").getValue().toString();
+
+                            //db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
+
+                        }else{
+                            fbtext = "NO FEEDBACK FOR THIS ITEM YET";
+                        }
+                        AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackDisplay(fbtext)).addToBackStack(null).commit();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
+
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,7 +294,7 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
         TextView shopname,qty,rate,tc,dist,r;
-        Button b1,b2;
+        Button b1,b2,bt;
         TextView t16,t21,sub;
 
         public myviewholder(@NonNull View itemView) {
@@ -264,7 +312,6 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
             b1 = itemView.findViewById(R.id.addtocartbtn);
             b2 = itemView.findViewById(R.id.feedbackbtn);
             r = itemView.findViewById(R.id.retailer_sub_name);
-
             t16 = itemView.findViewById(R.id.textView16);
             t21 = itemView.findViewById(R.id.textView21);
             sub = itemView.findViewById(R.id.retailer_sub_name);

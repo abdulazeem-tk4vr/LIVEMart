@@ -3,11 +3,14 @@ package com.example.oop_project.Main.Customer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.oop_project.Main.FeedbackFrag;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -43,6 +46,16 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
         holder.dnum.setText(model.getDnumber());
         holder.dqty.setText(model.getQuantity());
         holder.status.setText(model.getStatus());
+        holder.bt.setVisibility(View.VISIBLE);
+        holder.bt.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //holder.bt.setVisibility(View.INVISIBLE);
+                AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackFrag("Customer","Macha",model.getPname(),model.getShop())).addToBackStack(null).commit();
+            }
+        });
     }
 
     @NonNull
@@ -54,8 +67,10 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderA
 
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
+        Button bt;
         public myviewholder(@NonNull View view) {
             super(view);
+            bt = (Button) view.findViewById(R.id.addfeedbacks);
             shop = (TextView) view.findViewById(R.id.Custtitle);
             pname = (TextView) view.findViewById(R.id.Titletext);
             custname = (TextView) view.findViewById(R.id.CustName);

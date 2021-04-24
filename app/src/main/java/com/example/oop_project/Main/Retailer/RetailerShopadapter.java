@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.oop_project.Main.FeedbackDisplay;
 import com.example.oop_project.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -31,6 +33,8 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     public double cutoffDist;
     // category , product name
     int quantity;
+    public String fbtext="NO";
+    public String source;
     public String uid;
 
     public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,int qty) {
@@ -98,6 +102,42 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
         }
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("User");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        holder.b2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                if(p_usertype.equals("Customer")){
+                    source = "Retailer";
+                }else if(p_usertype.equals("Retailer")){
+                    source = "Wholesaler";
+                }
+                db.child("Feedback").child(source).child(model.getRname()).child(arg_pname).child(p_username).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            String retname=model.getRname();
+
+                            fbtext = "By "+p_username+": \n"+snapshot.child("feedback").getValue().toString();
+
+                            //db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
+
+                        }else{
+                            fbtext = "NO FEEDBACK FOR THIS ITEM YET";
+                        }
+                        AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,new FeedbackDisplay(fbtext)).addToBackStack(null).commit();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,13 +283,13 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     public class myviewholder extends RecyclerView.ViewHolder {
         //modify this based on what ani designs
         TextView shopname,qty,rate,tc,dist;
-        Button b1 ;
+        Button b1,b2 ;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
             this.itemView.getContext();
             int a =1;
-
+            b2 = itemView.findViewById(R.id.feedbackbtn);
             b1 = itemView.findViewById(R.id.addtocartbtn);
             shopname = itemView.findViewById(R.id.shopnameTV);
             qty = itemView.findViewById(R.id.qtyTV);

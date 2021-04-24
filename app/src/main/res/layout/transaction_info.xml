@@ -199,6 +199,18 @@
                     app:layout_constraintStart_toEndOf="@+id/stat"
                     app:layout_constraintTop_toBottomOf="@+id/qty_trans"/>
 
+                <Button
+                    android:id="@+id/addfeedbacks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD FEEDBACK"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/deliveryexec"
+                    app:layout_constraintTop_toBottomOf="@+id/Titletext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="30dp"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

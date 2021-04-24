@@ -110,7 +110,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                                 });
                         break;
                     case "orders":
-                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child("Macha")
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override
@@ -122,7 +122,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                                             Log.i("randomstuff",snapshot.getKey());
                                         }
                                         FragmentManager fm =  mFragmentManager;
-                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new CustomerOrders(Keys,p_username));
+                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new CustomerOrders(Keys,"Macha"));
                                         ft.addToBackStack(null);
                                         if(false || !BuildConfig.DEBUG){
                                             ft.commitAllowingStateLoss();
@@ -146,7 +146,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         Log.i("status","retailer cat");
                         break;
                     case "Cart":
-                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username)
+                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child("Fgretailer")
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override
