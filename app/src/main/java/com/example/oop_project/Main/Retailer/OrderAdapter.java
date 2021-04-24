@@ -83,24 +83,28 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Orders_sub, OrderAdapt
             @Override
             public void onClick(View v) {
 
-//                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Retailer").child(p_username).child("Details").child("UID");
-//                uid_ref.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if (snapshot.exists()){
-//                            cust_uid = (String) snapshot.getValue().toString();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//                Log.i("cuid","value"+cust_uid);
-//                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username).child(cust_uid);
-//
-//                Rootref.removeValue();
+
+
+
+                DatabaseReference uid_ref = FirebaseDatabase.getInstance().getReference().child("User").child("Retailer").child(p_username).child("Details").child("UID");
+                uid_ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            cust_uid = snapshot.getValue().toString();
+                            Log.i("meme","value"+cust_uid);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Log.i("meme","value"+cust_uid);
+                DatabaseReference Rootref = FirebaseDatabase.getInstance().getReference().child("Cart").child("Retailer").child(p_username).child(cust_uid).child(model.getPname());
+
+                Rootref.removeValue();
             }
         });
     }
