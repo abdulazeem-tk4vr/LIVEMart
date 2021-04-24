@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,8 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
     public double cutoffDist;
     // category , product name
     int quantity;
+    public String uid;
+    Context context;
 
     public RetailerShopadapter(@NonNull FirebaseRecyclerOptions<RetailerShopModel> options, Context context, String catname , String pname, double cutDist,int qty) {
         super(options);
@@ -38,12 +41,13 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
 
         // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-        p_username  =  "Fgretailer";
-        p_usertype  = "Retailer";
-       arg_cat=catname;
-       arg_pname=pname;
-       cutoffDist = cutDist;
+        p_username  =  sh.getString("username","Fgretailer");
+        p_usertype  = sh.getString("usertype","Retailer");
+        arg_cat=catname;
+        arg_pname=pname;
+        cutoffDist = cutDist;
         quantity = qty;
+        this.context=context;
 
     }
 
@@ -95,27 +99,65 @@ public class RetailerShopadapter extends FirebaseRecyclerAdapter<RetailerShopMod
         else {
             holder.tc.setError("Please enter quantity!");
         }
-
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference dbref = database.getReference().child("User");
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double qty = quantity + Double.parseDouble(String.valueOf(holder.qty.getText()));
-                Map<String, Object> Retmap = new HashMap<>();
-                Retmap.put("pname", arg_pname);
-                Retmap.put("price", holder.tc.getText());
-                Retmap.put("quantity", String.valueOf(qty));
-                Log.i("Brick","kdnsk");
-                Retmap.put("shop", holder.shopname.getText());
-                Retmap.put("dname", "daboi");
-                Retmap.put("ddate", "1/6/21");
-                Retmap.put("dnumber", "6969696969");
-                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                db.child("Cart").child(p_usertype).child(p_username).child("UID_1").child(arg_pname).updateChildren(Retmap);
+                if(true) {
+                    dbref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            if(snapshot.exists()) {
+                                uid = snapshot.child("Retailer").child(p_username).child("Details").child("UID").getValue().toString();
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("pname", arg_pname);
+                                map.put("cost", holder.tc.getText());
+                                map.put("quantity", String.valueOf(quantity));
+                                map.put("shop", holder.shopname.getText());
+                                map.put("dname", "Rajesh");
+                                map.put("ddate", "2/7/21");
+                                Log.i("Brux","kdnsk");
+                                map.put("dnumber", "99876");
+                                map.put("status", "Pending");
+                                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                                db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+                                Toast.makeText(context, arg_pname+" was added to "+uid, Toast.LENGTH_SHORT).show();
+
+                                //db.child("Cart").child("Retailer").child(p_username).child(uid).child(arg_pname).setValue(map);
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+
             }
         });
-
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference dbref = database.getReference().child("User");
+//        holder.b1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                double qty = quantity + Double.parseDouble(String.valueOf(holder.qty.getText()));
+//                Map<String, Object> Retmap = new HashMap<>();
+//                Retmap.put("pname", arg_pname);
+//                Retmap.put("price", holder.tc.getText());
+//                Retmap.put("quantity", String.valueOf(qty));
+//                Log.i("Brick","kdnsk");
+//                Retmap.put("shop", holder.shopname.getText());
+//                Retmap.put("dname", "daboi");
+//                Retmap.put("ddate", "1/6/21");
+//                Retmap.put("dnumber", "6969696969");
+//                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+//                db.child("Cart").child(p_usertype).child(p_username).child("UID_1").child(arg_pname).updateChildren(Retmap);
+//            }
+//        });
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

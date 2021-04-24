@@ -117,27 +117,28 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="38dp"
                 android:layout_marginTop="60dp"
-                android:text="Quantity:"
-                android:textStyle="bold"
+                android:text="Stock:"
                 android:textColor="#002C1F"
+                android:textStyle="bold"
 
                 app:layout_constraintBottom_toBottomOf="@+id/qtyTV"
                 app:layout_constraintEnd_toStartOf="@+id/qtyTV"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
+                app:layout_constraintTop_toTopOf="@+id/textView15"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/qtyTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:hint="TextView"
-                android:textStyle="bold"
                 android:textColor="#002C1F"
 
-                android:layout_marginStart="10dp"
+                android:textStyle="bold"
 
                 app:layout_constraintBottom_toTopOf="@+id/totalcostTV"
                 app:layout_constraintStart_toEndOf="@+id/textView19"

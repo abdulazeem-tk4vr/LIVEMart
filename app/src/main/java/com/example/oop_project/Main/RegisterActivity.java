@@ -136,6 +136,7 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("email", mail);
                                 userdataMap.put("latitude", s_long);
                                 userdataMap.put("longitude", s_lat);
+                                userdataMap.put("UID", "UID_3");
 
 
                                 rootref.child("User").child("Customer").child(username).child("Details").updateChildren(userdataMap)
@@ -171,6 +172,9 @@ public class RegisterActivity extends AppCompatActivity implements LocationListe
                                 userdataMap.put("email", mail);
                                 userdataMap.put("latitude", s_lat);
                                 userdataMap.put("longitude", s_long);
+                                userdataMap.put("UID", "UID_3");
+
+
 
                                 Log.i("Wazzup", "is it working");
 
