@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.oop_project.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         navbartestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, addprodnoimage.class);
+                Intent intent = new Intent(MainActivity.this, NavigationBar.class);
                 startActivity(intent);
 
 

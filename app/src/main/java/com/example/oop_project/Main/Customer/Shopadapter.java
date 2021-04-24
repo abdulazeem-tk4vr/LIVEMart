@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -121,7 +122,11 @@ public class Shopadapter extends FirebaseRecyclerAdapter<model_shop, Shopadapter
                                 map.put("dnumber", "67564");
                                 map.put("status", "Pending");
                                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                                db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).updateChildren(map);
+                                db.child("Cart").child("Customer").child(p_username).child(uid).child(arg_pname).updateChildren(map);
+
+
+
+
 
                                 //db.child("Cart").child("Customer").child("Macha").child(uid).child(arg_pname).setValue(map);
 
