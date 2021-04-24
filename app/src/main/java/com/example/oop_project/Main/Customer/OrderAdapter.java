@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class OrderAdapter extends FirebaseRecyclerAdapter<TransModel_sub, OrderAdapter.myviewholder> {
 
-    public  String cust_uid;
+    public  String cust_uid = "M";
     Context ct;
     public OrderAdapter(@NonNull FirebaseRecyclerOptions<TransModel_sub> options,Context c) {
         super(options);
