@@ -3,6 +3,7 @@ package com.example.oop_project.Main.Retailer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,8 @@ public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_
         holder.dnum.setText(model.getDnumber());
         holder.dqty.setText(model.getQuantity());
         holder.status.setText(model.getStatus());
+        holder.offline.setVisibility(View.INVISIBLE);
+        holder.COD.setVisibility(View.INVISIBLE);
     }
 
     @NonNull
@@ -58,6 +61,7 @@ public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_
 
     public class myviewholder extends RecyclerView.ViewHolder {
         TextView custname,cost,ddate,dname,dnum,dqty,status,pname,shop;
+        Button COD,offline;
         public myviewholder(@NonNull View view) {
             super(view);
             shop = (TextView) view.findViewById(R.id.Custtitle);
@@ -69,6 +73,9 @@ public class TransactionAdapter extends FirebaseRecyclerAdapter<com.example.oop_
             dnum = (TextView) view.findViewById(R.id.deliverynum);
             dqty = (TextView) view.findViewById(R.id.quantity_trans);
             status = (TextView) view.findViewById(R.id.stat_trans);
+            COD = view.findViewById(R.id.codbutton);
+            offline = view.findViewById(R.id.offlinetransact);
+
         }
     }
 
