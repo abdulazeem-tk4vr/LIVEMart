@@ -1,5 +1,7 @@
 package com.example.oop_project.Main.Retailer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RetailerTrans_sub extends Fragment {
 
-    String pname;
+    String pname,p_username,p_usertype;
 
     RecyclerView recview;
     TransactionAdapter adapter;
@@ -41,6 +43,10 @@ public class RetailerTrans_sub extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        SharedPreferences sh = getContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        p_username  = sh.getString("username", "Fgretailer");
+        p_usertype  = sh.getString("usertype", "Retailer");
+
         View view=inflater.inflate(R.layout.categories2, container, false);
 
         recview = (RecyclerView) view.findViewById(R.id.recview2);
@@ -48,7 +54,7 @@ public class RetailerTrans_sub extends Fragment {
 
         FirebaseRecyclerOptions<TransModel_sub> options =
                 new FirebaseRecyclerOptions.Builder<TransModel_sub>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child("Fgretailer").child(pname), TransModel_sub.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Transaction").child("Retailer").child(p_username).child(pname), TransModel_sub.class)
                         .build();
         adapter = new TransactionAdapter(options,t);
         recview.setAdapter(adapter);
