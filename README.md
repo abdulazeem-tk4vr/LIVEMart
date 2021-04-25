@@ -1,6 +1,7 @@
 
 # Grocery Shop eCommerce Mobile Android Application </br>( Java | Firebase )
-Built in Java using Android Studio and Firebase Realtime database (for storing the data online) .
+Built in Java using Android Studio and Firebase Realtime database (for storing the data online) .<br/>
+Completed the application in 25 days with over 150 hours of dedication and efforts.
 # Tables of Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
