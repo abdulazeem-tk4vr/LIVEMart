@@ -37,8 +37,7 @@ Now that you've reached this heading, you must be interested in developing an an
 <br/><br/>
 If you'd like to start with Android development, you can check out this link. You should also check the courses on Udacity which are the visual equivalents.<br/>
 https://github.com/coder2hacker/Android-Development-RoadMap<br/>
-https://www.udacity.com/
-<br/><br/>
+https://classroom.udacity.com/courses/ud9012<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.</br>
 </br>
 Front End Resources :
