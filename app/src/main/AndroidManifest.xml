@@ -17,8 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOP_project">
-
-
+        <activity android:name=".Main.AdminActivity"></activity>
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -29,7 +28,7 @@
 
         <activity
             android:name=".Main.NotificationMessage"
-            android:label="@string/title_activity_notification_message"></activity>
+            android:label="@string/title_activity_notification_message" />
         <activity
             android:name=".Main.CreateEvent"
             android:label="@string/title_activity_create_event" />
