@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.oop_project.Main.Admin.Admin;
 import com.example.oop_project.Main.Customer.CustomerCart;
 import com.example.oop_project.Main.Customer.CustomerCategories;
 import com.example.oop_project.Main.Customer.CustomerOrders;
@@ -81,35 +82,7 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                         showFragment(new CustomerCategories(),false);
                         Log.i("status","customer cat");
                         break;
-                    case "Cart":
-                        Log.i("randomstuff","incart");
-                        Log.i("randomstuff",p_username);
-                        FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
-                                .addListenerForSingleValueEvent(new ValueEventListener() {
-
-                                    @Override
-                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                        ArrayList<String> Keys = new ArrayList<>();
-//                        Keys.clear();
-                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                            Keys.add(snapshot.getKey());
-                                            Log.i("randomstuff",snapshot.getKey());
-                                        }
-                                        FragmentManager fm =  mFragmentManager;
-                                        FragmentTransaction ft = fm.beginTransaction().replace(R.id.container,new CustomerCart(Keys));
-                                        ft.addToBackStack(null);
-                                        if(false || !BuildConfig.DEBUG){
-                                            ft.commitAllowingStateLoss();
-                                        }else{
-                                            ft.commit();
-                                        }
-                                        fm.executePendingTransactions();
-                                    }
-                                    @Override
-                                    public void onCancelled(DatabaseError databaseError) {
-                                    }
-                                });
-                        break;
+                   
                     case "orders":
                         FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer").child(p_username)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -237,6 +210,9 @@ public class FragmentNavigationManager  extends Fragment implements NavigationMa
                                     }
                                 });
 
+                        break;
+                    case "about":
+                        showFragment(new Admin(),false);
                         break;
                 }
                 break;
