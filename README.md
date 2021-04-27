@@ -6,7 +6,7 @@ Completed the application in 25 days with over 150 hours of dedication and effor
 * [Introduction](#introduction)
 * [Usage](#usage)
 * [Contributions](#contributions)
-* [Modules](#Modules)
+* [Description](#Description)
 * [Overview](#overview)
 
 
@@ -71,7 +71,7 @@ Graph :
 https://github.com/tk4vr/oop_anidev/graphs/contributors
 
 
-# Modules
+# Description
 
 Module 1: Registration and Sign-Up
 <br/>
@@ -84,7 +84,7 @@ Module 4: Placing order and status of order
 Module 5: Feedback and Queries
 <br/>
 <br/>
-To make my readme concise, I have compiled the detailed explanation, screenshots and resources onto a google doc. Please access the doc to understand how the project was developed. <br/>
+To make my readme concise, I have compiled the detailed explanation, screenshots and resources onto a google doc. Please access the doc to understand how the project was developed. <br/><br/>
 https://docs.google.com/document/d/1u7NezvEgl2LjCfYd3zU-BKDVAhGa6vAqoBTKNvGeIFg/edit?usp=sharing
 
 
