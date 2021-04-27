@@ -85,8 +85,7 @@ Module 5: Feedback and Queries
 <br/>
 <br/>
 To make my readme concise, I have compiled the detailed explanation and resources onto a google doc. Please access the doc to understand how the project was developed. <br/>
-https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/edit?usp=sharing
-
+https://docs.google.com/document/d/1u7NezvEgl2LjCfYd3zU-BKDVAhGa6vAqoBTKNvGeIFg/edit?usp=sharing
 
 
 # Overview
