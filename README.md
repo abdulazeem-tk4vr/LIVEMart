@@ -50,13 +50,10 @@ Front End Resources :
 </br></br>
 https://iconscout.com/
 </br>
-
 https://icons8.com/
 </br>
-
 https://material.io/
 </br>
-
 https://www.canva.com/
 </br>
 
