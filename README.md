@@ -43,6 +43,8 @@ If you'd like to start with Android development, you can check out this link :<b
 You should also check the courses on Udacity which are the visual equivalents :
 https://classroom.udacity.com/courses/ud9012<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.</br>
+https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/edit?usp=sharing
+</br>
 </br>
 Front End Resources :
 </br></br>
