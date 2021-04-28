@@ -38,9 +38,9 @@ Yes, as we came closer towards completing the project, we realized that with a q
 # Usage
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.
 <br/><br/>
-If you'd like to start with Android development, you can check out this link.:<br/>https://github.com/coder2hacker/Android-Development-RoadMap<br/>
+If you'd like to start with Android development, you can check out this link :<br/>https://github.com/coder2hacker/Android-Development-RoadMap<br/>
 <br/>
-You should also check the courses on Udacity which are the visual equivalents. :
+You should also check the courses on Udacity which are the visual equivalents :
 https://classroom.udacity.com/courses/ud9012<br/><br/>
 Our project was divided into 5 modules with different funtionalities and purposes. At every module, I have provided resources that can help you build a similar application. You can watch the videos to understand the concept and use our code for reference.</br>
 </br>
