@@ -43,7 +43,7 @@ If you'd like to start with Android development, you can check out this link :<b
 You should also check the courses on Udacity which are the visual equivalents :
 https://classroom.udacity.com/courses/ud9012<br/><br/>
 </br>
-To download the app, install android studio, download the zip folder with respect to this project and import it.
+To download the app, install android studio, download the zip folder with respect to this project and import it. Then run the app on the emulator or on your phone.
 </br>
 </br>
 Front End Resources :
