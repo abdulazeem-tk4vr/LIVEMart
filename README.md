@@ -98,7 +98,7 @@ https://docs.google.com/document/d/1u7NezvEgl2LjCfYd3zU-BKDVAhGa6vAqoBTKNvGeIFg/
 
 # Overview
 
-If you have any questions, you can e-mail me at sabdulazeem01@gmail.com
+If you have any questions with respect to the project, you can e-mail me at sabdulazeem01@gmail.com
 
 
 
