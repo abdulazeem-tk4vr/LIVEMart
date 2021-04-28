@@ -48,7 +48,6 @@ https://docs.google.com/document/d/1C1YWtR-4Z1ocaBA36yXKChZdlAKpiemPAp46cK5MwfA/
 </br>
 Front End Resources :
 </br></br>
-
 https://iconscout.com/
 </br>
 
