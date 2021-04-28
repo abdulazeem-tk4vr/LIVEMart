@@ -11,7 +11,7 @@ Completed the application in 25 days with over 150 hours of dedication and effor
 * [Introduction](#introduction)
 * [Usage](#usage)
 * [Contributions](#contributions)
-* [Description](#Description)
+* [Description and Screenshots](#Description)
 * [Overview](#overview)
 
 
