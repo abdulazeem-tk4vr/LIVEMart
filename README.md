@@ -76,7 +76,7 @@ Graph :
 https://github.com/tk4vr/oop_anidev/graphs/contributors
 
 
-# Description
+# Description and Screenshots
 
 Module 1: Registration and Sign-Up
 <br/>
