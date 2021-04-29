@@ -18,14 +18,12 @@ As a part of the course requirements for Object Oriented Programming, we were re
 for home purpose) to retailers (people dealing with multiple items who stores items in large
 quantities) and retailers to wholesalers (warehouse maintaining people) with the below mentioned
 mandatory functionalities. 
-
-<br/><br/>
-
+<br/>
+<br/>
 Problem Statement :
 https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing
-
 <br/>
-
+<br/>
 Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
 <br/>
 <br/>
