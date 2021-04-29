@@ -19,7 +19,8 @@ for home purpose) to retailers (people dealing with multiple items who stores it
 quantities) and retailers to wholesalers (warehouse maintaining people) with the below mentioned
 mandatory functionalities. 
 
-<br/>
+<br/><br/>
+
 Problem Statement :
 https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing
 
