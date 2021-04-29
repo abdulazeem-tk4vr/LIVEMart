@@ -16,8 +16,8 @@ Built using Android studio primarily in Java with Firebase as the backend and de
 As a part of the course requirements for Object Oriented Programming, we were required to develop an application
 (Android/Web based/Stand-alone) for e-marketing that connects customers (individuals who shop
 for home purpose) to retailers (people dealing with multiple items who stores items in large
-quantities) and retailers to wholesalers (warehouse maintaining people) with the below mentioned
-mandatory functionalities. 
+quantities) and retailers to wholesalers (warehouse maintaining people) with the mentioned
+mandatory functionalities in the problem statement. 
 <br/>
 <br/>
 Problem Statement :
