@@ -43,7 +43,7 @@ Can this project be done in kotlin?
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
 
 # Usage
-Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.
+Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious to see a demo of the app.
 <br/>
 <br/>
 If you'd like to start with Android development, you can check out this link :<br/>https://github.com/coder2hacker/Android-Development-RoadMap<br/>
