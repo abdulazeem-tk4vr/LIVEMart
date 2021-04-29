@@ -31,6 +31,11 @@ Though we were given the freedom to choose any OOP language with any framework ,
 
 
 <br/><br/>
+
+
+This application provides an interface for users to sign-up, login, browse through categories of products from various stores, filter the store's products based on the location and quantity, have the ability to place an order online/offline in the near future , maintain records of carts ,orders ,transactions and also provide the feedback for a specific product from a specific store.<br/><br/>
+If the purchase is to be made online, the delivery details are displayed on the appropriate user's dashboard. For an offline transaction, the user is allowed to create a memo and a calendar notification for a specific date and time as a reminder.<br/><br/>
+Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.<br/><br/>
 Can this project be done in Kotlin?
 <br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
