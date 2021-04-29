@@ -53,6 +53,7 @@ https://classroom.udacity.com/courses/ud9012
 <br/>
 <br/>
 To download the app, install android studio, download the zip folder with respect to this project and import it. Then run the app on the emulator or on your phone.
+<br/>
 Kindly watch the following links before you start with the emulation.
 
 https://www.youtube.com/watch?v=FeKfIWJyQMs
