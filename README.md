@@ -60,7 +60,7 @@ https://www.youtube.com/watch?v=13DPpfuP1Zs
 
 Can this project be done in kotlin?
 <br/><br/>
-Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
+Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option.
 
 
 
