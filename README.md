@@ -60,17 +60,7 @@ https://www.youtube.com/watch?v=FeKfIWJyQMs
 https://www.youtube.com/watch?v=13DPpfuP1Zs
 </br>
 </br>
-Front End Resources :
-</br>
 
-https://iconscout.com/
-</br>
-https://icons8.com/
-</br>
-https://material.io/
-</br>
-https://www.canva.com/
-</br>
 
 
 
