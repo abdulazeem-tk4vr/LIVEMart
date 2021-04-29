@@ -1,7 +1,7 @@
 
 # Grocery Shop eCommerce Mobile Android Application </br>( Java | Firebase )
 
-> An e-commerce android application that handles the dynamics of shopping groceries online for customers, retailers as well as wholesalers, hereby easing the user experience and catering to the needs of modern day businesses.
+An e-commerce android application that handles the dynamics of shopping groceries online for customers, retailers as well as wholesalers, hereby easing the user experience and catering to the needs of modern day businesses.
 <br/><br/>
 
 
