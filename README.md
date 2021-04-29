@@ -38,9 +38,6 @@ If the purchase is to be made online, the delivery details are displayed on the 
 Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.
 <br/>
 <br/>
-Can this project be done in kotlin?
-<br/><br/>
-Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
 
 # Usage
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious to see a demo of the app.
@@ -54,6 +51,7 @@ https://classroom.udacity.com/courses/ud9012
 <br/>
 To download the app, install android studio, download the zip folder with respect to this project and import it. Then run the app on the emulator or on your phone.
 <br/>
+
 Kindly watch the following links before you start with the emulation.
 
 https://www.youtube.com/watch?v=FeKfIWJyQMs
@@ -62,6 +60,9 @@ https://www.youtube.com/watch?v=13DPpfuP1Zs
 </br>
 </br>
 
+Can this project be done in kotlin?
+<br/><br/>
+Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
 
 
 
