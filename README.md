@@ -24,7 +24,7 @@ Problem Statement :
 https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing
 <br/>
 <br/>
-Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
+Though we were given the freedom to choose any language that supports OOP with any framework, we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
 <br/>
 <br/>
 This application provides an interface for users to sign-up, login, browse through categories of products from various stores, filter the store's products based on the location and quantity, have the ability to place an order online/offline in the near future , maintain records of carts ,orders ,transactions and also provide the feedback for a specific product from a specific store.
