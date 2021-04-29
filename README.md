@@ -3,7 +3,6 @@
 
 An e-commerce android application that handles the dynamics of shopping groceries online for customers, retailers as well as wholesalers, hereby easing the user experience and catering to the needs of modern day businesses.
 <br/><br/>
-> Short blurb about what your product does.
 
 
 Built using Android studio primarily in Java with Firebase as the backend and deployed a Realtime database.<br/><br/>Completed the application in 25 days with over 150 hours of dedication and efforts.<br/>
@@ -41,7 +40,7 @@ If the purchase is to be made online, the delivery details are displayed on the 
 Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.
 <br/>
 <br/>
-> Can this project be done in Kotlin
+> Short blurb about what your product does.
 <br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
 
