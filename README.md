@@ -28,21 +28,31 @@ https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=shari
 
 <br/>
 Though we were given the freedom to choose any OOP language with any framework ,we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
-<br/><br/>
-This application provides an interface for users to sign-up, login, browse through categories of products from various stores, filter the store's products based on the location and quantity, have the ability to place an order online/offline in the near future , maintain records of carts ,orders ,transactions and also provide the feedback for a specific product from a specific store.<br/><br/>
-If the purchase is to be made online, the delivery details are displayed on the appropriate user's dashboard. For an offline transaction, the user is allowed to create a memo and a calendar notification for a specific date and time as a reminder.<br/><br/>
-Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.<br/><br/>
-Can this project be done in Kotlin?
-<br/><br/>
+<br/>
+<br/>
+This application provides an interface for users to sign-up, login, browse through categories of products from various stores, filter the store's products based on the location and quantity, have the ability to place an order online/offline in the near future , maintain records of carts ,orders ,transactions and also provide the feedback for a specific product from a specific store.
+<br/>
+<br/>
+If the purchase is to be made online, the delivery details are displayed on the appropriate user's dashboard. For an offline transaction, the user is allowed to create a memo and a calendar notification for a specific date and time as a reminder.
+<br/>
+<br/>
+Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.
+<br/>
+<br/>
+**Can this project be done in Kotlin?
+**<br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints , Java was the more viable option.
 
 # Usage
 Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious as to how we implemented our ideas.
-<br/><br/>
+<br/>
+<br/>
 If you'd like to start with Android development, you can check out this link :<br/>https://github.com/coder2hacker/Android-Development-RoadMap<br/>
 <br/>
 You should also check the courses on Udacity which are the visual equivalents :
-https://classroom.udacity.com/courses/ud9012<br/><br/>
+https://classroom.udacity.com/courses/ud9012
+<br/>
+<br/>
 To download the app, install android studio, download the zip folder with respect to this project and import it. Then run the app on the emulator or on your phone.
 Kindly watch the following links before you start with the emulation.
 
