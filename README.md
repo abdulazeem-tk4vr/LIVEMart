@@ -38,7 +38,7 @@ Stores also have the feature of updating existing products and adding new produc
 <br/>
 
 # Usage
-Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious to see a demo of the app.
+Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious to see a demo of the app. To chech out the backend for the app, navigate in this manner [ app -> src -> main -> java/com/example/oop_project/Main ]
 <br/>
 <br/>
 If you'd like to start with Android development, you can check out this link :<br/>https://github.com/coder2hacker/Android-Development-RoadMap<br/>
