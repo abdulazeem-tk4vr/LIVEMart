@@ -63,6 +63,28 @@ https://www.youtube.com/watch?v=13DPpfuP1Zs
 </br>
 </br>
 
+Credentials :
+</br>
+</br>
+Customer :
+</br>
+Username : Macha
+</br>
+Password : 123
+</br>
+</br>
+Retailer : </br>
+Username : Fgretailer </br>
+Password : ty 
+</br>
+</br>
+Wholesaler :
+</br>
+Username : Babuwhole</br>
+Password : 99</br>
+</br>
+
+
 Can this project be done in kotlin?
 <br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option.
