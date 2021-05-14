@@ -48,6 +48,7 @@ For layouts and drawables, navigate to [ app -> src -> main -> res]
 <br/>
 If you'd like to start with Android development, you can check out this link :<br/>
 https://github.com/codepath/android_guides
+<br/>
 https://github.com/coder2hacker/Android-Development-RoadMap<br/>
 <br/>
 You should also check the courses on Udacity which are the visual equivalents :
