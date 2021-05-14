@@ -46,7 +46,7 @@ To check out the code for the app, navigate in this manner [ app -> src -> main 
 For layouts and drawables, navigate to [ app -> src -> main -> res]
 <br/>
 <br/>
-If you'd like to start with Android development, you can check out this link :<br/>
+If you'd like to start with Android development, you can check out these links :<br/>
 https://github.com/codepath/android_guides
 <br/>
 https://github.com/coder2hacker/Android-Development-RoadMap<br/>
