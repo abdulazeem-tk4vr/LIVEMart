@@ -95,7 +95,7 @@ Yes, as we came closer towards completing the project, we realized that with a q
 
 
 # Contributions
-Abdul Azeem https://github.com/tk4vr
+Abdul Azeem https://github.com/abdulazeem-tk4vr
 <br/>
 Anirudh Sundar https://github.com/Anirudh-Sundar
 <br/>
