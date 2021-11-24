@@ -89,21 +89,6 @@ Password : 99</br>
 <br/><br/>
 Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option. -->
 
-
-
-# Contributions
-Abdul Azeem https://github.com/abdulazeem-tk4vr
-<br/>
-Anirudh Sundar https://github.com/Anirudh-Sundar
-<br/>
-Karthik Suresh https://github.com/karths8
-<br/><br/>
-Special Mention : <br/>
-Aryan Arora https://github.com/aryanarora180
-<br/><br/>
-Graph :
-https://github.com/abdulazeem-tk4vr/LIVEMart/graphs/contributors
-
 # Description and Screenshots
 
 Module 1: Registration and Sign-Up
@@ -120,9 +105,25 @@ Module 5: Feedback and Queries
 Please access the Project Report [here](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing) to see in-depth the functionalities included in this Android App <br/><br/>
 
 
-# Overview
+# Contributions
+Abdul Azeem https://github.com/abdulazeem-tk4vr
+<br/>
+Anirudh Sundar https://github.com/Anirudh-Sundar
+<br/>
+Karthik Suresh https://github.com/karths8
+<br/><br/>
+Special Mention : <br/>
+Aryan Arora https://github.com/aryanarora180
+<br/><br/>
+Graph :
+https://github.com/abdulazeem-tk4vr/LIVEMart/graphs/contributors
 
-If you have any questions with respect to the project, you can e-mail me at sabdulazeem01@gmail.com
+
+
+
+<!-- # Overview
+
+If you have any questions with respect to the project, you can e-mail me at sabdulazeem01@gmail.com -->
 
 
 
