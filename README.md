@@ -3,7 +3,8 @@
 
 An e-commerce android application that handles the dynamics of shopping groceries online for customers, retailers as well as wholesalers, hereby easing the user experience and catering to the needs of modern day businesses. Please see the report [here](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing) for details on how this project was implemeneted
 <br/><br/>
-Built using Android studio primarily in Java with Firebase as the backend and deployed a Realtime database.<br/><br/>Completed the application in 25 days with over 150 hours of dedication and efforts.<br/>
+Built using Android studio primarily in Java with Firebase as the backend and deployed a Realtime database.<br/>
+<!-- <br/>Completed the application in 25 days with over 150 hours of dedication and efforts.<br/> -->
 # Tables of Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
