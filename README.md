@@ -63,7 +63,7 @@ https://www.youtube.com/watch?v=13DPpfuP1Zs
 </br>
 </br>
 
-Credentials :
+<!-- Credentials :
 </br>
 </br>
 Customer :
@@ -82,12 +82,12 @@ Wholesaler :
 </br>
 Username : Babuwhole</br>
 Password : 99</br>
-</br>
+</br> -->
 
 
-Can this project be done in kotlin?
+<!-- Can this project be done in kotlin?
 <br/><br/>
-Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option.
+Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option. -->
 
 
 
@@ -117,8 +117,7 @@ Module 4: Placing order and status of order
 Module 5: Feedback and Queries
 <br/>
 <br/>
-To make my readme concise, I have compiled the detailed explanation, screenshots and resources onto a google doc. Please access the doc to understand how the project was developed. <br/><br/>
-https://docs.google.com/document/d/1u7NezvEgl2LjCfYd3zU-BKDVAhGa6vAqoBTKNvGeIFg/edit?usp=sharing
+Please access the Project Report [here](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing) to see in-depth the functionalities included in this Android App <br/><br/>
 
 
 # Overview
