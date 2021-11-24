@@ -8,9 +8,10 @@ Built using Android studio primarily in Java with Firebase as the backend and de
 # Tables of Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
-* [Contributions](#contributions)
 * [Description and Screenshots](#Description)
-* [Overview](#overview)
+* [Contributions](#contributions)
+
+<!-- * [Overview](#overview) -->
 
 
 # Introduction
