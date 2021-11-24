@@ -14,15 +14,11 @@ Built using Android studio primarily in Java with Firebase as the backend and de
 
 
 # Introduction
-As a part of the course requirements for Object Oriented Programming, we were required to develop an application
+As a part of the course requirements for Object Oriented Programming, we developed an application
 (Android/Web based/Stand-alone) for e-marketing that connects customers (individuals who shop
 for home purpose) to retailers (people dealing with multiple items who stores items in large
 quantities) and retailers to wholesalers (warehouse maintaining people) with the
-mandatory functionalities mentioned in the problem statement. 
-<br/>
-<br/>
-Problem Statement :
-https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing
+mandatory functionalities mentioned in the problem statement. You can read the problem statement [here](https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing)
 <br/>
 <br/>
 Though we were given the freedom to choose any language that supports OOP with any framework, we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
