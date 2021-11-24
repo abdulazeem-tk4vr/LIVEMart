@@ -99,7 +99,7 @@ Abdul Azeem https://github.com/abdulazeem-tk4vr
 <br/>
 Anirudh Sundar https://github.com/Anirudh-Sundar
 <br/>
-Karthik Suresh https://github.com/kart324
+Karthik Suresh https://github.com/karths8
 <br/><br/>
 Special Mention : <br/>
 Aryan Arora https://github.com/aryanarora180
