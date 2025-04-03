@@ -1,130 +1,150 @@
+# Grocery Shop eCommerce Android Application  
+**(Java + Firebase Realtime Database)**
 
-# Grocery Shop eCommerce Mobile Android Application </br>( Java | Firebase )
+**LIVEMart** is a full-stack Android-based mobile eCommerce platform enabling **B2C** and **B2B** grocery transactions between **Customers**, **Retailers**, and **Wholesalers**. Built with **Java (Android SDK)** and **Firebase**, the app supports real-time syncing, role-based dashboards, offline reminders via speech input, and product moderation via admin controls.
 
-An e-commerce android application that handles the dynamics of shopping groceries online for customers, retailers as well as wholesalers, hereby easing the user experience and catering to the needs of modern day businesses. Please see the report [here](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing) for details on how this project was implemeneted
-<br/><br/>
-Built using Android studio primarily in Java with Firebase as the backend and deployed a Realtime database.<br/>
-<!-- <br/>Completed the application in 25 days with over 150 hours of dedication and efforts.<br/> -->
-# Tables of Contents
-* [Introduction](#introduction)
-* [Usage](#usage)
-* [Description and Screenshots](#Description)
-* [Contributions](#contributions)
+📄 [Detailed Report](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing)  
+🔗 [GitHub Repository](https://github.com/abdulazeem-tk4vr/LIVEMart)
 
-<!-- * [Overview](#overview) -->
+---
 
+## Table of Contents
 
-# Introduction
-As a part of the course requirements for Object Oriented Programming, we developed an application
-(Android/Web based/Stand-alone) for e-marketing that connects customers (individuals who shop
-for home purpose) to retailers (people dealing with multiple items who stores items in large
-quantities) and retailers to wholesalers (warehouse maintaining people) with the
-mandatory functionalities mentioned in the problem statement. You can read the problem statement [here](https://drive.google.com/file/d/1VPLrlsWz1bdHlz52VRiq1TQR8rMw6TF0/view?usp=sharing)
-<br/>
-<br/>
-Though we were given the freedom to choose any language that supports OOP with any framework, we decided to build an Android Mobile Application as we wanted to try something new. Some of us had experience in HTML , but the idea of creating a mobile android application was rather more appealing to us. The reason why we chose Java over Kotlin was because of the abundance of resources available online and it was the language chosen for the course content. 
-<br/>
-<br/>
-This application provides an interface for users to sign-up, login, browse through categories of products from various stores, filter the store's products based on the location and quantity, have the ability to place an order online/offline in the near future , maintain records of carts ,orders ,transactions and also provide the feedback for a specific product from a specific store.
-<br/>
-<br/>
-If the purchase is to be made online, the delivery details are displayed on the appropriate user's dashboard. For an offline transaction, the user is allowed to create a memo and a calendar notification for a specific date and time as a reminder.
-<br/>
-<br/>
-Stores also have the feature of updating existing products and adding new products onto the application. To keep track of products that are added, I have also integrated an approval module which allows the admin to decide which products get to be displayed on the application.
-<br/>
-<br/>
+- [System Overview](#system-overview)
+- [Architecture & Stack](#architecture--stack)
+- [Core Modules & Features](#core-modules--features)
+- [Firebase Schema](#firebase-schema)
+- [Getting Started](#getting-started)
+- [Resources](#resources)
+- [Contributors](#contributors)
 
-# Usage
-Now that you've reached this heading, you must be interested in developing an android application with a similar problem statement or you're just curious to see a demo of the app.
-<br/>
-<br/>
-To check out the code for the app, navigate in this manner [ app -> src -> main -> java/com/example/oop_project/Main ]
-<br/>
-For layouts and drawables, navigate to [ app -> src -> main -> res]
-<br/>
-<br/>
-If you'd like to start with Android development, you can check out these links :<br/>
-https://github.com/codepath/android_guides
-<br/>
-https://github.com/coder2hacker/Android-Development-RoadMap<br/>
-<br/>
-You should also check the courses on Udacity which are the visual equivalents :
-https://classroom.udacity.com/courses/ud9012
-<br/>
-<br/>
-To download the app, install android studio, download the zip folder with respect to this project and import it. Then run the app on the emulator or on your phone.
-<br/>
+---
 
-Kindly watch the following links before you start with the emulation.
+## System Overview
 
-https://www.youtube.com/watch?v=FeKfIWJyQMs
-</br>
-https://www.youtube.com/watch?v=13DPpfuP1Zs
-</br>
-</br>
+LIVEMart simulates a real-world grocery eCommerce flow with three main user roles:
 
-<!-- Credentials :
-</br>
-</br>
-Customer :
-</br>
-Username : Macha
-</br>
-Password : 123
-</br>
-</br>
-Retailer : </br>
-Username : Fgretailer </br>
-Password : ty 
-</br>
-</br>
-Wholesaler :
-</br>
-Username : Babuwhole</br>
-Password : 99</br>
-</br> -->
+- 🧍 **Customers** place orders for household groceries.
+- 🧑‍💼 **Retailers** source items in bulk from wholesalers and sell to customers.
+- 🏬 **Wholesalers** add and manage high-volume stock, servicing retailers.
 
+The application supports both **online transactions** (with delivery tracking) and **offline orders** via **calendar reminders** and **voice input** using the Google Voice API.
 
-<!-- Can this project be done in kotlin?
-<br/><br/>
-Yes, as we came closer towards completing the project, we realized that with a quick few searches, we could've developed the application in Kotlin too. It would've taken us a few more days to understand the syntax and replicate the ideas implemented in Java but given the time constraints, Java was the more viable option. -->
+---
 
-# Description and Screenshots
+## Architecture & Stack
 
-Module 1: Registration and Sign-Up
-<br/>
-Module 2: Dashboards for every type of user
-<br/>
-Module 3: Navigation Module
-<br/>
-Module 4: Placing order and status of order
-<br/>
-Module 5: Feedback and Queries
-<br/>
-<br/>
-Please access the Project Report [here](https://drive.google.com/file/d/1vJVX2_IoBgb7cZaiypGeQTA6cj_qEzAo/view?usp=sharing) to see in-depth the functionalities included in this Android App <br/><br/>
+### 📦 Backend
+- **Firebase Realtime Database** (NoSQL, hierarchical JSON tree)
+- **Firebase Authentication** (email/password + OTP)
+- Admin controls for inventory visibility (approve/hide products)
 
+### 📱 Frontend
+- **Java** (Android SDK)
+- **XML** for UI layouts
+- **Material Design** principles for UI consistency
+- **Google Geocoding API** for location-based filtering
+- **Voice Recognition API** for offline reminder memos
 
-# Contributions
-Abdul Azeem https://github.com/abdulazeem-tk4vr
-<br/>
-Anirudh Sundar https://github.com/Anirudh-Sundar
-<br/>
-Karthik Suresh https://github.com/karths8
-<br/><br/>
-Special Mention : <br/>
-Aryan Arora https://github.com/aryanarora180
-<br/><br/>
-Graph :
-https://github.com/abdulazeem-tk4vr/LIVEMart/graphs/contributors
+### 🧰 Development Tools
+- **Android Studio** (Gradle-based build system)
+- **Canva** for layout prototyping and visual design
 
+---
 
+## Core Modules & Features
 
+### 🔐 Registration & OTP Authentication
+- Role-based sign-up: Customer, Retailer, Wholesaler
+- Phone number OTP verification via Firebase Auth
+- Google Geocoding API to capture latitude/longitude
 
-<!-- # Overview
+### 📊 Dashboards
+- Role-specific dashboards:
+  - **Customer**: Browse items, filter by distance/stock, view cart/orders
+  - **Retailer**: Purchase from wholesalers, manage customer transactions
+  - **Wholesaler**: Add/update inventory, fulfill retailer orders
 
-If you have any questions with respect to the project, you can e-mail me at sabdulazeem01@gmail.com -->
+### 🔎 Category & Product Search
+- Filter by:
+  - **Distance** (via user-entered km radius)
+  - **Stock availability**
+  - **Retailer/Wholesaler proximity**
+- Dynamic UI with distance and stock validation warnings
 
+### 🛒 Order Management
+- **Online orders**:
+  - Cart-based ordering with unique order IDs
+  - Delivery details, cash-on-delivery, and feedback submission
+- **Offline orders**:
+  - Set future reminders using **calendar + voice input**
+  - Voice-to-text conversion via Google Speech API
 
+### 🗣 Feedback & Queries
+- Product-specific feedback stored in Firebase
+- Displayed to other users while browsing the item
 
+### 🛠 Admin Approval System
+- Admin can:
+  - Approve new products
+  - Temporarily hide/unhide listings
+- Controlled via backend flags in Firebase
+
+---
+
+## Firebase Schema
+
+The app uses a hierarchical JSON schema for:
+- Users (with roles)
+- Products (per category/store)
+- Orders (with unique transaction IDs)
+- Feedback
+- Admin flags for moderation
+
+📂 [Realtime DB Schema Visualization](https://drive.google.com/file/d/1G5YEXlrrd9oTsYyQz4_6TEx_2MoTLTua/view?usp=sharing)
+
+🔍 Use [CodeBeautify JSON Viewer](https://codebeautify.org/jsonviewer) to visualize the schema from the exported `.json` tree.
+
+---
+
+## Getting Started
+
+### 🛠 Prerequisites
+
+- Android Studio (latest)
+- Android device/emulator (API 28+)
+- Firebase account and `google-services.json`
+
+### 🚀 Setup
+
+1. Clone this repository
+2. Import it into Android Studio
+3. Sync Gradle and build the project
+4. Run on an emulator or connected device
+
+---
+
+## Resources
+
+- [CodePath Android Guides](https://github.com/codepath/android_guides)  
+- [Android Roadmap](https://github.com/coder2hacker/Android-Development-RoadMap)  
+- [Udacity Android Basics](https://classroom.udacity.com/courses/ud9012)  
+- [Android Studio Setup](https://www.youtube.com/watch?v=FeKfIWJyQMs)  
+- [Running First App](https://www.youtube.com/watch?v=13DPpfuP1Zs)
+
+---
+
+## Contributors
+
+- [**Abdul Azeem**](https://github.com/abdulazeem-tk4vr) – Backend, Firebase, Role-based logic  
+- [**Anirudh Sundar**](https://github.com/Anirudh-Sundar) – UI/UX, XML layouts, navigation  
+- [**Karthik Suresh**](https://github.com/karths8) – Firebase schema design, voice API integration
+
+### 🙌 Special Mention
+- [**Aryan Arora**](https://github.com/aryanarora180) – Feedback module support and UI testing
+
+📈 [Contribution Graph](https://github.com/abdulazeem-tk4vr/LIVEMart/graphs/contributors)
+
+---
+
+> 💬 For questions, contact **sabdulazeem01@gmail.com** | **https://www.linkedin.com/in/abdulazeem-shaik/**
